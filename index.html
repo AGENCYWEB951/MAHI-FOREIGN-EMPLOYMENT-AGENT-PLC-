@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +29,7 @@
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
+            transition: direction 0.3s ease;
         }
 
         /* --- Custom Pop-In & Pop-Out Animations --- */
@@ -93,26 +93,31 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
         }
 
-        .lang-toggle-btn {
+        .lang-btn {
             background: transparent;
-            border: 2px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            padding: 8px 16px;
+            border: 2px solid rgba(0, 243, 255, 0.3);
+            color: var(--silver-light);
+            padding: 6px 12px;
+            font-size: 0.85rem;
             font-weight: bold;
             cursor: pointer;
             border-radius: 4px;
             transition: all 0.3s;
-            text-transform: uppercase;
-            box-shadow: 0 0 5px var(--neon-glow);
         }
 
-        .lang-toggle-btn:hover {
-            background: var(--neon-cyan);
-            color: var(--bg-dark);
-            box-shadow: 0 0 15px var(--neon-cyan);
+        .lang-btn.active {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-glow);
+            background: rgba(0, 243, 255, 0.05);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
         }
 
         /* --- Hero Section --- */
@@ -181,8 +186,8 @@
             text-align: center;
             font-size: 2rem;
             margin-bottom: 40px;
-            border-left: 4px solid var(--neon-cyan);
-            padding-left: 15px;
+            border-inline-start: 4px solid var(--neon-cyan);
+            padding-inline-start: 15px;
             display: inline-block;
         }
 
@@ -220,7 +225,7 @@
         }
 
         .flag-icon {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 10px;
             display: block;
             filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
@@ -261,7 +266,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            text-align: left;
+            text-align: inherit;
             background: var(--silver-dark);
         }
 
@@ -320,12 +325,18 @@
             text-decoration: none;
             transition: transform 0.3s ease;
         }
+        body[dir="rtl"] .floating-whatsapp {
+            right: auto;
+            left: 30px;
+        }
         .floating-whatsapp:hover {
             transform: scale(1.1);
         }
 
-        /* Direct hidden class for toggle mechanism */
-        .lang-am .en, .lang-en .am {
+        /* --- Multi-Language Rendering Rules --- */
+        .lang-en .am, .lang-en .ar,
+        .lang-am .en, .lang-am .ar,
+        .lang-ar .en, .lang-ar .am {
             display: none !important;
         }
     </style>
@@ -339,9 +350,12 @@
                 <h1>MAHI PLC</h1>
                 <span class="en">Overseas Employment Agency</span>
                 <span class="am">የውጪ ሀገር የስራና ሰራተኛ አገናኝ ኤጀንሲ</span>
+                <span class="ar">وكالة ماهي للتوظيف الخارجي</span>
             </div>
             <div class="nav-actions">
-                <button class="lang-toggle-btn" onclick="toggleLanguage()">Switch to አማርኛ</button>
+                <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" id="btn-am" onclick="setLanguage('am')">አማርኛ</button>
+                <button class="lang-btn" id="btn-ar" onclick="setLanguage('ar')">العربية</button>
             </div>
         </div>
     </header>
@@ -351,13 +365,20 @@
         <div class="hero-content pop-target">
             <h2 class="en">Bridging Talent with Opportunity, Safely & Professionally</h2>
             <h2 class="am">እውቀትንና ክህሎትን ከስራ እድል ጋር በታማኝነት ማገናኘት</h2>
+            <h2 class="ar">جسر الكفاءات مع الفرص، بكل أمان واحترافية</h2>
+            
             <p class="en">MAHI FOREIGN EMPLOYMENT AGENT PLC is a premier, fully licensed international recruitment agency based in Addis Ababa, Ethiopia. We specialize in ethical sourcing, comprehensive training, and legal deployment under Proclamation No. 923/2016.</p>
             <p class="am">ማሂ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ማህበር በአዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሙሉ በሙሉ ፈቃድ ያገኘ እና በታማኝነት የሚሰራ መሪ ኤጀንሲ ነው።</p>
+            <p class="ar">شركة ماهي المحدودة للتوظيف الخارجي هي وكالة توظيف دولية رائدة ومرخصة بالكامل ومقرها أديس أبابا، إثيوبيا. نحن متخصصون في التوظيف الأخلاقي، والتدريب الشامل، والإرسال القانوني بموجب الإعلان رقم 923/2016.</p>
+            
             <div class="cta-group">
                 <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop en">Request Manpower</a>
                 <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop am">የሠራተኛ ጥያቄ ያቅርቡ</a>
+                <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop ar">طلب أيدي عاملة</a>
+                
                 <a href="#compliance" class="btn btn-secondary hover-pop en">View Credentials</a>
                 <a href="#compliance" class="btn btn-secondary hover-pop am">ሕጋዊ ፈቃዶችን ይመልከቱ</a>
+                <a href="#compliance" class="btn btn-secondary hover-pop ar">عرض التراخيص والاعتمادات</a>
             </div>
         </div>
     </section>
@@ -367,30 +388,32 @@
         <div style="text-align: center; margin-bottom: 50px;" class="pop-target">
             <h3 class="section-title en">Primary Market Destination Lanes</h3>
             <h3 class="section-title am">ዋና የሥራ መዳረሻ አገራት</h3>
+            <h3 class="section-title ar">مسارات وجهات السوق الرئيسية</h3>
+            
             <div class="flag-container">
                 <div class="flag-card hover-pop">
                     <span class="flag-icon">🇸🇦</span>
-                    <strong class="en">Saudi Arabia</strong><strong class="am">ሳውዲ አረቢያ</strong>
+                    <strong class="en">Saudi Arabia</strong><strong class="am">ሳውዲ አረቢያ</strong><strong class="ar">المملكة العربية السعودية</strong>
                 </div>
                 <div class="flag-card hover-pop">
                     <span class="flag-icon">🇰🇼</span>
-                    <strong class="en">Kuwait</strong><strong class="am">ኩዌት</strong>
+                    <strong class="en">Kuwait</strong><strong class="am">ኩዌት</strong><strong class="ar">الكويت</strong>
                 </div>
                 <div class="flag-card hover-pop">
                     <span class="flag-icon">🇱🇧</span>
-                    <strong class="en">Lebanon</strong><strong class="am">ሊባኖስ</strong>
+                    <strong class="en">Lebanon</strong><strong class="am">ሊባኖስ</strong><strong class="ar">لبنان</strong>
                 </div>
                 <div class="flag-card hover-pop">
                     <span class="flag-icon">🇦🇪</span>
-                    <strong class="en">UAE</strong><strong class="am">የተባበሩት አረብ ኤምሬትስ</strong>
+                    <strong class="en">UAE</strong><strong class="am">የተባበሩት አረብ ኤምሬትስ</strong><strong class="ar">الإمارات العربية المتحدة</strong>
                 </div>
                 <div class="flag-card hover-pop">
                     <span class="flag-icon">🇯🇴</span>
-                    <strong class="en">Jordan</strong><strong class="am">ዮርዳኖስ</strong>
+                    <strong class="en">Jordan</strong><strong class="am">ዮርዳኖስ</strong><strong class="ar">الأردن</strong>
                 </div>
                 <div class="flag-card hover-pop">
                     <span class="flag-icon">🇶🇦</span>
-                    <strong class="en">Qatar</strong><strong class="am">ኳታር</strong>
+                    <strong class="en">Qatar</strong><strong class="am">ኳታር</strong><strong class="ar">قطر</strong>
                 </div>
             </div>
         </div>
@@ -400,19 +423,30 @@
             <div class="card hover-pop">
                 <h3 class="en" style="color:var(--neon-cyan); margin-bottom:15px;">Official Compliance & Credentials</h3>
                 <h3 class="am" style="color:var(--neon-cyan); margin-bottom:15px;">ሕጋዊ መረጃዎችና ማረጋገጫዎች</h3>
+                <h3 class="ar" style="color:var(--neon-cyan); margin-bottom:15px;">الامتثال الرسمي والاعتمادات</h3>
+                
                 <p class="en"><strong>MoLS License No:</strong> [LIC0000016246]</p>
                 <p class="am"><strong>የሥራና ክህሎት ሚኒስቴር የፈቃድ ቁጥር:</strong> [LIC0000016246]</p>
+                <p class="ar"><strong>رقم ترخيص وزارة العمل والمهارات:</strong> [LIC0000016246]</p>
+                
                 <p class="en"><strong>Business Registration:</strong> [MT/AA/14/671/2478158/2011]</p>
                 <p class="am"><strong>የንግድ ምዝገባ ቁጥር:</strong> [MT/AA/14/671/2478158/2011]</p>
+                <p class="ar"><strong>رقم السجل التجاري:</strong> [MT/AA/14/671/2478158/2011]</p>
+                
                 <p class="en"><strong>Chamber Member ID:</strong> [MT/AA/2/0048809/2011]</p>
                 <p class="am"><strong>የንግድ ምክር ቤት አባልነት መታወቂያ:</strong> [MT/AA/2/0048809/2011]</p>
+                <p class="ar"><strong>رقم عضوية الغرفة التجارية:</strong> [MT/AA/2/0048809/2011]</p>
+                
                 <p class="en"><strong>Nationality:</strong> Registered in Ethiopia</p>
                 <p class="am"><strong>ዜግነት:</strong> በኢትዮጵያ የተመዘገበ</p>
+                <p class="ar"><strong>الجنسية:</strong> مسجلة في إثيوبيا</p>
             </div>
 
             <div class="card hover-pop">
                 <h3 class="en" style="color:var(--neon-cyan); margin-bottom:15px;">Agency Governance</h3>
                 <h3 class="am" style="color:var(--neon-cyan); margin-bottom:15px;">የኩባንያው አመራር</h3>
+                <h3 class="ar" style="color:var(--neon-cyan); margin-bottom:15px;">إدارة الوكالة</h3>
+                
                 <div class="manager-box">
                     <div class="manager-avatar">
                         <i class="fa-solid fa-user-astronaut"></i>
@@ -420,8 +454,11 @@
                     <div>
                         <h4 class="en">Mss. SIHAM IDRIS JEMAL</h4>
                         <h4 class="am">ወ/ት ሲሀም እድሪስ ጀማል</h4>
+                        <h4 class="ar">الأستاذة سهام إدريس جمال</h4>
+                        
                         <p style="color: var(--silver-light);" class="en">General Manager</p>
                         <p style="color: var(--silver-light);" class="am">ዋና ሥራ አስኪያጅ</p>
+                        <p style="color: var(--silver-light);" class="ar">المدير العام</p>
                     </div>
                 </div>
             </div>
@@ -431,13 +468,15 @@
         <div style="margin-top:60px;" class="pop-target">
             <h3 class="section-title en">The 4-Step Deployment Pipeline</h3>
             <h3 class="section-title am">የአሰማራት ሂደት የሥራ ቅደም-ተከተል</h3>
+            <h3 class="section-title ar">مراحل خطة الإرسال الأربعة</h3>
+            
             <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
-                            <th class="en">Step</th><th class="am">ደረጃ</th>
-                            <th class="en">Phase & Infrastructure Breakdown</th><th class="am">የሂደቱ ዝርዝር መግለጫ</th>
-                            <th class="en">Timeline Context</th><th class="am">የሚፈጅበት ጊዜ</th>
+                            <th class="en">Step</th><th class="am">ደረጃ</th><th class="ar">الخطوة</th>
+                            <th class="en">Phase & Infrastructure Breakdown</th><th class="am">የሂደቱ ዝርዝር መግለጫ</th><th class="ar">تفاصيل المرحلة والبنية التحتية</th>
+                            <th class="en">Timeline Context</th><th class="am">የሚፈጅበት ጊዜ</th><th class="ar">الفترة الزمنية</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -445,25 +484,29 @@
                             <td>1</td>
                             <td class="en"><strong>Agency Partnership & Attestation</strong><br>Verification through Ethiopian Embassy/Consulate and uploading to the electronic E-LMIS platform.</td>
                             <td class="am"><strong>የኤጀንሲ አጋርነት እና ማረጋገጫ</strong><br>በኢትዮጵያ ኤምባሲ በኩል የፍላጎት ደብዳቤን በማረጋገጥ በኢ-ኤልኤምአይኤስ (E-LMIS) ሲስተም ላይ መጫን።</td>
-                            <td class="en">Day 1-2</td><td class="am">ከ1-2 ቀናት</td>
+                            <td class="ar"><strong>الشراكة وتصديق الوكالة</strong><br>التحقق والتوثيق من خلال السفارة/القنصلية الإثيوبية ورفع الطلب على منصة E-LMIS الإلكترونية الوطنية.</td>
+                            <td class="en">Day 1-2</td><td class="am">ከ1-2 ቀናት</td><td class="ar">اليوم 1-2</td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td class="en"><strong>Candidate Sourcing & System Registration</strong><br>Legal screening based on minimum system age requirements (25+ years old for GCC domestic work).</td>
                             <td class="am"><strong>ተወዳዳሪዎችን መመልመል እና መመዝገብ</strong><br>በሕግ የተቀመጠውን አነስተኛ የዕድሜ ገደብ (25 ዓመት) መሠረት በማድረግ መመልመልና መመዝገብ።</td>
-                            <td class="en">Day 3-7</td><td class="am">ከ3-7 ቀናት</td>
+                            <td class="ar"><strong>استقطاب المرشحين والتسجيل في النظام</strong><br>الفحص القانوني والفرز وفقاً لمتطلبات السن القانونية (25 عاماً فما فوق للعمل المنزلي في دول الخليج).</td>
+                            <td class="en">Day 3-7</td><td class="am">ከ3-7 ቀናት</td><td class="ar">اليوم 3-7</td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td class="en"><strong>GAMCA Medical Clearance & TVET Training</strong><br>Passing fitness certification alongside mandatory 21-day vocational pre-departure training for CoC qualification.</td>
                             <td class="am"><strong>የህክምና ምርመራ እና የቲቪኢቲ (TVET) ስልጠና</strong><br>የጋምካ (GAMCA) የህክምና ምርመራ ማለፍ እና የ21 ቀናት ቅድመ-ጉዞ ስልጠና አጠናቆ የብቃት ማረጋገጫ (CoC) ማግኘት።</td>
-                            <td class="en">Day 8-20</td><td class="am">ከ8-20 ቀናት</td>
+                            <td class="ar"><strong>الفحص الطبي (GAMCA) وتدريب TVET</strong><br>اجتياز فحص اللياقة الطبية المعتمد مع إكمال التدريب المهني الإلزامي لمدة 21 يوماً للحصول على شهادة الكفاءة (CoC).</td>
+                            <td class="en">Day 8-20</td><td class="am">ከ8-20 ቀናት</td><td class="ar">اليوم 8-20</td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td class="en"><strong>Visa Stamping & Scheduled Deployment</strong><br>Processing documents via platforms like Tasheer/Enjaz/MoFA and booking flights with Ethiopian Airlines.</td>
                             <td class="am"><strong>የቪዛ ማረጋገጫ እና በረራ ማስተካከል</strong><br>በታሽር/ኢንጃዝ/ሞፋ ፖርታሎች በኩል ቪዛን ማረጋገጥ እና በኢትዮጵያ አየር መንገድ በረራ ማስያዝ።</td>
-                            <td class="en">Day 25-35</td><td class="am">ከ25-35 ቀናት</td>
+                            <td class="ar"><strong>تختيم التأشيرة وجدولة الرحلات</strong><br>معالجة التأشيرات عبر منصات (تأشير / إنجاز / وزارة الخارجية) وحجز الرحلات حصرياً عبر الخطوط الجوية الإثيوبية.</td>
+                            <td class="en">Day 25-35</td><td class="am">ከ25-35 ቀናት</td><td class="ar">اليوم 25-35</td>
                         </tr>
                     </tbody>
                 </table>
@@ -474,34 +517,36 @@
         <div style="margin-top:60px;" class="pop-target">
             <h3 class="section-title en">Job Matrix & Compensation Baseline</h3>
             <h3 class="section-title am">የሥራ መደቦችና የደመወዝ ዝርዝር መግለጫ</h3>
+            <h3 class="section-title ar">مصفوفة الوظائف والرواتب الأساسية</h3>
+            
             <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
-                            <th class="en">Destination</th><th class="am">መዳረሻ ሀገር</th>
-                            <th class="en">Job Category</th><th class="am">የሥራ ዓይነት</th>
-                            <th class="en">Core Training Architecture Provided</th><th class="am">የሚሰጠው ዋና ስልጠና</th>
-                            <th class="en">Monthly Salary Framework</th><th class="am">ወርሃዊ ደመወዝ</th>
+                            <th class="en">Destination</th><th class="am">መዳረሻ ሀገር</th><th class="ar">الوجهة</th>
+                            <th class="en">Job Category</th><th class="am">የሥራ ዓይነት</th><th class="ar">فئة الوظيفة</th>
+                            <th class="en">Core Training Architecture Provided</th><th class="am">የሚሰጠው ዋና ስልጠና</th><th class="ar">هيكلية التدريب الأساسية المقدمة</th>
+                            <th class="en">Monthly Salary Framework</th><th class="am">ወርሃዊ ደመወዝ</th><th class="ar">إطار الراتب الشهري</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>🇸🇦 Saudi Arabia</td><td>ሳውዲ አረቢያ</td>
-                            <td class="en">Housemaids / Domestic Helpers</td><td class="am">የቤት ውስጥ ሰራተኛ</td>
-                            <td class="en">Arabic language, modern home appliances, cultural norms</td><td class="am">የአረብኛ ቋንቋ፣ ዘመናዊ የቤት እቃዎች አጠቃቀም እና ባህላዊ እውቀት</td>
+                            <td>🇸🇦 Saudi Arabia</td><td>ሳውዲ አረቢያ</td><td>المملكة العربية السعودية</td>
+                            <td class="en">Housemaids / Domestic Helpers</td><td class="am">የቤት ውስጥ ሰራተኛ</td><td class="ar">عاملات منازل / مساعدات منزليات</td>
+                            <td class="en">Arabic language, modern home appliances, cultural norms</td><td class="am">የአረብኛ ቋንቋ፣ ዘመናዊ የቤት እቃዎች አጠቃቀም እና ባህላዊ እውቀት</td><td class="ar">اللغة العربية، التعامل مع الأجهزة الحديثة، العادات والتقاليد</td>
                             <td>1000 - 1200 SAR</td>
                         </tr>
                         <tr>
-                            <td>🇦🇪 UAE</td><td>የተባበሩት አረብ ኤምሬትስ</td>
-                            <td class="en">Nannies & Caregivers</td><td class="am">የህጻናት እና የአረጋውያን ተንከባካቢ</td>
-                            <td class="en">Childcare essentials, safety monitoring, nutrition basics</td><td class="am">የህጻናት እንክብካቤ፣ ደህንነት አጠባበቅ እና መሰረታዊ የአመጋገብ ስልጠና</td>
+                            <td>🇦🇪 UAE</td><td>የተባበሩት አረብ ኤምሬትስ</td><td>الإمارات العربية المتحدة</td>
+                            <td class="en">Nannies & Caregivers</td><td class="am">የህጻናት እና የአረጋውያን ተንከባካቢ</td><td class="ar">مربيات أطفال / مقدمات الرعاية</td>
+                            <td class="en">Childcare essentials, safety monitoring, nutrition basics</td><td class="am">የህጻናት እንክብካቤ፣ ደህንነት አጠባበቅ እና መሰረታዊ የአመጋገብ ስልጠና</td><td class="ar">أساسيات رعاية الأطفال، مراقبة السلامة، مبادئ التغذية</td>
                             <td>1000 - 1200 AED</td>
                         </tr>
                         <tr>
-                            <td>🇰🇼 Kuwait</td><td>ኩዌት</td>
-                            <td class="en">Home Cooks & Chefs</td><td class="am">የቤት ውስጥ ምግብ አሰናጅ</td>
-                            <td class="en">Middle Eastern culinary basics, professional kitchen safety</td><td class="am">የመካከለኛው ምስራቅ ምግቦች አዘገጃጀት እና የኩሽና ደህንነት ጥበቃ</td>
-                            <td class="en">Minimum Legal Limit</td><td class="am">በሕግ የተፈቀደው አነስተኛ ደመወዝ</td>
+                            <td>🇰🇼 Kuwait</td><td>ኩዌት</td><td>الكويت</td>
+                            <td class="en">Home Cooks & Chefs</td><td class="am">የቤት ውስጥ ምግብ አሰናጅ</td><td class="ar">طباخين منازل / طهاة</td>
+                            <td class="en">Middle Eastern culinary basics, professional kitchen safety</td><td class="am">የመካከለኛው ምስራቅ ምግቦች አዘገጃጀት እና የኩشنا ደህንነት ጥበቃ</td><td class="ar">أساسيات الطهي الشرقي، معايير السلامة المهنية في المطبخ</td>
+                            <td class="en">Minimum Legal Limit</td><td class="am">በሕግ የተፈቀደው አነስተኛ ደመወዝ</td><td class="ar">الحد الأدنى القانوني</td>
                         </tr>
                     </tbody>
                 </table>
@@ -512,22 +557,28 @@
         <div class="pop-target" style="margin-top:40px;">
             <h3 class="section-title en">Mandated Legal Benefits (Employer Provided)</h3>
             <h3 class="section-title am">በሕግ የተደነገጉ ጥቅማጥቅሞች (በአሰሪው የሚሸፈኑ)</h3>
+            <h3 class="section-title ar">المزايا القانونية الإلزامية (المقدمة من صاحب العمل)</h3>
+            
             <div class="grid-2">
                 <div class="card hover-pop">
                     <p class="en">🍱 <strong>Free Food & Safe Accommodation:</strong> Complete daily nutrition provisions and secure quarters at zero cost to the worker.</p>
                     <p class="am">🍱 <strong>ነፃ ምግብ እና መጠለያ:</strong> ለሰራተኛዋ ምንም አይነት ወጪ ሳይኖረው የተሟላ ምግብ እና አስተማማኝ ማረፊያ የማቅረብ ግዴታ።</p>
+                    <p class="ar">🍱 <strong>طعام مجاني وسكن آمن:</strong> توفير التغذية اليومية الكاملة والسكن الآمن دون أدنى تكلفة على العامل.</p>
                 </div>
                 <div class="card hover-pop">
                     <p class="en">🏥 <strong>Full Medical Insurance:</strong> Fully covered and sustained medical health coverage plans for the complete 2-year contract term.</p>
                     <p class="am">🏥 <strong>የህክምና መድን ዋስትና:</strong> ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን የህክምና ዋስትና።</p>
+                    <p class="ar">🏥 <strong>تأمين طبي شامل:</strong> خطط تغطية صحية وطبية مدفوعة بالكامل ومستمرة طوال فترة العقد البالغة سنتين.</p>
                 </div>
                 <div class="card hover-pop">
                     <p class="en">✈️ <strong>Free Air Travel Logistics:</strong> Mandatory entry flight and legal round-trip ticketing upon successful contract completion.</p>
                     <p class="am">✈️ <strong>የነፃ የአየር መንገድ ትኬት:</strong> ወደ ስራ ቦታ ለመሄድ እና የ2 አመት ኮንትራት ሲጠናቀቅ የደርሶ መልስ የአየር መንገድ ትኬት የማቅረብ ግዴታ።</p>
+                    <p class="ar">✈️ <strong>تذاكر طيران مجانية:</strong> تأمين تذاكر السفر الإلزامية عند الاستقدام وتذكرة ذهاب وإياب عند إتمام العقد بنجاح.</p>
                 </div>
                 <div class="card hover-pop">
                     <p class="en">💳 <strong>Traceable Salary Protection:</strong> Electronic salary banking monitoring via Musaned (KSA WPS) or secure PAM structures (Kuwait).</p>
-                    <p class="am">💳 <strong>ህጋዊ የደመወዝ ጥበቃ ሲስተም:</strong> ደመወዝ በባንክ እና በኤሌክትሮኒክስ ሲስተም (ሙሳነድ/WPS) ቁጥጥር የሚደረግበት አስተማማኝ አሰራር።</p>
+                    <p class="am">💳 <strong>ህጋዊ የደመወዝ ጥበቃ ሲስተም:</strong> ደመወዝ በባንክ እና በኤሌክትሮኒክስ ሲስተም (ሙሳነድ/WPS) ቁጥጥር የሚደረግበት አስተማማኝ አሰራር。</p>
+                    <p class="ar">💳 <strong>حماية الأجور الموثقة:</strong> مراقبة إلكترونية للرواتب عبر منصة مساند (WPS السعودية) أو الهيئة العامة للقوى العاملة (الكويت).</p>
                 </div>
             </div>
         </div>
@@ -537,10 +588,15 @@
     <footer>
         <div class="pop-target">
             <p><strong>MAHI FOREIGN EMPLOYMENT AGENT PLC</strong></p>
+            
             <p class="en">Addis Ketema Sub-City, Woreda 08, House No. 540, 7th Floor, Office No. 716 | Addis Ababa, Ethiopia</p>
             <p class="am">አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716 | አዲስ አበባ፣ ኢትዮጵያ</p>
+            <p class="ar">منطقة أديس كيتيما الفرعية، وريد 08، مبنى رقم 540، الطابق السابع، مكتب رقم 716 | أديس أبابا، إثيوبيا</p>
+            
             <p class="en">Direct Inquiries Contact: 0922436731 | Email: Mahiemployment@gmail.com</p>
             <p class="am">ስልክ ቁጥር: 0922436731 | ኢሜይል: Mahiemployment@gmail.com</p>
+            <p class="ar">الاتصال المباشر: 0922436731 | البريد الإلكتروني: Mahiemployment@gmail.com</p>
+            
             <div class="footer-links">
                 <a href="https://www.google.com/maps/place/Addis+ketema+sub+city+wereda+8/@9.0330569,38.7327538,17.71z/" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Google Maps Location</a>
                 <a href="https://t.me/+251922436731" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Channel</a>
@@ -556,19 +612,27 @@
 
     <!-- Interactive Dynamic Scroll and Language Engine JavaScript -->
     <script>
-        // Language Toggler Engine
-        function toggleLanguage() {
+        // Tri-lingual Language Toggler Engine
+        function setLanguage(langCode) {
             const body = document.body;
-            const btn = document.querySelector('.lang-toggle-btn');
-            if(body.classList.contains('lang-en')) {
-                body.classList.remove('lang-en');
-                body.classList.add('lang-am');
-                btn.textContent = "Switch to English";
+            
+            // Remove all language classes
+            body.classList.remove('lang-en', 'lang-am', 'lang-ar');
+            // Add target language class
+            body.classList.add('lang-' + langCode);
+
+            // Handle Text Direction for Arabic (RTL)
+            if (langCode === 'ar') {
+                body.setAttribute('dir', 'rtl');
             } else {
-                body.classList.remove('lang-am');
-                body.classList.add('lang-en');
-                btn.textContent = "Switch to አማርኛ";
+                body.setAttribute('dir', 'ltr');
             }
+
+            // Update Active Buttons Layout States
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('btn-' + langCode).classList.add('active');
         }
 
         // Lightweight Pop-In Intersection Observer Matrix
@@ -582,8 +646,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Unobserve after popping in to optimize processing pipelines
-                    observer.unobserve(entry.target);
+                    observer.unobserve(entry.target); // Unobserve to boost performance
                 }
             });
         }, observerOptions);
