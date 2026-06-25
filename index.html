@@ -1,544 +1,592 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAHI Foreign Employment Agent PLC</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @layer utilities {
-            .neon-border-silver {
-                box-shadow: 0 0 10px rgba(192, 192, 192, 0.2), 0 0 20px rgba(226, 232, 240, 0.1);
-            }
-            .neon-text-silver {
-                text-shadow: 0 0 8px rgba(226, 232, 240, 0.6);
-            }
-            .flag-pulse:hover {
-                transform: scale(1.1) translateY(-2px);
-                filter: drop-shadow(0 0 8px #e2e8f0);
-            }
-        }
-        /* Custom smooth scrollbar for premium tech feel */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f1115; }
-        ::-webkit-scrollbar-thumb { background: #3f444e; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #c0c0c0; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAHI Foreign Employment Agent PLC</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@layer utilities {
+.neon-border-silver {
+box-shadow: 0 0 10px rgba(192, 192, 192, 0.2), 0 0 20px rgba(226, 232, 240, 0.1);
+}
+.neon-text-silver {
+text-shadow: 0 0 8px rgba(226, 232, 240, 0.6);
+}
+.flag-pulse:hover {
+transform: scale(1.1) translateY(-2px);
+filter: drop-shadow(0 0 8px #e2e8f0);
+}
+}
+/* Custom smooth scrollbar for premium tech feel */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0f1115; }
+::-webkit-scrollbar-thumb { background: #3f444e; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #c0c0c0; }
+</style>
 </head>
 <body class="bg-[#0b0c10] text-[#e2e8f0] font-sans antialiased selection:bg-slate-700 selection:text-white">
 
-    <!-- Sticky Header / Navigation -->
-    <header class="sticky top-0 z-50 bg-[#0f1115]/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo Matrix -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-400 to-slate-700 flex items-center justify-center border border-slate-500 shadow-[0_0_15px_rgba(192,192,192,0.3)]">
-                    <span class="text-xl font-black text-black">M</span>
-                </div>
-                <div>
-                    <span class="block text-lg font-black tracking-wider text-white neon-text-silver">MAHI PLC</span>
-                    <span class="block text-[10px] text-slate-400 tracking-widest uppercase">Foreign Employment Agent</span>
-                </div>
-            </div>
+<!-- Sticky Header / Navigation -->
+<header class="sticky top-0 z-50 bg-[#0f1115]/90 backdrop-blur-md border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo Matrix -->
+<div class="flex items-center space-x-3 gap-3">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-400 to-slate-700 flex items-center justify-center border border-slate-500 shadow-[0_0_15px_rgba(192,192,192,0.3)]">
+<span class="text-xl font-black text-black">M</span>
+</div>
+<div>
+<span class="block text-lg font-black tracking-wider text-white neon-text-silver">MAHI PLC</span>
+<span class="block text-[10px] text-slate-400 tracking-widest uppercase" data-en="Foreign Employment Agent" data-am="የውጭ ሀገር የስራና ሰራተኛ አገናኝ" data-ar="وكيل التوظيف الخارجي">Foreign Employment Agent</span>
+</div>
+</div>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
-                <a href="#home" class="text-white hover:text-slate-300 transition-colors">Home</a>
-                <a href="#about" class="text-slate-400 hover:text-white transition-colors">About Us</a>
-                <a href="#b2b" class="text-slate-400 hover:text-white transition-colors">For Employers</a>
-                <a href="#b2c" class="text-slate-400 hover:text-white transition-colors">For Workers</a>
-                <a href="#compliance" class="text-slate-400 hover:text-white transition-colors">Compliance</a>
-                <a href="#contact" class="text-slate-400 hover:text-white transition-colors">Contact</a>
-            </nav>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide gap-6">
+<a href="#home" class="text-white hover:text-slate-300 transition-colors" data-en="Home" data-am="መነሻ" data-ar="الرئيسية">Home</a>
+<a href="#about" class="text-slate-400 hover:text-white transition-colors" data-en="About Us" data-am="ስለ እኛ" data-ar="من نحن">About Us</a>
+<a href="#b2b" class="text-slate-400 hover:text-white transition-colors" data-en="For Employers" data-am="ለአሰሪዎች" data-ar="لأصحاب العمل">For Employers</a>
+<a href="#b2c" class="text-slate-400 hover:text-white transition-colors" data-en="For Workers" data-am="ለሰራተኞች" data-ar="للعمال">For Workers</a>
+<a href="#compliance" class="text-slate-400 hover:text-white transition-colors" data-en="Compliance" data-am="ህጋዊነት" data-ar="الامتثال القانوني">Compliance</a>
+<a href="#contact" class="text-slate-400 hover:text-white transition-colors" data-en="Contact" data-am="እውቂያ" data-ar="اتصل بنا">Contact</a>
+</nav>
 
-            <!-- Sticky Direct Communication Links -->
-            <div class="hidden lg:flex items-center space-x-4 text-xs text-slate-400">
-                <div class="text-right">
-                    <span class="block text-white font-semibold"><i class="fa-solid fa-phone text-slate-400 mr-1"></i> 0922436731</span>
-                    <span class="block text-[10px]">Addis Ababa, ET</span>
-                </div>
-                <a href="https://wa.me/251922436731" target="_blank" class="p-2 bg-emerald-950/50 border border-emerald-500/30 rounded-lg text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                </a>
-            </div>
-        </div>
-    </header>
+<!-- Sticky Direct Communication Links & Language Selector -->
+<div class="flex items-center space-x-4 text-xs text-slate-400 gap-4">
+<div class="hidden lg:text-right lg:block" id="headerAddress">
+<span class="block text-white font-semibold dir-ltr"><i class="fa-solid fa-phone text-slate-400 mr-1 ml-1"></i> 0922436731</span>
+<span class="block text-[10px]" data-en="Addis Ababa, ET" data-am="አዲስ አበባ፣ ኢትዮጵያ" data-ar="أديس أبابا، إثيوبيا">Addis Ababa, ET</span>
+</div>
+<a href="https://wa.me/251922436731" target="_blank" class="hidden lg:block p-2 bg-emerald-950/50 border border-emerald-500/30 rounded-lg text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all">
+<i class="fa-brands fa-whatsapp text-lg"></i>
+</a>
+<!-- Language Selector Dropdown -->
+<div class="relative inline-block text-left">
+<select id="langSwitcher" class="bg-slate-900 border border-slate-700 text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-hidden focus:border-slate-500 cursor-pointer font-bold">
+<option value="en" selected>EN</option>
+<option value="am">አማ</option>
+<option value="ar">عربي</option>
+</select>
+</div>
+</div>
+</div>
+</header>
 
-    <!-- Main Hero Section -->
-    <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-slate-900 bg-linear-to-b from-[#0f1115] to-[#0b0c10]">
-        <!-- Cyber Background Grid Layer -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center z-10">
-            <!-- Credentials Tag -->
-            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 text-xs text-slate-300 mb-6 tracking-wide shadow-xs">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Fully Licensed Agency: MoLS Proclamation 923/2016 & 1246/2021</span>
-            </div>
+<!-- Main Hero Section -->
+<section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-slate-900 bg-linear-to-b from-[#0f1115] to-[#0b0c10]">
+<!-- Cyber Background Grid Layer -->
+<div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
-            <!-- High Impact Title -->
-            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 uppercase">
-                Bridging Talent with <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-400 to-slate-100 neon-text-silver">Opportunity & Dignity</span>
-            </h1>
+<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center z-10">
+<!-- Credentials Tag -->
+<div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 text-xs text-slate-300 mb-6 tracking-wide shadow-xs gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span data-en="Fully Licensed Agency: MoLS Proclamation 923/2016 & 1246/2021" data-am="ህጋዊ ፍቃድ ያለው ኤጀንሲ፡ በሥራና ክህሎት ሚኒስቴር አዋጅ ቁጥር 923/2008 እና 1246/2013" data-ar="وكالة مرخصة بالكامل: وزارة العمل والمهارات قرار رقم 923/2016 & 1246/2021">Fully Licensed Agency: MoLS Proclamation 923/2016 & 1246/2021</span>
+</div>
 
-            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-400 mb-10 leading-relaxed">
-                MAHI Foreign Employment Agent PLC is a premier, fully licensed international recruitment agency based in Addis Ababa, Ethiopia. We specialize in the ethical sourcing, comprehensive training, and legal deployment of skilled and semi-skilled Ethiopian workers.
-            </p>
+<!-- High Impact Title -->
+<h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 uppercase">
+<span data-en="Bridging Talent with" data-am="ክህሎትን እና ሰራተኛን" data-ar="جسر يربط المواهب بـ">Bridging Talent with</span> <br>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-400 to-slate-100 neon-text-silver" data-en="Opportunity & Dignity" data-am="ከመልካም ዕድልና ክብር ጋር" data-ar="الفرص والكرامة">Opportunity & Dignity</span>
+</h1>
 
-            <!-- Dual-Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <a href="#b2b" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold tracking-wide uppercase rounded-xl border-2 border-transparent hover:bg-transparent hover:text-white hover:border-slate-400 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
-                    Request Manpower / Partner With Us
-                </a>
-                <a href="#b2c" class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white font-bold tracking-wide uppercase rounded-xl border border-slate-700 hover:bg-slate-800 transition-all duration-300">
-                    Register to Work / ይመዝገቡ
-                </a>
-            </div>
+<p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-400 mb-10 leading-relaxed" data-en="MAHI Foreign Employment Agent PLC is a premier, fully licensed international recruitment agency based in Addis Ababa, Ethiopia. We specialize in the ethical sourcing, comprehensive training, and legal deployment of skilled and semi-skilled Ethiopian workers." data-am="ማሂ የውጭ ሀገር ስራና ሰራተኛ አገናኝ ኃ/የተ/የግል ማህበር በአዲስ አበባ፣ ኢትዮጵያ የሚገኝ ግንባር ቀደም እና ሙሉ በሙሉ ህጋዊ ፍቃድ ያለው ዓለም አቀፍ የቅጥር ኤጀንሲ ነው። ብቁ እና ከፊል-ብቁ የሆኑ ኢትዮጵያውያን ሰራተኞችን በስነ-ምግባር በመመልመል፣ አጠቃላይ ስልጠና በመስጠት እና በህጋዊ መንገድ በማሰማራት ላይ እንሰራለን。" data-ar="شركة ماهي لوكالة التوظيف الخارجي هي وكالة توظيف دولية رائدة ومرخصة بالكامل ومقرها في أديس أبابا، إثيوبيا. نحن متخصصون في الاستقدام الأخلاقي، التدريب الشامل، والتوظيف القانوني للعمالة الإثيوبية الماهرة وشبه الماهرة.">
+MAHI Foreign Employment Agent PLC is a premier, fully licensed international recruitment agency based in Addis Ababa, Ethiopia. We specialize in the ethical sourcing, comprehensive training, and legal deployment of skilled and semi-skilled Ethiopian workers.
+</p>
 
-            <!-- Destination Flags Display with Hover Animations -->
-            <div class="pt-8 border-t border-slate-900">
-                <p class="text-xs font-semibold tracking-widest uppercase text-slate-500 mb-4">Primary Target Market Lanes</p>
-                <div class="flex items-center justify-center space-x-8">
-                    <!-- Saudi Arabia -->
-                    <div class="flex flex-col items-center group flag-pulse transition-all duration-300">
-                        <img src="https://flagcdn.com/w80/sa.png" alt="Saudi Arabia Flag" class="w-12 h-8 object-cover rounded shadow-md border border-slate-800">
-                        <span class="text-[11px] mt-2 font-medium text-slate-400 group-hover:text-white">Saudi Arabia</span>
-                    </div>
-                    <!-- Kuwait -->
-                    <div class="flex flex-col items-center group flag-pulse transition-all duration-300">
-                        <img src="https://flagcdn.com/w80/kw.png" alt="Kuwait Flag" class="w-12 h-8 object-cover rounded shadow-md border border-slate-800">
-                        <span class="text-[11px] mt-2 font-medium text-slate-400 group-hover:text-white">Kuwait</span>
-                    </div>
-                    <!-- Jordan -->
-                    <div class="flex flex-col items-center group flag-pulse transition-all duration-300">
-                        <img src="https://flagcdn.com/w80/jo.png" alt="Jordan Flag" class="w-12 h-8 object-cover rounded shadow-md border border-slate-800">
-                        <span class="text-[11px] mt-2 font-medium text-slate-400 group-hover:text-white">Jordan</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Dual-Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+<a href="#b2b" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold tracking-wide uppercase rounded-xl border-2 border-transparent hover:bg-transparent hover:text-white hover:border-slate-400 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300" data-en="Request Manpower / Partner With Us" data-am="የሰው ኃይል ይጠይቁ / ከእኛ ጋር አብረው ይስሩ" data-ar="طلب عمالة / شريك معنا">
+Request Manpower / Partner With Us
+</a>
+<a href="#b2c" class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white font-bold tracking-wide uppercase rounded-xl border border-slate-700 hover:bg-slate-800 transition-all duration-300" data-en="Register to Work / ይመዝገቡ" data-am="ለመስራት ይመዝገቡ / ይመዝገቡ" data-ar="التسجيل للعمل / ይመዝገቡ">
+Register to Work / ይመዝገቡ
+</a>
+</div>
 
-    <!-- Company Profiles & Ownership Data -->
-    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <!-- Legal Mandate Column -->
-            <div class="bg-[#0f1115] border border-slate-800 rounded-2xl p-8 neon-border-silver">
-                <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 mb-6">
-                    <i class="fa-solid fa-scale-balanced text-lg"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white uppercase tracking-wide mb-4">የሕግ መሠረት / Legal Mandate</h3>
-                <p class="text-xs text-slate-400 leading-relaxed space-y-4">
-                    በኢትዮጵያ የውጪአገር ሥራ ሥምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሰረት የተመዘገበ እና ህጋዊ ፍቃድ ያለው ድርጅት። <br><br>
-                    Enabling a Private Employment Agency to Provide Employment Service as per Ethiopia's Overseas Employment Proclamation no. 923/2016 and 1246/2021.
-                </p>
-            </div>
+<!-- Destination Flags Display with Hover Animations -->
+<div class="pt-8 border-t border-slate-900">
+<p class="text-xs font-semibold tracking-widest uppercase text-slate-500 mb-4" data-en="Primary Target Market Lanes" data-am="ዋና ዋና የሥራ መዳረሻ አገራት" data-ar="مسارات السوق المستهدفة الرئيسية">Primary Target Market Lanes</p>
+<div class="flex items-center justify-center space-x-8 gap-4">
+<!-- Saudi Arabia -->
+<div class="flex flex-col items-center group flag-pulse transition-all duration-300">
+<img src="https://flagcdn.com/w80/sa.png" alt="Saudi Arabia Flag" class="w-12 h-8 object-cover rounded shadow-md border border-slate-800">
+<span class="text-[11px] mt-2 font-medium text-slate-400 group-hover:text-white" data-en="Saudi Arabia" data-am="ሳውዲ አረቢያ" data-ar="المملكة العربية السعودية">Saudi Arabia</span>
+</div>
+<!-- Kuwait -->
+<div class="flex flex-col items-center group flag-pulse transition-all duration-300">
+<img src="https://flagcdn.com/w80/kw.png" alt="Kuwait Flag" class="w-12 h-8 object-cover rounded shadow-md border border-slate-800">
+<span class="text-[11px] mt-2 font-medium text-slate-400 group-hover:text-white" data-en="Kuwait" data-am="ኩዌት" data-ar="الكويت">Kuwait</span>
+</div>
+<!-- Jordan -->
+<div class="flex flex-col items-center group flag-pulse transition-all duration-300">
+<img src="https://flagcdn.com/w80/jo.png" alt="Jordan Flag" class="w-12 h-8 object-cover rounded shadow-md border border-slate-800">
+<span class="text-[11px] mt-2 font-medium text-slate-400 group-hover:text-white" data-en="Jordan" data-am="ጆርዳን" data-ar="الأردن">Jordan</span>
+</div>
+<!-- Lebanon -->
+    <div class="flex flex-col items-center group flag-pulse transition-all duration-300">
+      <img src="https://flagcdn.com/w80/lb.png" alt="Lebanon Flag" class="w-12 h-8 object-cover rounded shadow-md border border-slate-800">
+      <span class="text-[11px] mt-2 font-medium text-slate-400 group-hover:text-white" data-en="Lebanon" data-am="ሊባኖስ" data-ar="لبنان">Lebanon</span>
+    </div>
+</section>
 
-            <!-- Profile Matrix Column -->
-            <div class="bg-[#0f1115] border border-slate-800 rounded-2xl p-8 lg:col-span-2">
-                <h3 class="text-xl font-bold text-white uppercase tracking-wide mb-6">Corporate Information Matrix</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                    <div class="border-b border-slate-800 pb-4">
-                        <span class="block text-xs text-slate-500 uppercase tracking-wider">Company Name</span>
-                        <span class="block font-bold text-white">MAHI FOREIGN EMPLOYMENT AGENT PLC</span>
-                    </div>
-                    <div class="border-b border-slate-800 pb-4">
-                        <span class="block text-xs text-slate-500 uppercase tracking-wider">Trade Name / የንግድ ስም</span>
-                        <span class="block font-bold text-white">ማሂ በዉጭ ሀገር ስራና ሰራተኛ አገናኝ ሃላፊነቱ የተወሰነ የግል ማህበር</span>
-                    </div>
-                    <div class="border-b border-slate-800 pb-4">
-                        <span class="block text-xs text-slate-500 uppercase tracking-wider">Nationality / ዜግነት</span>
-                        <span class="block font-bold text-emerald-400">Registered in Ethiopia / በኢትዮጰያ የተመዘገበ</span>
-                    </div>
-                    
-                    <!-- General Manager Profile (Featuring animated icon placeholder) -->
-                    <div class="border-b border-slate-800 pb-4 flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 overflow-hidden relative group">
-                            <!-- Premium Small Muslim Woman Icon Vector/Animation Simulation -->
-                            <i class="fa-solid fa-user-tie text-lg group-hover:scale-110 transition-transform"></i>
-                            <div class="absolute inset-0 bg-gradient-to-tr from-slate-500/20 to-transparent"></div>
-                        </div>
-                        <div>
-                            <span class="block text-xs text-slate-500 uppercase tracking-wider">General Manager Name</span>
-                            <span class="block font-bold text-white">Mss. SIHAM IDRIS JEMAL</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Company Profiles & Ownership Data -->
+<section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<!-- Legal Mandate Column -->
+<div class="bg-[#0f1115] border border-slate-800 rounded-2xl p-8 neon-border-silver">
+<div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 mb-6">
+<i class="fa-solid fa-scale-balanced text-lg"></i>
+</div>
+<h3 class="text-xl font-bold text-white uppercase tracking-wide mb-4" data-en="የሕግ መሠረት / Legal Mandate" data-am="የሕግ መሠረት / Legal Mandate" data-ar="الأساس القانوني / Legal Mandate">የሕግ መሠረት / Legal Mandate</h3>
+<p class="text-xs text-slate-400 leading-relaxed space-y-4">
+በኢትዮጵያ የውጪአገር ሥራ ሥምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሰረት የተመዘገበ እና ህጋዊ ፍቃድ ያለው ድርጅት።<br><br>
+Enabling a Private Employment Agency to Provide Employment Service as per Ethiopia's Overseas Employment Proclamation no. 923/2016 and 1246/2021.
+</p>
+</div>
 
-                <div class="mt-8 p-4 bg-slate-900/60 rounded-xl border border-slate-800 text-xs text-slate-400">
-                    <h4 class="font-bold text-white uppercase tracking-wider mb-2">Value Proposition</h4>
-                    MAHI PLC acts as a dependable bridge between eager, qualified Ethiopian workers and premier recruitment agencies across Saudi Arabia, Lebanon, and Kuwait. We manage the entire recruitment pipeline with rigorous attention to technical qualification, legal clarity, and human safety.
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Profile Matrix Column -->
+<div class="bg-[#0f1115] border border-slate-800 rounded-2xl p-8 lg:col-span-2">
+<h3 class="text-xl font-bold text-white uppercase tracking-wide mb-6" data-en="Corporate Information Matrix" data-am="የድርጅቱ መረጃ ማውጫ" data-ar="مصفوفة معلومات الشركة">Corporate Information Matrix</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<div class="border-b border-slate-800 pb-4">
+<span class="block text-xs text-slate-500 uppercase tracking-wider" data-en="Company Name" data-am="የኩባንያው ስም" data-ar="اسم الشركة">Company Name</span>
+<span class="block font-bold text-white">MAHI FOREIGN EMPLOYMENT AGENT PLC</span>
+</div>
+<div class="border-b border-slate-800 pb-4">
+<span class="block text-xs text-slate-500 uppercase tracking-wider" data-en="Trade Name / የንግድ ስም" data-am="Trade Name / የንግድ ስም" data-ar="الاسم التجاري / የንግድ ስም">Trade Name / የንግድ ስም</span>
+<span class="block font-bold text-white">ማሂ በዉጭ ሀገር ስራና ሰራተኛ አገናኝ ሃላፊነቱ የተወሰነ የግል ማህበር</span>
+</div>
+<div class="border-b border-slate-800 pb-4">
+<span class="block text-xs text-slate-500 uppercase tracking-wider" data-en="Nationality / ዜግነት" data-am="Nationality / ዜግነት" data-ar="الجنسية / ዜግነት">Nationality / ዜግነት</span>
+<span class="block font-bold text-emerald-400" data-en="Registered in Ethiopia / በኢትዮጰያ የተመዘገበ" data-am="Registered in Ethiopia / በኢትዮጰያ የተመዘገበ" data-ar="مسجلة في إثيوبيا / በኢትዮጰያ የተመዘገበ">Registered in Ethiopia / በኢትዮጰያ የተመዘገበ</span>
+</div>
 
-    <!-- B2B Partner Portal & Process Section -->
-    <section id="b2b" class="py-20 bg-[#0f1115] border-y border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-black uppercase tracking-tight text-white mb-4">The B2B Partner Portal & Pipeline</h2>
-                <p class="text-sm text-slate-400">
-                    Gulf recruitment offices require legally cleared, thoroughly competent workers. We execute a strict, compliant onboarding pipeline completely integrated with state regulations.
-                </p>
-            </div>
+<!-- General Manager Profile (Featuring animated icon placeholder) -->
+<div class="border-b border-slate-800 pb-4 flex items-center space-x-3 gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 overflow-hidden relative group">
+<i class="fa-solid fa-user-tie text-lg group-hover:scale-110 transition-transform"></i>
+<div class="absolute inset-0 bg-gradient-to-tr from-slate-500/20 to-transparent"></div>
+</div>
+<div>
+<span class="block text-xs text-slate-500 uppercase tracking-wider" data-en="General Manager Name" data-am="የዋና ሥራ አስኪያጅ ስም" data-ar="اسم المدير العام">General Manager Name</span>
+<span class="block font-bold text-white" data-en="Mss. SIHAM IDRIS JEMAL" data-am="ወ/ሪት ሲሃም ኢድሪስ ጀማል" data-ar="الأنسة سهام إدريس جمال">Mss. SIHAM IDRIS JEMAL</span>
+</div>
+</div>
+</div>
 
-            <!-- The 4-Step Process Timeline -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16 relative">
-                <!-- Step 1 -->
-                <div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
-                    <span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">01</span>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Agency Partnership</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Verify the Gulf agency/sponsor through the Ethiopian Embassy. Generate and upload the Job Order onto the official Ethiopian E-LMIS platform.
-                    </p>
-                </div>
-                <!-- Step 2 -->
-                <div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
-                    <span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">02</span>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Sourcing & E-LMIS</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Source candidates legally. Ensure strict adherence to the minimum age threshold (25 years old for Gulf domestic workforce profiles).
-                    </p>
-                </div>
-                <!-- Step 3 -->
-                <div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
-                    <span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">03</span>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Medical & TVET</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Candidates pass official GAMCA medical fitness exams and complete the mandatory 21-day training via certified TVET networks to secure CoC badges.
-                    </p>
-                </div>
-                <!-- Step 4 -->
-                <div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
-                    <span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">04</span>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Visa & Deployment</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Process credentials via Tasheer / Enjaz / MoFA systems. Complete final air tracking logistics exclusively via Ethiopian Airlines.
-                    </p>
-                </div>
-            </div>
+<div class="mt-8 p-4 bg-slate-900/60 rounded-xl border border-slate-800 text-xs text-slate-400">
+<h4 class="font-bold text-white uppercase tracking-wider mb-2" data-en="Value Proposition" data-am="የእኛ እሴት" data-ar="القيمة المقترحة">Value Proposition</h4>
+<span data-en="MAHI PLC acts as a dependable bridge between eager, qualified Ethiopian workers and premier recruitment agencies across Saudi Arabia, Lebanon, and Kuwait. We manage the entire recruitment pipeline with rigorous attention to technical qualification, legal clarity, and human safety." data-am="ማሂ ኃ/የተ/የግል ማህበር በጉጉት በሚጠብቁ ብቁ የኢትዮጵያ ሰራተኞች እና በሳውዲ አረቢያ፣ ሊባኖስ እና ኩዌት በሚገኙ ታዋቂ የቅጥር ኤጀንሲዎች መካከል አስተማማኝ ድልድይ ሆኖ ያገለግላል። ሙሉውን የምልመላ ሂደት ለቴክኒክ ብቃት፣ ለህጋዊ ግልጽነት እና ለሰብአዊ ደህንነት ከፍተኛ ትኩረት በመስጠት እንመራለን。" data-ar="تعمل شركة ماهي كجسر موثوق بين العمال الإثيوبيين المؤهلين ووكالات الاستقدام الرائدة في المملكة العربية السعودية ولبنان والكويت. نحن ندير خط التوظيف بأكمله باهتمام صارم بالمؤهلات الفنية والوضوح القانوني والسلامة البشرية.">MAHI PLC acts as a dependable bridge between eager, qualified Ethiopian workers and premier recruitment agencies across Saudi Arabia, Lebanon, and Kuwait. We manage the entire recruitment pipeline with rigorous attention to technical qualification, legal clarity, and human safety.</span>
+</div>
+</div>
+</div>
+</section>
 
-            <!-- Core Capabilities Grid Table -->
-            <div class="overflow-x-auto rounded-xl border border-slate-800 mb-16">
-                <table class="w-full text-left border-collapse text-xs">
-                    <thead>
-                        <tr class="bg-slate-900 border-b border-slate-800 text-slate-300 font-bold uppercase tracking-wider">
-                            <th class="p-4">Training / Infrastructure Feature</th>
-                            <th class="p-4">What We Provide</th>
-                            <th class="p-4">Why It Matters</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-900 text-slate-400">
-                        <tr class="hover:bg-slate-900/40 transition-colors">
-                            <td class="p-4 font-bold text-white">Language & Cultural Training</td>
-                            <td class="p-4">Basic Arabic linguistic syntax, domestic operational vocabulary, and localized Middle Eastern cultural norms.</td>
-                            <td class="p-4 text-emerald-400">Minimizes early-stage communications gaps.</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/40 transition-colors">
-                            <td class="p-4 font-bold text-white">Modern Appliances Training</td>
-                            <td class="p-4">Hands-on experience with digital washing systems, intelligent vacuums, microwave panels, and automated irons.</td>
-                            <td class="p-4 text-emerald-400">Prevents accidental technical equipment damage.</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/40 transition-colors">
-                            <td class="p-4 font-bold text-white">CoC Certification Match</td>
-                            <td class="p-4">Complete compliance with the strict structural guidelines issued by the Ministry of Labour and Skills (MoLS).</td>
-                            <td class="p-4 text-emerald-400">Guarantees streamlined, valid legal clearance for exit.</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/40 transition-colors">
-                            <td class="p-4 font-bold text-white">Post-Placement Infrastructure</td>
-                            <td class="p-4">Dedicated, active case handlers tracking worker welfare and mediating status adjustments via WhatsApp or Phone channels.</td>
-                            <td class="p-4 text-emerald-400">Drastically reduces absconding risks; safeguards welfare.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<!-- B2B Partner Portal & Process Section -->
+<section id="b2b" class="py-20 bg-[#0f1115] border-y border-slate-900">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl font-black uppercase tracking-tight text-white mb-4" data-en="The B2B Partner Portal & Pipeline" data-am="የB2B አጋር መድረክ እና የስራ ሂደት" data-ar="بوابة وخط أጋር الشركات B2B">The B2B Partner Portal & Pipeline</h2>
+<p class="text-sm text-slate-400" data-en="Gulf recruitment offices require legally cleared, thoroughly competent workers. We execute a strict, compliant onboarding pipeline completely integrated with state regulations." data-am="የባህረ ሰላጤው የቅጥር ቢሮዎች በህጋዊ መንገድ የተረጋገጡ እና ብቁ የሆኑ ሰራተኞችን ይፈልጋሉ። ከሀገር ህግጋትና ደንቦች ጋር ሙሉ በሙሉ የተዋሃደ ጥብቅ የምልመላ ሂደት እንከተላለን。" data-ar="تتطلب مكاتب الاستقدام في الخليج عمالاً مؤهلين تأهيلاً كاملاً ومصرحين قانونياً. نحن ننفذ خطة توظيف صارمة ومتوافقة ومتكاملة تماماً مع اللوائح الحكومية.">
+Gulf recruitment offices require legally cleared, thoroughly competent workers. We execute a strict, compliant onboarding pipeline completely integrated with state regulations.
+</p>
+</div>
 
-            <!-- Password Protected Gateway Mockup -->
-            <div class="bg-slate-950/80 border border-dashed border-slate-800 rounded-2xl p-8 max-w-xl mx-auto text-center">
-                <div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 mx-auto mb-4">
-                    <i class="fa-solid fa-lock text-xs"></i>
-                </div>
-                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Secure Client Portal Area</h4>
-                <p class="text-xs text-slate-500 mb-4">Anonymized profiles, video introductions, and real-time status trackers (e.g., Candidate ETH-9041) for authenticated Gulf agencies.</p>
-                <div class="flex max-w-xs mx-auto">
-                    <input type="password" placeholder="Enter Access Code" class="w-full bg-slate-900 border border-slate-800 rounded-l-lg px-3 py-2 text-xs text-white focus:outline-hidden focus:border-slate-500">
-                    <button class="bg-white text-black px-4 font-bold text-xs rounded-r-lg hover:bg-slate-300">Login</button>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- The 4-Step Process Timeline -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16 relative">
+<!-- Step 1 -->
+<div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
+<span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">01</span>
+<h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2" data-en="Agency Partnership" data-am="የኤጀንሲ አጋርነት" data-ar="شراكة الوكالة">Agency Partnership</h4>
+<p class="text-xs text-slate-400 leading-relaxed" data-en="Verify the Gulf agency/sponsor through the Ethiopian Embassy. Generate and upload the Job Order onto the official Ethiopian E-LMIS platform." data-am="የባህረ ሰላጤውን ኤጀንሲ/አሰሪ በኢትዮጵያ ኤምባሲ በኩል ማረጋገጥ። የስራ ትዕዛዝ (Job Order) ማመንጨት እና ወደ ይፋዊው የኢትዮጵያ E-LMIS መድረክ መጫን。" data-ar="التحقق من وكالة الخليج/الكفيل من خلال السفارة الإثيوبية. إصدار أمر العمل ورفعه على منصة E-LMIS الإثيوبية الرسمية.">
+Verify the Gulf agency/sponsor through the Ethiopian Embassy. Generate and upload the Job Order onto the official Ethiopian E-LMIS platform.
+</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
+<span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">02</span>
+<h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2" data-en="Sourcing & E-LMIS" data-am="ምልመላ እና E-LMIS" data-ar="الاستقدام ومنصة E-LMIS">Sourcing & E-LMIS</h4>
+<p class="text-xs text-slate-400 leading-relaxed" data-en="Source candidates legally. Ensure strict adherence to the minimum age threshold (25 years old for Gulf domestic workforce profiles)." data-am="እጩዎችን በህጋዊ መንገድ መመልመል፤ ለባህረ ሰላጤው አገራት የቤት ውስጥ ሰራተኞች የተቀመጠውን አነስተኛ የዕድሜ ገደብ (25 ዓመት) በጥብቅ መተግበር。" data-ar="استقدام المرشحين قانونياً. ضمان الالتزام الصارم بالحد الأدنى للسن (25 عاماً لملفات العمالة المنزلية في الخليج).">
+Source candidates legally. Ensure strict adherence to the minimum age threshold (25 years old for Gulf domestic workforce profiles).
+</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
+<span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">03</span>
+<h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2" data-en="Medical & TVET" data-am="ህክምና እና ስልጠና" data-ar="الفحص الطبي والتدريب المهني">Medical & TVET</h4>
+<p class="text-xs text-slate-400 leading-relaxed" data-en="Candidates pass official GAMCA medical fitness exams and complete the mandatory 21-day training via certified TVET networks to secure CoC badges." data-am="እጩዎች ይፋዊውን የ GAMCA የህክምና ብቃት ምርመራ ማለፍ እና የ የ CoC ሰርተፍኬት ለማግኘት በተረጋገጡ የቴክኒክና ሙያ ተቋማት የ21 ቀናት የግዴታ ስልጠና ማጠናቀቅ አለባቸው。" data-ar="يجتاز المرشحون الفحوصات الطبية الرسمية المعتمدة من GAMCA ويكملون التدريب الإلزامي لمدة 21 يوماً عبر شبكات TVET المعتمدة للحصول على شهادة الكفاءة CoC.">
+Candidates pass official GAMCA medical fitness exams and complete the mandatory 21-day training via certified TVET networks to secure CoC badges.
+</p>
+</div>
+<!-- Step 4 -->
+<div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6 relative">
+<span class="absolute -top-3 -right-3 w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-xs text-white">04</span>
+<h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2" data-en="Visa & Deployment" data-am="ቪዛ እና ስምሪት" data-ar="التأشيرة والتأهيل">Visa & Deployment</h4>
+<p class="text-xs text-slate-400 leading-relaxed" data-en="Process credentials via Tasheer / Enjaz / MoFA systems. Complete final air tracking logistics exclusively via Ethiopian Airlines." data-am="በTasheer / Enjaz / MoFA ስርዓቶች በኩል ሰነዶችን ማጠናቀቅ። የመጨረሻ የበረራ ሎጂስቲክስን በኢትዮጵያ አየር መንገድ ብቻ ማጠናቀቅ。" data-ar="معالجة وثائق التفويض عبر أنظمة تأشير / إنجاز / وزارة الخارجية. إكمال اللوجستيات النهائية للسفر حصرياً عبر الخطوط الجوية الإثيوبية.">
+Process credentials via Tasheer / Enjaz / MoFA systems. Complete final air tracking logistics exclusively via Ethiopian Airlines.
+</p>
+</div>
+</div>
 
-    <!-- Specific Destination Tracks & Route Configurations -->
-    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-2xl font-black uppercase tracking-wider text-white">Dedicated Destination Tracks</h2>
-            <p class="text-xs text-slate-500 mt-2">Customized pipelines matching local visa architecture and international protocols.</p>
-        </div>
+<!-- Core Capabilities Grid Table -->
+<div class="overflow-x-auto rounded-xl border border-slate-800 mb-16">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-slate-900 border-b border-slate-800 text-slate-300 font-bold uppercase tracking-wider">
+<th class="p-4" data-en="Training / Infrastructure Feature" data-am="የስልጠና / የመሰረተ ልማት ባህሪ" data-ar="ميزة التدريب / البنية التحتية">Training / Infrastructure Feature</th>
+<th class="p-4" data-en="What We Provide" data-am="እኛ የምናቀርበው" data-ar="ما نقدمه">What We Provide</th>
+<th class="p-4" data-en="Why It Matters" data-am="ጥቅሙ" data-ar="لماذا هذا يهم">Why It Matters</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-900 text-slate-400">
+<tr class="hover:bg-slate-900/40 transition-colors">
+<td class="p-4 font-bold text-white" data-en="Language & Cultural Training" data-am="የቋንቋ እና ባህል ስልጠና" data-ar="التدريب اللغوي والثقافي">Language & Cultural Training</td>
+<td class="p-4" data-en="Basic Arabic linguistic syntax, domestic operational vocabulary, and localized Middle Eastern cultural norms." data-am="መሰረታዊ የአረብኛ ቋንቋ አጠቃቀም፣ የቤት ውስጥ የስራ ቃላት እና የመካከለኛው ምስራቅ ባህላዊ ልምዶች。" data-ar="قواعد اللغة العربية الأساسية، المفردات التشغيلية المنزلية، والأعراف الثقافية المحلية في الشرق الأوسط.">Basic Arabic linguistic syntax, domestic operational vocabulary, and localized Middle Eastern cultural norms.</td>
+<td class="p-4 text-emerald-400" data-en="Minimizes early-stage communications gaps." data-am="የመገናኛ ክፍተቶችን ይቀንሳል።" data-ar="يقلل من فجوات التواصل في المراحل المبكرة.">Minimizes early-stage communications gaps.</td>
+</tr>
+<tr class="hover:bg-slate-900/40 transition-colors">
+<td class="p-4 font-bold text-white" data-en="Modern Appliances Training" data-am="የዘመናዊ እቃዎች አጠቃቀም ስልጠና" data-ar="التدريب على الأجهزة الحديثة">Modern Appliances Training</td>
+<td class="p-4" data-en="Hands-on experience with digital washing systems, intelligent vacuums, microwave panels, and automated irons." data-am="ከዲጂታል ማጠቢያ ማሽኖች፣ ዘመናዊ ቫኪዩሞች፣ ማይክሮዌቭች እና አውቶማቲክ ካውሶች ጋር የተግባር ልምድ ማዳበር。" data-ar="خبرة عملية في أنظمة الغسيل الرقمية، المكانس الكهربائية الذكية، لوحات الميكروويف، والمكاوي الأوتوماتيكية.">Hands-on experience with digital washing systems, intelligent vacuums, microwave panels, and automated irons.</td>
+<td class="p-4 text-emerald-400" data-en="Prevents accidental technical equipment damage." data-am="በንብረት ላይ በአጋጣሚ የሚደርስ ጉዳትን ይከላከላል።" data-ar="يمنع تلف المعدات الفنية العرضي.">Prevents accidental technical equipment damage.</td>
+</tr>
+<tr class="hover:bg-slate-900/40 transition-colors">
+<td class="p-4 font-bold text-white" data-en="CoC Certification Match" data-am="የCoC ማረጋገጫ ማሟያ" data-ar="مطابقة شهادة الكفاءة CoC">CoC Certification Match</td>
+<td class="p-4" data-en="Complete compliance with the strict structural guidelines issued by the Ministry of Labour and Skills (MoLS)." data-am="በሥራና ክህሎት ሚኒስቴር (MoLS) የወጡ ጥብቅ መመሪያዎችን ሙሉ በሙሉ ማሟላት。" data-ar="الامتثال الكامل للمبادئ التوجيهية الهيكلية الصارمة الصادرة عن وزارة العمل والمهارات (MoLS).">Complete compliance with the strict structural guidelines issued by the Ministry of Labour and Skills (MoLS).</td>
+<td class="p-4 text-emerald-400" data-en="Guarantees streamlined, valid legal clearance for exit." data-am="ቀልጣፋ እና ህጋዊ የጉዞ ፍቃድን ያረጋግጣል።" data-ar="يضمن تخليصاً قانونياً مبسطاً وصالحاً للمغادرة.">Guarantees streamlined, valid legal clearance for exit.</td>
+</tr>
+<tr class="hover:bg-slate-900/40 transition-colors">
+<td class="p-4 font-bold text-white" data-en="Post-Placement Infrastructure" data-am="ከስምሪት በኋላ የሚደረግ ክትትል" data-ar="بنية التحتية ما بعد التوظيف">Post-Placement Infrastructure</td>
+<td class="p-4" data-en="Dedicated, active case handlers tracking worker welfare and mediating status adjustments via WhatsApp or Phone channels." data-am="የሰራተኛውን ደህንነት የሚከታተሉ እና በዋትስአፕ ወይም በስልክ ችግሮችን የሚፈቱ ራሳቸውን የቻሉ የጉዳይ ፈጻሚዎች መኖር。" data-ar="مسؤولو رعاية مخصصون ونشطون يتابعون سلامة العمال ويتوسطون لتعديل الأوضاع عبر قنوات الواتساب أو الهاتف.">Dedicated, active case handlers tracking worker welfare and mediating status adjustments via WhatsApp or Phone channels.</td>
+<td class="p-4 text-emerald-400" data-en="Drastically reduces absconding risks; safeguards welfare." data-am="አላስፈላጊ አደጋዎችን ይቀንሳል፤ ደህንነትን ይጠብቃል።" data-ar="يقلل بشكل كبير من مخاطر الهروب؛ ويحمي الرفاهية.">Drastically reduces absconding risks; safeguards welfare.</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- KSA Route -->
-            <div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 [mask-image:radial-gradient(ellipse_at_top_right,#000_40%,transparent_100%)]"></div>
-                <div class="flex items-center space-x-3 mb-4">
-                    <img src="https://flagcdn.com/w40/sa.png" alt="KSA" class="w-6 h-4 object-cover rounded-xs">
-                    <h3 class="font-bold text-white text-sm uppercase tracking-wider">Saudi Arabia (KSA) Route</h3>
-                </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    Direct architectural integration with the **Musaned Platform**. Seamlessly mapping electronic contract records into the local Ethiopian E-LMIS network in perfect lockstep with the Saudi Ministry of Human Resources rules.
-                </p>
-            </div>
+<!-- Password Protected Gateway Mockup -->
+<div class="bg-slate-950/80 border border-dashed border-slate-800 rounded-2xl p-8 max-w-xl mx-auto text-center">
+<div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 mx-auto mb-4">
+<i class="fa-solid fa-lock text-xs"></i>
+</div>
+<h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2" data-en="Secure Client Portal Area" data-am="ደህንነቱ የተጠበቀ የደንበኞች መግቢያ" data-ar="منطقة بوابة العملاء الآمنة">Secure Client Portal Area</h4>
+<p class="text-xs text-slate-500 mb-4" data-en="Anonymized profiles, video introductions, and real-time status trackers (e.g., Candidate ETH-9041) for authenticated Gulf agencies." data-am="የእጩዎች መገለጫዎች፣ የቪዲዮ መግቢያዎች እና የእውነተኛ ጊዜ ሁኔታ መከታተያዎች ለተረጋገጡ የባህረ ሰላጤ ኤጀንሲዎች。" data-ar="ملفات تعريف مجهولة المصدر، مقدمات فيديو، ومتتبعات حالة فورية (مثل المرشح ETH-9041) لوكالات الخليج المعتمدة.">Anonymized profiles, video introductions, and real-time status trackers (e.g., Candidate ETH-9041) for authenticated Gulf agencies.</p>
+<div class="flex max-w-xs mx-auto">
+<input type="password" id="accessCodeInput" placeholder="Enter Access Code" class="w-full bg-slate-900 border border-slate-800 rounded-l-lg px-3 py-2 text-xs text-white focus:outline-hidden focus:border-slate-500">
+<button class="bg-white text-black px-4 font-bold text-xs rounded-r-lg hover:bg-slate-300" data-en="Login" data-am="ግባ" data-ar="تسجيل الدخول">Login</button>
+</div>
+</div>
+</div>
+</section>
 
-            <!-- UAE Route -->
-            <div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-red-500/5 [mask-image:radial-gradient(ellipse_at_top_right,#000_40%,transparent_100%)]"></div>
-                <div class="flex items-center space-x-3 mb-4">
-                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE" class="w-6 h-4 object-cover rounded-xs">
-                    <h3 class="font-bold text-white text-sm uppercase tracking-wider">United Arab Emirates Track</h3>
-                </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    Customized alignment serving official **Tadbeer Centers**. Ensuring every candidate profile undergoes a strict vetting framework engineered to exceed structural MoHRE parameters.
-                </p>
-            </div>
+<!-- Specific Destination Tracks & Route Configurations -->
+<section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="text-2xl font-black uppercase tracking-wider text-white" data-en="Dedicated Destination Tracks" data-am="ልዩ የጉዞ መዳረሻዎች" data-ar="مسارات الوجهات المخصصة">Dedicated Destination Tracks</h2>
+<p class="text-xs text-slate-500 mt-2" data-en="Customized pipelines matching local visa architecture and international protocols." data-am="ከሀገር ውስጥ የቪዛ አወቃቀሮች እና ዓለም አቀፍ ፕሮቶኮሎች ጋር የተጣጣሙ ልዩ መስመሮች。" data-ar="خطوط مخصصة تتوافق مع نظام التأشيرات المحلي والبروتوكولات الدولية.">Customized pipelines matching local visa architecture and international protocols.</p>
+</div>
 
-            <!-- Kuwait & Regional Routes -->
-            <div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-slate-400/5 [mask-image:radial-gradient(ellipse_at_top_right,#000_40%,transparent_100%)]"></div>
-                <div class="flex items-center space-x-3 mb-4">
-                    <img src="https://flagcdn.com/w40/kw.png" alt="Kuwait" class="w-6 h-4 object-cover rounded-xs">
-                    <h3 class="font-bold text-white text-sm uppercase tracking-wider">Kuwait, Qatar & Oman</h3>
-                </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    Rapid logistical clearance paradigms matching the precise contours of localized bilateral labor treaties signed securely between the Federal Government of Ethiopia and individual Gulf jurisdictions.
-                </p>
-            </div>
-        </div>
-    </section>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- KSA Route -->
+<div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 [mask-image:radial-gradient(ellipse_at_top_right,#000_40%,transparent_100%)]"></div>
+<div class="flex items-center space-x-3 mb-4 gap-2">
+<img src="https://flagcdn.com/w40/sa.png" alt="KSA" class="w-6 h-4 object-cover rounded-xs">
+<h3 class="font-bold text-white text-sm uppercase tracking-wider" data-en="Saudi Arabia (KSA) Route" data-am="የሳውዲ አረቢያ መስመር" data-ar="مسار المملكة العربية السعودية">Saudi Arabia (KSA) Route</h3>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed" data-en="Direct architectural integration with the Musaned Platform. Seamlessly mapping electronic contract records into the local Ethiopian E-LMIS network in perfect lockstep with the Saudi Ministry of Human Resources rules." data-am="ከሙሳነድ (Musaned) መድረክ ጋር ቀጥተኛ ውህደት። የኤሌክትሮኒክስ ውል መዝገቦችን ከሳውዲ የሰው ኃይል ሚኒስቴር ህግጋት ጋር በተገናኘ መልኩ ወደ ኢትዮጵያ E-LMIS አውታረ መرهብ ማስገባት。" data-ar="تكامل هيكلي مباشر مع منصة مساند الرقمية. ربط سجلات العقود الإلكترونية بسلاسة مع شبكة E-LMIS الإثيوبية المحلية بالتوافق التام مع قوانين وزارة الموارد البشرية السعودية.">
+Direct architectural integration with the **Musaned Platform**. Seamlessly mapping electronic contract records into the local Ethiopian E-LMIS network in perfect lockstep with the Saudi Ministry of Human Resources rules.
+</p>
+</div>
 
-    <!-- B2C Job Seekers Hub -->
-    <section id="b2c" class="py-20 bg-[#0f1115] border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                
-                <!-- Requirements Column -->
-                <div class="space-y-6">
-                    <div>
-                        <h2 class="text-2xl font-black uppercase text-white tracking-wider">Job Seeker Portal</h2>
-                        <p class="text-xs text-slate-400 mt-1">ለስራ ፈላጊዎች የተዘጋጀ መረጃ</p>
-                    </div>
+<!-- UAE Route -->
+<div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-red-500/5 [mask-image:radial-gradient(ellipse_at_top_right,#000_40%,transparent_100%)]"></div>
+<div class="flex items-center space-x-3 mb-4 gap-2">
+<img src="https://flagcdn.com/w40/ae.png" alt="UAE" class="w-6 h-4 object-cover rounded-xs">
+<h3 class="font-bold text-white text-sm uppercase tracking-wider" data-en="United Arab Emirates Track" data-am="የተባበሩት አረብ ኤምሬትስ መስመር" data-ar="مسار الإمارات العربية المتحدة">United Arab Emirates Track</h3>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed" data-en="Customized alignment serving official Tadbeer Centers. Ensuring every candidate profile undergoes a strict vetting framework engineered to exceed structural MoHRE parameters." data-am="ከታድቢር (Tadbeer) ማእከላት ጋር የተጣጣመ አሰራር። የእያንዳንዱ እጩ መገለጫ ከ MoHRE መለኪያዎች በላይ መሆኑን ለማረጋገጥ ጥብቅ ማጣሪያ ማካሄድ。" data-ar="توافق مخصص يخدم مراكز تدبير الرسمية. ضمان خضوع كل ملف مرشح لإطار تدقيق صارم مصمم ليتجاوز معايير وزارة الموارد البشرية والتوطين الإماراتية MoHRE.">
+Customized alignment serving official **Tadbeer Centers**. Ensuring every candidate profile undergoes a strict vetting framework engineered to exceed structural MoHRE parameters.
+</p>
+</div>
 
-                    <div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6">
-                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Eligibility Requirements Checklist</h4>
-                        <ul class="space-y-3 text-xs text-slate-300">
-                            <li class="flex items-start space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span>**Age Requirement:** Minimum 25 years old for Gulf domestic roles.</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span>**Passport Status:** Valid, unexpired Ethiopian Passport.</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span>**Education:** Completion of 8th-grade basic education standard.</span>
-                            </li>
-                            <li class="flex items-start space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span>**Medical Records:** Clean background check and fitness approvals.</span>
-                            </li>
-                        </ul>
-                    </div>
+<!-- Kuwait & Regional Routes -->
+<div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-slate-400/5 [mask-image:radial-gradient(ellipse_at_top_right,#000_40%,transparent_100%)]"></div>
+<div class="flex items-center space-x-3 mb-4 gap-2">
+<img src="https://flagcdn.com/w40/kw.png" alt="Kuwait" class="w-6 h-4 object-cover rounded-xs">
+<h3 class="font-bold text-white text-sm uppercase tracking-wider" data-en="Kuwait, Qatar & Oman" data-am="ኩዌት፣ ኳታር እና ኦማን" data-ar="الكويت وقطر وعمان">Kuwait, Qatar & Oman</h3>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed" data-en="Rapid logistical clearance paradigms matching the precise contours of localized bilateral labor treaties signed securely between the Federal Government of Ethiopia and individual Gulf jurisdictions." data-am="በኢትዮጵያ ፌዴራላዊ መንግሥት እና በባህረ ሰላጤው አገራት መካከል የተፈረሙ የሁለትዮሽ የሥራ ስምምነቶችን መሰረት ያደረገ ፈጣን የሎጂስቲክስና የሰነድ ክሊራንስ አሰራር。" data-ar="نماذج تخليص لوجستي سريعة تتطابق مع المعالم الدقيقة لاتفاقيات العمل الثنائية المحلية الموقعة بشكل آمن بين الحكومة الفيدرالية الإثيوبية وسلطات دول الخليج.">
+Rapid logistical clearance paradigms matching the precise contours of localized bilateral labor treaties signed securely between the Federal Government of Ethiopia and individual Gulf jurisdictions.
+</p>
+</div>
+</div>
+</section>
 
-                    <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/20 text-xs text-emerald-400">
-                        <span class="block font-bold uppercase mb-1">Zero Recruitment Fees Charged to Workers</span>
-                        In complete compliance with Ethiopian Law, we never charge recruitment fees, flight costs, or medical processing bills to domestic workers. All overhead is covered by the employer.
-                    </div>
-                </div>
+<!-- B2C Job Seekers Hub -->
+<section id="b2c" class="py-20 bg-[#0f1115] border-t border-slate-900">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
 
-                <!-- Matrix / Tables Data Structure -->
-                <div class="lg:col-span-2 space-y-8">
-                    <!-- Job Categories & Salaries Matrix -->
-                    <div class="bg-[#0b0c10] border border-slate-800 rounded-xl overflow-hidden">
-                        <div class="p-4 bg-slate-900 border-b border-slate-800">
-                            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Job Classification & Salary Matrix</h3>
-                        </div>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left text-xs border-collapse">
-                                <thead>
-                                    <tr class="text-slate-400 border-b border-slate-800 bg-slate-950">
-                                        <th class="p-3">Destination</th>
-                                        <th class="p-3">Job Category</th>
-                                        <th class="p-3">Experience Level</th>
-                                        <th class="p-3">Monthly Base Salary</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-900 text-slate-300">
-                                    <tr>
-                                        <td class="p-3 font-semibold"><img src="https://flagcdn.com/w20/sa.png" class="inline mr-1 w-4 h-2.5 object-cover"> Saudi Arabia</td>
-                                        <td class="p-3">Housemaid / Helper</td>
-                                        <td class="p-3 text-slate-500">Fresh Profile</td>
-                                        <td class="p-3 text-white font-mono">1,000 SAR</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-semibold"><img src="https://flagcdn.com/w20/sa.png" class="inline mr-1 w-4 h-2.5 object-cover"> Saudi Arabia</td>
-                                        <td class="p-3">Housemaid / Helper</td>
-                                        <td class="p-3 text-slate-500">2+ Yrs Gulf Exp</td>
-                                        <td class="p-3 text-white font-mono">1,200 SAR</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-semibold"><img src="https://flagcdn.com/w20/sa.png" class="inline mr-1 w-4 h-2.5 object-cover"> Saudi Arabia</td>
-                                        <td class="p-3">Male Driver</td>
-                                        <td class="p-3 text-slate-500">Fresh / Certified</td>
-                                        <td class="p-3 text-white font-mono">1,000 SAR</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-semibold"><img src="https://flagcdn.com/w20/kw.png" class="inline mr-1 w-4 h-2.5 object-cover"> Kuwait</td>
-                                        <td class="p-3">Housemaid / Helper</td>
-                                        <td class="p-3 text-slate-500">Fresh Profile</td>
-                                        <td class="p-3 text-white font-mono">100 KWD</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-semibold"><img src="https://flagcdn.com/w20/kw.png" class="inline mr-1 w-4 h-2.5 object-cover"> Kuwait</td>
-                                        <td class="p-3">Housemaid / Helper</td>
-                                        <td class="p-3 text-slate-500">2+ Yrs Gulf Exp</td>
-                                        <td class="p-3 text-white font-mono">110 KWD</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-semibold"><img src="https://flagcdn.com/w20/jo.png" class="inline mr-1 w-4 h-2.5 object-cover"> Jordan</td>
-                                        <td class="p-3">Domestic Worker (All)</td>
-                                        <td class="p-3 text-slate-500">Minimum Legal Limit</td>
-                                        <td class="p-3 text-white font-mono">271 USD (Net)</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+<!-- Requirements Column -->
+<div class="space-y-6">
+<div>
+<h2 class="text-2xl font-black uppercase text-white tracking-wider" data-en="Job Seeker Portal" data-am="የሥራ ፈላጊዎች ፖርታል" data-ar="بوابة الباحثين عن عمل">Job Seeker Portal</h2>
+<p class="text-xs text-slate-400 mt-1">ለስራ ፈላጊዎች የተዘጋጀ መረጃ</p>
+</div>
 
-                    <!-- Required Legal Benefits Matrix -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                        <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
-                            <span class="block font-bold text-white uppercase tracking-wider mb-2"><i class="fa-solid fa-bowl-food text-slate-500 mr-2"></i> Food & Housing</span>
-                            Employers are legally mandated to supply clean, safe living spaces alongside three high-nutrition meals per day without factoring deductions.
-                        </div>
-                        <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
-                            <span class="block font-bold text-white uppercase tracking-wider mb-2"><i class="fa-solid fa-hand-holding-medical text-slate-500 mr-2"></i> Medical Insurance</span>
-                            Comprehensive medical coverage schemes funded entirely by the employer entity across the full duration of the 2-year employment contract.
-                        </div>
-                        <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
-                            <span class="block font-bold text-white uppercase tracking-wider mb-2"><i class="fa-solid fa-plane text-slate-500 mr-2"></i> Air Travel Logistics</span>
-                            A free one-way ticket from Addis Ababa to the deployment city, alongside a valid round-trip ticket upon matching the full 2-year timeline.
-                        </div>
-                        <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
-                            <span class="block font-bold text-white uppercase tracking-wider mb-2"><i class="fa-solid fa-credit-card text-slate-500 mr-2"></i> Traceable Payments</span>
-                            Salaries processed through verified government pipelines: **Musaned / Wage Protection System (WPS)** in KSA, and monitored securely by **PAM** in Kuwait.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="bg-[#0b0c10] border border-slate-800 rounded-xl p-6">
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4" data-en="Eligibility Requirements Checklist" data-am="ሊሟሉ የሚገባቸው መስፈርቶች" data-ar="قائمة متطلبات الأهلية">Eligibility Requirements Checklist</h4>
+<ul class="space-y-3 text-xs text-slate-300">
+<li class="flex items-start space-x-2 gap-2">
+<i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
+<span data-en="**Age Requirement:** Minimum 25 years old for Gulf domestic roles." data-am="**የዕድሜ መስፈርት:** ለባህረ ሰላጤው አገራት የቤት ውስጥ ሥራ ቢያንስ 25 ዓመት የሞላው。" data-ar="**متطلبات السن:** الحد الأدنى 25 عاماً للوظائف المنزلية بالخليج.">**Age Requirement:** Minimum 25 years old for Gulf domestic roles.</span>
+</li>
+<li class="flex items-start space-x-2 gap-2">
+<i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
+<span data-en="**Passport Status:** Valid, unexpired Ethiopian Passport." data-am="**ፓስፖርት:** ህጋዊና ጊዜው ያላለፈበት የኢትዮጵያ ፓስፖርት ያለው。" data-ar="**حالة جواز السفر:** جواز سفر إثيوبي ساري المفعول وغير منتهي الصلاحية.">**Passport Status:** Valid, unexpired Ethiopian Passport.</span>
+</li>
+<li class="flex items-start space-x-2 gap-2">
+<i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
+<span data-en="**Education:** Completion of 8th-grade basic education standard." data-am="**ትምህርት:** ቢያንስ የ8ኛ ክፍል ትምህርትን ያጠናቀቀ。" data-ar="**التعليم:** إتمام التعليم الأساسي (الصف الثامن) كحد أدنى.">**Education:** Completion of 8th-grade basic education standard.</span>
+</li>
+<li class="flex items-start space-x-2 gap-2">
+<i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
+<span data-en="**Medical Records:** Clean background check and fitness approvals." data-am="**የህክምና መረጃ:** ንጹህ የጀርባ ታሪክ እና የህክምና ብቃት ማረጋገጫ ያለው。" data-ar="**السجلات الطبية:** فحص جنائي سليم وموافقات اللياقة الطبية.">**Medical Records:** Clean background check and fitness approvals.</span>
+</li>
+</ul>
+</div>
 
-    <!-- Licensing & Verification Badges -->
-    <section id="compliance" class="py-12 bg-slate-950 text-center border-b border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="block text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-6">Official Credentials & Regulatory Authentications</span>
-            <div class="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-xs text-slate-400">
-                <div class="px-4 py-2 bg-[#0b0c10] border border-slate-800 rounded-lg">
-                    <span class="block text-slate-500 text-[10px] uppercase">MoLS License Number</span>
-                    <span class="font-mono text-white font-bold">[LIC0000016246]</span>
-                </div>
-                <div class="px-4 py-2 bg-[#0b0c10] border border-slate-800 rounded-lg">
-                    <span class="block text-slate-500 text-[10px] uppercase">Business Registration Number</span>
-                    <span class="font-mono text-white font-bold">[MT/AA/14/671/2478158/2011]</span>
-                </div>
-                <div class="px-4 py-2 bg-[#0b0c10] border border-slate-800 rounded-lg">
-                    <span class="block text-slate-500 text-[10px] uppercase">Chamber of Commerce ID</span>
-                    <span class="font-mono text-white font-bold">[MT/AA/2/0048809/2011]</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/20 text-xs text-emerald-400">
+<span class="block font-bold uppercase mb-1" data-en="Zero Recruitment Fees Charged to Workers" data-am="ከሰራተኞች ምንም አይነት የቅጥር ክፍያ አይጠየቅም" data-ar="لا ክፍያ يتم فرضها على العمال الاستقدام">Zero Recruitment Fees Charged to Workers</span>
+<span data-en="In complete compliance with Ethiopian Law, we never charge recruitment fees, flight costs, or medical processing bills to domestic workers. All overhead is covered by the employer." data-am="ከኢትዮጵያ ህግ ጋር ሙሉ በሙሉ በተጣጣመ መልኩ ከቤት ውስጥ ሰራተኞች ምንም አይነት የቅጥር ክፍያ፣ የበረራ ወጪ ወይም የህክምና ሂሳብ አንጠይቅም። ሁሉም ወጪዎች በአሰሪው ይሸፈናሉ።" data-ar="امتثالاً كاملاً للقانون الإثيوبي، نحن لا نتقاضى رسوم استقدام أو تكاليف طيران أو فواتير علاجية من العمالة المنزلية. يتحمل صاحب العمل جميع التكاليف الإضافية.">In complete compliance with Ethiopian Law, we never charge recruitment fees, flight costs, or medical processing bills to domestic workers. All overhead is covered by the employer.</span>
+</div>
+</div>
 
-    <!-- Contact Us & Geo-Location Integration -->
-    <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Details Column -->
-            <div class="space-y-8">
-                <div>
-                    <h2 class="text-3xl font-black uppercase text-white tracking-wider">Contact Headquarters</h2>
-                    <p class="text-xs text-slate-400 mt-1">Get in touch directly with our operational offices in Addis Ababa.</p>
-                </div>
+<!-- Matrix / Tables Data Structure -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Job Categories & Salaries Matrix -->
+<div class="bg-[#0b0c10] border border-slate-800 rounded-xl overflow-hidden">
+<div class="p-4 bg-slate-900 border-b border-slate-800">
+<h3 class="text-sm font-bold text-white uppercase tracking-wider" data-en="Job Classification & Salary Matrix" data-am="የስራ ምድብ እና የደመወዝ ማውጫ" data-ar="مصفوفة تصنيف الوظائف والرواتب">Job Classification & Salary Matrix</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs border-collapse">
+<thead>
+<tr class="text-slate-400 border-b border-slate-800 bg-slate-950">
+<th class="p-3" data-en="Destination" data-am="መዳረሻ" data-ar="الوجهة">Destination</th>
+<th class="p-3" data-en="Job Category" data-am="የስራ አይነት" data-ar="فئة الوظيفة">Job Category</th>
+<th class="p-3" data-en="Experience Level" data-am="የልምድ ደረጃ" data-ar="مستوى الخبرة">Experience Level</th>
+<th class="p-3" data-en="Monthly Base Salary" data-am="ወርሃዊ መሰረታዊ ደመወዝ" data-ar="الراتب الأساسي الشهري">Monthly Base Salary</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-900 text-slate-300">
+<tr>
+<td class="p-3 font-semibold" data-en="Saudi Arabia" data-am="ሳውዲ አረቢያ" data-ar="المملكة العربية السعودية"><img src="https://flagcdn.com/w20/sa.png" class="inline mr-1 ml-1 w-4 h-2.5 object-cover"> Saudi Arabia</td>
+<td class="p-3" data-en="Housemaid / Helper" data-am="የቤት ሰራተኛ / ረዳት" data-ar="عاملة منزلية / مساعدة">Housemaid / Helper</td>
+<td class="p-3 text-slate-500" data-en="Fresh Profile" data-am="አዲስ" data-ar="ملف جديد">Fresh Profile</td>
+<td class="p-3 text-white font-mono dir-ltr">1,000 SAR</td>
+</tr>
+<tr>
+<td class="p-3 font-semibold" data-en="Saudi Arabia" data-am="ሳውዲ አረቢያ" data-ar="المملكة العربية السعودية"><img src="https://flagcdn.com/w20/sa.png" class="inline mr-1 ml-1 w-4 h-2.5 object-cover"> Saudi Arabia</td>
+<td class="p-3" data-en="Housemaid / Helper" data-am="የቤት ሰራተኛ / ረዳት" data-ar="عاملة منزلية / مساعدة">Housemaid / Helper</td>
+<td class="p-3 text-slate-500" data-en="2+ Yrs Gulf Exp" data-am="2+ ዓመት የባህረሰላጤ ልምድ" data-ar="خبرة سنتين أو أكثر في الخليج">2+ Yrs Gulf Exp</td>
+<td class="p-3 text-white font-mono dir-ltr">1,200 SAR</td>
+</tr>
+<tr>
+<td class="p-3 font-semibold" data-en="Saudi Arabia" data-am="ሳውዲ አረቢያ" data-ar="المملكة العربية السعودية"><img src="https://flagcdn.com/w20/sa.png" class="inline mr-1 ml-1 w-4 h-2.5 object-cover"> Saudi Arabia</td>
+<td class="p-3" data-en="Male Driver" data-am="ወንድ አሽከርካሪ" data-ar="سائق خاص">Male Driver</td>
+<td class="p-3 text-slate-500" data-en="Fresh / Certified" data-am="አዲስ / የተረጋገጠ" data-ar="جديد / رخصة معتمدة">Fresh / Certified</td>
+<td class="p-3 text-white font-mono dir-ltr">1,000 SAR</td>
+</tr>
+<tr>
+<td class="p-3 font-semibold" data-en="Kuwait" data-am="ኩዌት" data-ar="الكويت"><img src="https://flagcdn.com/w20/kw.png" class="inline mr-1 ml-1 w-4 h-2.5 object-cover"> Kuwait</td>
+<td class="p-3" data-en="Housemaid / Helper" data-am="የቤት ሰራተኛ / ረዳት" data-ar="عاملة منزلية / مساعدة">Housemaid / Helper</td>
+<td class="p-3 text-slate-500" data-en="Fresh Profile" data-am="አዲስ" data-ar="ملف جديد">Fresh Profile</td>
+<td class="p-3 text-white font-mono dir-ltr">100 KWD</td>
+</tr>
+<tr>
+<td class="p-3 font-semibold" data-en="Kuwait" data-am="ኩዌት" data-ar="الكويت"><img src="https://flagcdn.com/w20/kw.png" class="inline mr-1 ml-1 w-4 h-2.5 object-cover"> Kuwait</td>
+<td class="p-3" data-en="Housemaid / Helper" data-am="የቤት ሰራተኛ / ረዳት" data-ar="عاملة منزلية / مساعدة">Housemaid / Helper</td>
+<td class="p-3 text-slate-500" data-en="2+ Yrs Gulf Exp" data-am="2+ ዓመት የባህረሰላጤ ልምድ" data-ar="خبرة سنتين أو أكثر في الخليج">2+ Yrs Gulf Exp</td>
+<td class="p-3 text-white font-mono dir-ltr">110 KWD</td>
+</tr>
+<tr>
+<td class="p-3 font-semibold" data-en="Jordan" data-am="ጆርዳን" data-ar="الأردن"><img src="https://flagcdn.com/w20/jo.png" class="inline mr-1 ml-1 w-4 h-2.5 object-cover"> Jordan</td>
+<td class="p-3" data-en="Domestic Worker (All)" data-am="የቤት ውስጥ ሰራተኛ (ሁሉም)" data-ar="عمالة منزلية (الكل)">Domestic Worker (All)</td>
+<td class="p-3 text-slate-500" data-en="Minimum Legal Limit" data-am="አነስተኛው ህጋዊ ገደብ" data-ar="الحد الأدنى القانوني">Minimum Legal Limit</td>
+<td class="p-3 text-white font-mono dir-ltr">271 USD (Net)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
-                <!-- Structured Address Table Grid -->
-                <div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 text-xs space-y-4">
-                    <div>
-                        <span class="block text-slate-500 uppercase tracking-widest text-[10px]">Physical HQ Address</span>
-                        <p class="text-white font-medium mt-1">
-                            Addis Ketema Sub City, Region Addis Ababa, Woreda 08, House No. 540, 7th Floor, Office No. 716
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-900">
-                        <div>
-                            <span class="block text-slate-500 uppercase tracking-widest text-[10px]">Direct Phone Line</span>
-                            <a href="tel:+251922436731" class="text-white font-bold hover:text-slate-300 block mt-1">0922436731</a>
-                        </div>
-                        <div>
-                            <span class="block text-slate-500 uppercase tracking-widest text-[10px]">Secure Digital Mail</span>
-                            <a href="mailto:dallolstarma@gmail.com" class="text-white font-bold hover:text-slate-300 block mt-1">dallolstarma@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
+<!-- Required Legal Benefits Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+<div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+<span class="block font-bold text-white uppercase tracking-wider mb-2" data-en="Food & Housing" data-am="ምግብ እና መኖሪያ" data-ar="الغذاء والسكن"><i class="fa-solid fa-bowl-food text-slate-500 mr-2 ml-2"></i> Food & Housing</span>
+<span data-en="Employers are legally mandated to supply clean, safe living spaces alongside three high-nutrition meals per day without factoring deductions." data-am="አሰሪዎች ያለምንም ቅናሽ ንጹህና ደህንነቱ የተጠበቀ የመኖሪያ ቦታ እና በቀን ሶስት ጊዜ ገንቢ ምግብ የማቅረብ ህጋዊ ግዴታ አለባቸው。" data-ar="يلتزم أصحاب العمل قانوناً بتوفير سكن نظيف وآمن بالإضافة إلى ثلاث وجبات مغذية يومياً دون أي استقطاعات من الراتب.">Employers are legally mandated to supply clean, safe living spaces alongside three high-nutrition meals per day without factoring deductions.</span>
+</div>
+<div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+<span class="block font-bold text-white uppercase tracking-wider mb-2" data-en="Medical Insurance" data-am="የህክምና መድን" data-ar="التأمين الطبي"><i class="fa-solid fa-hand-holding-medical text-slate-500 mr-2 ml-2"></i> Medical Insurance</span>
+<span data-en="Comprehensive medical coverage schemes funded entirely by the employer entity across the full duration of the 2-year employment contract." data-am="ለሁለት ዓመት የሥራ ውል ጊዜ በሙሉ በአሰሪው አካል ሙሉ በሙሉ የሚሸፈን አጠቃላይ የህክምና ዋስትና。" data-ar="مخططات تغطية طبية شاملة يمولها صاحب العمل بالكامل طوال فترة عقد العمل الممتد لسنتين.">Comprehensive medical coverage schemes funded entirely by the employer entity across the full duration of the 2-year employment contract.</span>
+</div>
+<div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+<span class="block font-bold text-white uppercase tracking-wider mb-2" data-en="Air Travel Logistics" data-am="የአየር ጉዞ ሎጂስቲክስ" data-ar="لوجستيات السفر الجوي"><i class="fa-solid fa-plane text-slate-500 mr-2 ml-2"></i> Air Travel Logistics</span>
+<span data-en="A free one-way ticket from Addis Ababa to the deployment city, alongside a valid round-trip ticket upon matching the full 2-year timeline." data-am="ከአዲስ አበባ ወደ ተሰማራበት ከተማ ነፃ የአንድ ወገን ትኬት自由 እንዲሁም የ2 ዓመት የስራ ጊዜ ሲያልቅ የደርሶ መልስ ትኬት ማግኘት。" data-ar="تذكرة ذهاب مجانية من أديس أبابا إلى مدينة التوظيف، تليها تذكرة عودة صالحة عند إتمام العقد المحدد بسنتين كاملتين.">A free one-way ticket from Addis Ababa to the deployment city, alongside a valid round-trip ticket upon matching the full 2-year timeline.</span>
+</div>
+<div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+<span class="block font-bold text-white uppercase tracking-wider mb-2" data-en="Traceable Payments" data-am="ክትትል የሚደረግበት ክፍያ" data-ar="رواتب خاضعة للتتبع"><i class="fa-solid fa-credit-card text-slate-500 mr-2 ml-2"></i> Traceable Payments</span>
+<span data-en="Salaries processed through verified government pipelines: Musaned / Wage Protection System (WPS) in KSA, and monitored securely by PAM in Kuwait." data-am="ደመወዝ በሕጋዊ የመንግስት መስመሮች በኩል ይከናወናል፡ በሳውዲ አረቢያ በ Musaned / WPS፣ እና በኩዌት በ PAM በኩል በአስተማማኝ ሁኔታ ቁጥጥር ይደረግበታል።" data-ar="تتم معالجة الرواتب عبر القنوات الحكومية المعتمدة: مساند / نظام حماية الأجور (WPS) في السعودية، ومراقبتها بأمان من قبل الهيئة العامة للقوى العاملة (PAM) في الكويت.">Salaries processed through verified government pipelines: **Musaned / Wage Protection System (WPS)** in KSA, and monitored securely by **PAM** in Kuwait.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-                <!-- Floating/Sticky Messaging Channel Links -->
-                <div class="flex flex-wrap gap-4 text-xs font-bold uppercase">
-                    <a href="https://wa.me/251922436731" target="_blank" class="flex items-center space-x-2 px-6 py-3 bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 rounded-xl hover:bg-emerald-500 hover:text-black transition-colors">
-                        <i class="fa-brands fa-whatsapp text-base"></i>
-                        <span>WhatsApp Connect</span>
-                    </a>
-                    <a href="https://t.me/dallolstarma" class="flex items-center space-x-2 px-6 py-3 bg-sky-950/80 text-sky-400 border border-sky-500/30 rounded-xl hover:bg-sky-500 hover:text-black transition-colors">
-                        <i class="fa-brands fa-telegram text-base"></i>
-                        <span>Telegram Channel</span>
-                    </a>
-                </div>
-            </div>
+<!-- Licensing & Verification Badges -->
+<section id="compliance" class="py-12 bg-slate-950 text-center border-b border-slate-900">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="block text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-6" data-en="Official Credentials & Regulatory Authentications" data-am="ይፋዊ የምስክር ወረቀቶች እና ህጋዊ ማረጋገጫዎች" data-ar="الوثائق الرسمية والاعتمادات التنظيمية">Official Credentials & Regulatory Authentications</span>
+<div class="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-xs text-slate-400">
+<div class="px-4 py-2 bg-[#0b0c10] border border-slate-800 rounded-lg">
+<span class="block text-slate-500 text-[10px] uppercase" data-en="MoLS License Number" data-am="የሥራና ክህሎት ሚኒስቴር የፈቃድ ቁጥር" data-ar="رقم رخصة وزارة العمل">MoLS License Number</span>
+<span class="font-mono text-white font-bold">[LIC0000016246]</span>
+</div>
+<div class="px-4 py-2 bg-[#0b0c10] border border-slate-800 rounded-lg">
+<span class="block text-slate-500 text-[10px] uppercase" data-en="Business Registration Number" data-am="የንግድ ምዝገባ ቁጥር" data-ar="رقم السجل التجاري">Business Registration Number</span>
+<span class="font-mono text-white font-bold">[MT/AA/14/671/2478158/2011]</span>
+</div>
+<div class="px-4 py-2 bg-[#0b0c10] border border-slate-800 rounded-lg">
+<span class="block text-slate-500 text-[10px] uppercase" data-en="Chamber of Commerce ID" data-am="የንግድ ምክር ቤት መታወቂያ" data-ar="رقم الغرفة التجارية">Chamber of Commerce ID</span>
+<span class="font-mono text-white font-bold">[MT/AA/2/0048809/2011]</span>
+</div>
+</div>
+</div>
+</section>
 
-            <!-- Google Maps Responsive Container Framework -->
-            <div class="w-full h-80 lg:h-auto rounded-2xl border border-slate-800 overflow-hidden bg-slate-900 relative">
-                <!-- Fallback Link/Iframe configuration pointing to user structural map link -->
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5478440263673!2d38.7309651!3d9.0322782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b876f8251ca03%3A0x9946cffa4960d2e3!2sAddis%20ketema%20sub%20city%20wereda%208!5e0!3m2!1sen!2set!4v1719340000000!5m2!1sen!2set" 
-                    class="w-full h-full border-0 grayscale filter contrast-125 opacity-80" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
+<!-- Contact Us & Geo-Location Integration -->
+<section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Details Column -->
+<div class="space-y-8">
+<div>
+<h2 class="text-3xl font-black uppercase text-white tracking-wider" data-en="Contact Headquarters" data-am="ዋናውን መስሪያ ቤት ያግኙ" data-ar="الاتصال بالمقر الرئيسي">Contact Headquarters</h2>
+<p class="text-xs text-slate-400 mt-1" data-en="Get in touch directly with our operational offices in Addis Ababa." data-am="በአዲስ አበባ ከሚገኘው የሥራ ማስኬጃ ቢሯችን ጋር በቀጥታ ይገናኙ。" data-ar="تواصل مباشرة مع مكاتبنا التشغيلية في أديس أبابا.">Get in touch directly with our operational offices in Addis Ababa.</p>
+</div>
 
-    <!-- Bottom Global Footer System -->
-    <footer class="bg-slate-950 text-slate-500 border-t border-slate-900 py-8 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-                <span class="block text-slate-400 font-bold tracking-wide">MAHI FOREIGN EMPLOYMENT AGENT PLC</span>
-                <span class="text-[10px] block mt-0.5">© 2026 Legal Operations Framework. All Rights Reserved.</span>
-            </div>
-            <div class="flex space-x-6 text-[11px]">
-                <a href="#compliance" class="hover:text-white">Privacy Regulations</a>
-                <a href="#b2b" class="hover:text-white">B2B Portal Terms</a>
-                <a href="https://wa.me/251911661718" target="_blank" class="hover:text-white"><i class="fa-brands fa-whatsapp text-emerald-500 mr-1"></i> Alternate Support (0911661718)</a>
-            </div>
-        </div>
-    </footer>
+<!-- Structured Address Table Grid -->
+<div class="bg-[#0f1115] border border-slate-800 rounded-xl p-6 text-xs space-y-4">
+<div>
+<span class="block text-slate-500 uppercase tracking-widest text-[10px]" data-en="Physical HQ Address" data-am="የቢሮ አድራሻ" data-ar="العنوان الفعلي للمقر الرئيسي">Physical HQ Address</span>
+<p class="text-white font-medium mt-1" data-en="Addis Ketema Sub City, Region Addis Ababa, Woreda 08, House No. 540, 7th Floor, Office No. 716" data-am="አዲስ ከተማ ክፍለ ከተማ፣ አዲስ አበባ ክልል፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ የቢሮ ቁጥር 716" data-ar="حي أديس كيتيما الفرعي، منطقة أديس أبابا، ووريدا 08، منزل رقم 540، الطابق السابع، مكتب رقم 716">
+Addis Ketema Sub City, Region Addis Ababa, Woreda 08, House No. 540, 7th Floor, Office No. 716
+</p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-900">
+<div>
+<span class="block text-slate-500 uppercase tracking-widest text-[10px]" data-en="Direct Phone Line" data-am="ቀጥታ ስልክ መስመር" data-ar="خط الهاتف المباشر">Direct Phone Line</span>
+<a href="tel:+251922436731" class="text-white font-bold hover:text-slate-300 block mt-1 dir-ltr">0922436731</a>
+</div>
+<div>
+<span class="block text-slate-500 uppercase tracking-widest text-[10px]" data-en="Secure Digital Mail" data-am="ኢሜይል አድራሻ" data-ar="البريد الإلكتروني الآمن">Secure Digital Mail</span>
+<a href="mailto:dallolstarma@gmail.com" class="text-white font-bold hover:text-slate-300 block mt-1 dir-ltr">dallolstarma@gmail.com</a>
+</div>
+</div>
+</div>
 
-    <!-- Fixed Floating WhatsApp Contextual Button -->
-    <a href="https://wa.me/251922436731" target="_blank" class="fixed bottom-6 right-6 z-50 p-4 bg-emerald-500 text-black font-bold rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-110 hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] transition-all" title="Chat on WhatsApp">
-        <i class="fa-brands fa-whatsapp text-2xl block"></i>
-    </a>
+<!-- Floating/Sticky Messaging Channel Links -->
+<div class="flex flex-wrap gap-4 text-xs font-bold uppercase">
+<a href="https://wa.me/251922436731" target="_blank" class="flex items-center space-x-2 px-6 py-3 bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 rounded-xl hover:bg-emerald-500 hover:text-black transition-colors gap-2">
+<i class="fa-brands fa-whatsapp text-base"></i>
+<span data-en="WhatsApp Connect" data-am="በዋትስአፕ ይገናኙ" data-ar="التواصل عبر الواتساب">WhatsApp Connect</span>
+</a>
+<a href="https://t.me/dallolstarma" class="flex items-center space-x-2 px-6 py-3 bg-sky-950/80 text-sky-400 border border-sky-500/30 rounded-xl hover:bg-sky-500 hover:text-black transition-colors gap-2">
+<i class="fa-brands fa-telegram text-base"></i>
+<span data-en="Telegram Channel" data-am="ቴሌግራም ቻናል" data-ar="قناة التليجرام">Telegram Channel</span>
+</a>
+</div>
+</div>
+
+<!-- Google Maps Responsive Container Framework -->
+<div class="w-full h-80 lg:h-auto rounded-2xl border border-slate-800 overflow-hidden bg-slate-900 relative">
+<!-- Fallback Link/Iframe configuration pointing to user structural map link -->
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5478440263673!2d38.7309651!3d9.0322782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b876f8251ca03%3A0x9946cffa4960d2e3!2sAddis%20ketema%20sub%20city%20wereda%208!5e0!3m2!1sen!2set!4v1719340000000!5m2!1sen!2set"
+class="w-full h-full border-0 grayscale filter contrast-125 opacity-80"
+allowfullscreen=""
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+</div>
+</section>
+
+<!-- Bottom Global Footer System -->
+<footer class="bg-slate-950 text-slate-500 border-t border-slate-900 py-8 text-xs">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<div>
+<span class="block text-slate-400 font-bold tracking-wide">MAHI FOREIGN EMPLOYMENT AGENT PLC</span>
+<span class="text-[10px] block mt-0.5">© 2026 Legal Operations Framework. All Rights Reserved.</span>
+</div>
+<div class="flex space-x-6 text-[11px] gap-4">
+<a href="#compliance" class="hover:text-white" data-en="Privacy Regulations" data-am="የግላዊነት ደንቦች" data-ar="سياسة الخصوصية">Privacy Regulations</a>
+<a href="#b2b" class="hover:text-white" data-en="B2B Portal Terms" data-am="የB2B መመሪያዎች" data-ar="شروط بوابة B2B">B2B Portal Terms</a>
+<a href="https://wa.me/251911661718" target="_blank" class="hover:text-white flex items-center gap-1"><i class="fa-brands fa-whatsapp text-emerald-500"></i> <span data-en="Alternate Support (0911661718)" data-am="ተለዋጭ ድጋፍ (0911661718)" data-ar="الدعم البديل (0911661718)">Alternate Support (0911661718)</span></a>
+</div>
+</div>
+</footer>
+
+<!-- Fixed Floating WhatsApp Contextual Button -->
+<a href="https://wa.me/251922436731" target="_blank" class="fixed bottom-6 right-6 z-50 p-4 bg-emerald-500 text-black font-bold rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-110 hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] transition-all" title="Chat on WhatsApp">
+<i class="fa-brands fa-whatsapp text-2xl block"></i>
+</a>
+
+<!-- Dynamic Language Toggling Script Logic -->
+<script>
+document.getElementById('langSwitcher').addEventListener('change', function() {
+    const selectedLang = this.value;
+    
+    // Auto toggle Text Direction for Arabic (RTL Mode)
+    if (selectedLang === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+    }
+    
+    // Update structural text elements containing data attributes
+    document.querySelectorAll('[data-en]').forEach(element => {
+        const translation = element.getAttribute('data-' + selectedLang);
+        if (translation) {
+            element.innerHTML = translation;
+        }
+    });
+
+    // Handle interactive inputs like placeholder strings dynamically
+    const accessCodeInput = document.getElementById('accessCodeInput');
+    if (accessCodeInput) {
+        if (selectedLang === 'am') {
+            accessCodeInput.placeholder = "የመግቢያ ኮድ ያስገቡ";
+        } else if (selectedLang === 'ar') {
+            accessCodeInput.placeholder = "أدخل رمز الوصول";
+        } else {
+            accessCodeInput.placeholder = "Enter Access Code";
+        }
+    }
+});
+</script>
+
+<!-- Inline Utility CSS Helpers for Left-To-Right Forced Overrides on phone/numbers -->
+<style>
+.dir-ltr { direction: ltr !important; unicode-bidi: embed; }
+</style>
 
 </body>
 </html>
