@@ -14,7 +14,10 @@
             --neon-cyan: #00f3ff;
             --neon-glow: rgba(0, 243, 255, 0.4);
             --text-main: #f0f2f5;
-            --transition-speed: 0.4s;
+            /* Implementation Rules: Snappy, premium mobile-first speeds (< 0.5s) */
+            --transition-speed: 0.25s;
+            /* Implementation Rules: Consistent global border radius across all assets */
+            --border-radius: 8px;
         }
 
         * {
@@ -29,14 +32,14 @@
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
-            transition: direction 0.3s ease;
+            transition: direction var(--transition-speed) ease;
         }
 
-        /* --- Custom Pop-In & Pop-Out Animations --- */
+        /* --- Snappy Mobile-First Animations --- */
         .pop-target {
-            transform: scale(0.92);
+            transform: scale(0.96);
             opacity: 0;
-            transition: transform var(--transition-speed) cubic-bezier(0.34, 1.56, 0.64, 1), 
+            transition: transform var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1), 
                         opacity var(--transition-speed) ease;
         }
 
@@ -46,14 +49,38 @@
         }
 
         .hover-pop {
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+            transition: transform var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1), 
+                        box-shadow var(--transition-speed) ease;
         }
         .hover-pop:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px var(--neon-glow);
+            transform: scale(1.03);
+            box-shadow: 0 0 15px var(--neon-glow);
         }
 
-        /* --- Header & Sticky Navigation --- */
+        /* --- Contextual Image / Media Boxes --- */
+        .context-media {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, rgba(30,34,43,0.8) 0%, rgba(13,15,18,0.9) 100%);
+            border: 1px dashed rgba(0, 243, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: var(--silver-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius); /* Consistent corner mapping */
+        }
+        .context-media i {
+            font-size: 2.5rem;
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+        }
+
+        /* --- Header & Navigation --- */
         header {
             position: sticky;
             top: 0;
@@ -71,11 +98,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-        }
-
-        .logo-area {
-            display: flex;
-            flex-direction: column;
         }
 
         .logo-area h1 {
@@ -104,8 +126,8 @@
             font-size: 0.85rem;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s;
+            border-radius: calc(var(--border-radius) / 2);
+            transition: all var(--transition-speed);
         }
 
         .lang-btn.active {
@@ -115,14 +137,9 @@
             background: rgba(0, 243, 255, 0.05);
         }
 
-        .lang-btn:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-        }
-
         /* --- Hero Section --- */
         .hero {
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
             background: linear-gradient(180deg, var(--silver-dark) 0%, var(--bg-dark) 100%);
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -134,33 +151,40 @@
         }
 
         .hero h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
             color: #fff;
             text-shadow: 0 0 15px var(--neon-glow);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--silver-light);
-            margin-bottom: 40px;
+            margin-bottom: 35px;
+        }
+
+        .hero-context-box {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            border: 1px solid rgba(0, 243, 255, 0.2);
         }
 
         .cta-group {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 15px 30px;
+            padding: 14px 28px;
             font-size: 1rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s;
+            border-radius: var(--border-radius);
+            transition: all var(--transition-speed);
             cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
@@ -175,17 +199,17 @@
             color: var(--text-main);
         }
 
-        /* --- Info Section Grid --- */
+        /* --- Info Section Layouts --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
+            font-size: 1.8rem;
+            margin-bottom: 35px;
             border-inline-start: 4px solid var(--neon-cyan);
             padding-inline-start: 15px;
             display: inline-block;
@@ -194,73 +218,72 @@
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
         }
 
         .card {
             background: var(--silver-dark);
             border: 1px solid rgba(255,255,255,0.05);
             border-top: 3px solid var(--neon-cyan);
-            padding: 30px;
-            border-radius: 6px;
+            padding: 25px;
+            border-radius: var(--border-radius);
         }
 
-        /* --- Large Flags Section --- */
+        /* --- Rule of Context: Salary/Market Destination Flag Icons --- */
         .flag-container {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .flag-card {
             background: var(--silver-dark);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             text-align: center;
-            width: 180px;
-            border: 1px solid rgba(0, 243, 255, 0.2);
+            width: 170px;
+            border: 1px solid rgba(0, 243, 255, 0.15);
         }
 
         .flag-icon {
-            font-size: 4.5rem;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            margin-bottom: 8px;
             display: block;
-            filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
         }
 
-        /* --- General Manager & Icon Animation --- */
+        /* --- About Section: Corporate Governance & Team Box --- */
         .manager-box {
             display: flex;
             align-items: center;
             gap: 20px;
             background: rgba(255,255,255,0.02);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             border-inline-start: 4px solid var(--neon-cyan);
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .manager-avatar {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--neon-cyan);
-            animation: floatAnimation 3s ease-in-out infinite;
-        }
-
-        @keyframes floatAnimation {
-            0% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-8px) scale(1.05); filter: drop-shadow(0 0 8px var(--neon-cyan)); }
-            100% { transform: translateY(0px) scale(1); }
         }
 
         /* --- Structured Data Tables --- */
         .table-responsive {
             overflow-x: auto;
-            margin: 30px 0;
+            margin: 25px 0;
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 6px;
+            border-radius: var(--border-radius);
         }
 
         table {
@@ -271,21 +294,60 @@
         }
 
         th, td {
-            padding: 15px 20px;
+            padding: 14px 18px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         th {
-            background-color: rgba(0, 243, 255, 0.1);
+            background-color: rgba(0, 243, 255, 0.08);
             color: var(--neon-cyan);
             font-weight: bold;
         }
 
-        tr:hover {
-            background: rgba(255,255,255,0.02);
+        /* --- Input Forms Elements --- */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--silver-light);
+            font-size: 0.95rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: rgba(13, 15, 18, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            color: #fff;
+            font-size: 1rem;
+            transition: border-color var(--transition-speed);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 8px var(--neon-glow);
         }
 
-        /* --- Footer & Floating Widget --- */
+        /* --- Lists Styling --- */
+        .check-list {
+            list-style: none;
+        }
+        .check-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-inline-start: 25px;
+        }
+        .check-list li::before {
+            content: "✓";
+            position: absolute;
+            inline-start: 0;
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        /* --- Footer & Widgets --- */
         footer {
             background: #080a0d;
             padding: 40px 20px;
@@ -313,27 +375,27 @@
             right: 30px;
             background: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 28px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             z-index: 9999;
             text-decoration: none;
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-speed) ease;
         }
         body[dir="rtl"] .floating-whatsapp {
             right: auto;
             left: 30px;
         }
         .floating-whatsapp:hover {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
-        /* --- Multi-Language Rendering Rules --- */
+        /* --- Multi-Language CSS Rendering Engine --- */
         .lang-en .am, .lang-en .ar,
         .lang-am .en, .lang-am .ar,
         .lang-ar .en, .lang-ar .am {
@@ -370,21 +432,29 @@
             <p class="en">MAHI FOREIGN EMPLOYMENT AGENT PLC is a premier, fully licensed international recruitment agency based in Addis Ababa, Ethiopia. We specialize in ethical sourcing, comprehensive training, and legal deployment under Proclamation No. 923/2016.</p>
             <p class="am">ማሂ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ማህበር በአዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሙሉ በሙሉ ፈቃድ ያገኘ እና በታማኝነት የሚሰራ መሪ ኤጀንሲ ነው።</p>
             <p class="ar">شركة ماهي المحدودة للتوظيف الخارجي هي وكالة توظيف دولية رائدة ومرخصة بالكامل ومقرها أديس أبابا، إثيوبيا. نحن متخصصون في التوظيف الأخلاقي، والتدريب الشامل، والإرسال القانوني بموجب الإعلان رقم 923/2016.</p>
+
+            <!-- Rule of Context: Hero Section Professional Training Setting Visual Placeholder -->
+            <div class="context-media hero-context-box">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span class="en"><strong>[Visual Layout: Government Approved Pre-Departure TVET Training Center Operations]</strong></span>
+                <span class="am"><strong>[የዕይታ ማሳያ፡ በሕግ የተፈቀደና እውቅና ያለው የቅድመ-ጉዞ ቲቪኢቲ ስልጠና ማዕከል]</strong></span>
+                <span class="ar"><strong>[العرض البصري: عمليات مركز التدريب المهني المستمر المعتمد رسميًا]</strong></span>
+            </div>
             
             <div class="cta-group">
-                <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop en">Request Manpower</a>
-                <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop am">የሠራተኛ ጥያቄ ያቅርቡ</a>
-                <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop ar">طلب أيدي عاملة</a>
+                <a href="#vacancies" class="btn btn-primary hover-pop en">Explore Vacancies</a>
+                <a href="#vacancies" class="btn btn-primary hover-pop am">ክፍት የስራ መደቦችን እይ</a>
+                <a href="#vacancies" class="btn btn-primary hover-pop ar">تصفح الوظائف الشاغرة</a>
                 
-                <a href="#compliance" class="btn btn-secondary hover-pop en">View Credentials</a>
-                <a href="#compliance" class="btn btn-secondary hover-pop am">ሕጋዊ ፈቃዶችን ይመልከቱ</a>
-                <a href="#compliance" class="btn btn-secondary hover-pop ar">عرض التراخيص والاعتمادات</a>
+                <a href="#portal" class="btn btn-secondary hover-pop en">Register to Work</a>
+                <a href="#portal" class="btn btn-secondary hover-pop am">አሁኑኑ ይመዝገቡ</a>
+                <a href="#portal" class="btn btn-secondary hover-pop ar">سجل للعمل الآن</a>
             </div>
         </div>
     </section>
 
     <div class="container">
-        <!-- Big Flag Display Market Lanes -->
+        <!-- Rule of Context: Salary & Destination Flag Corridors Section -->
         <div style="text-align: center; margin-bottom: 50px;" class="pop-target">
             <h3 class="section-title en">Primary Market Destination Lanes</h3>
             <h3 class="section-title am">ዋና የሥራ መዳረሻ አገራት</h3>
@@ -418,8 +488,133 @@
             </div>
         </div>
 
+        <!-- ================= JOB SEEKERS (CANDIDATE SECTION) ================= -->
+        <div id="vacancies" style="margin-top: 40px; scroll-margin-top: 100px;">
+            <div style="text-align: center;">
+                <h3 class="section-title en">For Job Seekers & Candidates</h3>
+                <h3 class="section-title am">ለስራ ፈላጊዎችና ተወዳዳሪዎች</h3>
+                <h3 class="section-title ar">قسم الباحثين عن عمل والمرشحين</h3>
+            </div>
+
+            <!-- Open Vacancies Grid -->
+            <div class="pop-target" style="margin-top: 20px;">
+                <h4 class="en" style="color:var(--neon-cyan); margin-bottom:20px;"><i class="fa-solid fa-briefcase"></i> Current Open Opportunities</h4>
+                <h4 class="am" style="color:var(--neon-cyan); margin-bottom:20px;"><i class="fa-solid fa-briefcase"></i> ወቅታዊ ክፍት የሥራ ዕድሎች</h4>
+                <h4 class="ar" style="color:var(--neon-cyan); margin-bottom:20px;"><i class="fa-solid fa-briefcase"></i> الوظائف الشاغرة المتاحة حالياً</h4>
+                
+                <div class="grid-3">
+                    <div class="card hover-pop">
+                        <span style="font-size: 2rem;">🇸🇦</span>
+                        <h4 class="en">Saudi Arabia</h4><h4 class="am">ሳውዲ አረቢያ</h4><h4 class="ar">المملكة العربية السعودية</h4>
+                        <p style="color:var(--neon-cyan)" class="en">Role: Housemaid / Driver</p>
+                        <p style="color:var(--neon-cyan)" class="am">የሥራ መደብ: የቤት ውስጥ ሠራተኛ / አሽከርካሪ</p>
+                        <p style="color:var(--neon-cyan)" class="ar">الوظيفة: عاملة منزلية / سائق</p>
+                        <p class="en" style="font-size:0.9rem; color:var(--silver-light);">Legal contracts matching system infrastructure requirements instantly.</p>
+                        <p class="am" style="font-size:0.9rem; color:var(--silver-light);">በሕጋዊ መንገድ ፈጣን የስራ ውል አሰማራት ሂደት።</p>
+                        <p class="ar" style="font-size:0.9rem; color:var(--silver-light);">عقود قانونية متوافقة بالكامل مع متطلبات الأنظمة الرسمية.</p>
+                    </div>
+                    <div class="card hover-pop">
+                        <span style="font-size: 2rem;">🇰🇼</span>
+                        <h4 class="en">Kuwait</h4><h4 class="am">ኩዌት</h4><h4 class="ar">الكويت</h4>
+                        <p style="color:var(--neon-cyan)" class="en">Role: Home Cook / Maid</p>
+                        <p style="color:var(--neon-cyan)" class="am">የሥራ መደብ: የቤት ውስጥ ምግብ አሰናጅ / ሠራተኛ</p>
+                        <p style="color:var(--neon-cyan)" class="ar">الوظيفة: طباخ منزلي / عاملة</p>
+                        <p class="en" style="font-size:0.9rem; color:var(--silver-light);">Sustained positions with fully vetted employer networks.</p>
+                        <p class="am" style="font-size:0.9rem; color:var(--silver-light);">አስተማማኝ በሆኑ አሰሪዎች ዘንድ የተዘጋጁ የሥራ እድሎች።</p>
+                        <p class="ar" style="font-size:0.9rem; color:var(--silver-light);">فرص مستمرة في شبكات أصحاب العمل الموثقين.</p>
+                    </div>
+                    <div class="card hover-pop">
+                        <span style="font-size: 2rem;">🇯🇴</span>
+                        <h4 class="en">Jordan</h4><h4 class="am">ዮርዳኖስ</h4><h4 class="ar">الأردن</h4>
+                        <p style="color:var(--neon-cyan)" class="en">Role: Domestic Helper (All)</p>
+                        <p style="color:var(--neon-cyan)" class="am">የሥራ መደብ: የቤት ውስጥ ረዳት (ሁሉም)</p>
+                        <p style="color:var(--neon-cyan)" class="ar">الوظيفة: مساعدات منزليات (جميع الفئات)</p>
+                        <p class="en" style="font-size:0.9rem; color:var(--silver-light);">Fully guaranteed legal placement matching bilateral standards.</p>
+                        <p class="am" style="font-size:0.9rem; color:var(--silver-light);">በሁለትዮሽ ስምምነቶች መሠረት የተጠበቁ ጥቅማጥቅሞች ያሉት።</p>
+                        <p class="ar" style="font-size:0.9rem; color:var(--silver-light);">عقود توظيف آمنة متوافقة تماماً مع الاتفاقيات الثنائية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requirements and Online Registration Portal Split Section -->
+            <div class="grid-2 pop-target" id="portal" style="scroll-margin-top: 100px;">
+                <!-- Requirements Checklist -->
+                <div class="card hover-pop">
+                    <h4 class="en" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-clipboard-list"></i> Eligibility Requirements</h4>
+                    <h4 class="am" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-clipboard-list"></i> ተፈላጊ መስፈርቶች ማረጋገጫ</h4>
+                    <h4 class="ar" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-clipboard-list"></i> شروط ومعايير الأهلية للقبول</h4>
+                    
+                    <ul class="check-list">
+                        <li class="en"><strong>Minimum Age Constraint:</strong> Must be 25 years old or above for legal GCC placement[cite: 1].</li>
+                        <li class="am"><strong>የዕድሜ ገደብ:</strong> በሕግ የተቀመጠውን መስፈርት ለማሟላት ዕድሜ 25 ዓመት ወይም ከዚያ በላይ መሆን አለበት[cite: 1]።</li>
+                        <li class="ar"><strong>حد السن القانوني:</strong> يجب أن يكون العمر 25 عاماً فما فوق للإرسال الرسمي[cite: 1].</li>
+                        
+                        <li class="en"><strong>Valid Travel Documentation:</strong> Must hold a valid Ethiopian Passport[cite: 1].</li>
+                        <li class="am"><strong>የጉዞ ሰነድ:</strong> ፀንቶ የቆየ የኢትዮጵያ ፓስፖርት ሊኖርዎት ይገባል[cite: 1]።</li>
+                        <li class="ar"><strong>وثائق سفر سارية:</strong> امتلاك جواز سفر إثيوبي ساري المفعول[cite: 1].</li>
+                        
+                        <li class="en"><strong>Education Prerequisites:</strong> Completion of basic structural school education level or training programs[cite: 1].</li>
+                        <li class="am"><strong>የትምህርት ደረጃ:</strong> መሠረታዊ ትምህርት ወይም ተዛማጅ የስልጠና ፕሮግራሞችን ያጠናቀቀ[cite: 1]።</li>
+                        <li class="ar"><strong>المؤهلات التعليمية:</strong> إتمام مستوى التعليم الأساسي أو البرامج التدريبية المخصصة[cite: 1].</li>
+                        
+                        <li class="en"><strong>Certified Medical Records:</strong> Passing legal approved medical fitness checks cleanly[cite: 1].</li>
+                        <li class="am"><strong>የጤና ምርመራ ማረጋገጫ:</strong> ህጋዊ የህክምና ምርመራዎችን በተሳካ ሁኔታ ማለፍ[cite: 1]።</li>
+                        <li class="ar"><strong>سجل طبي معتمد:</strong> اجتياز كافة فحوصات اللياقة الطبية الرسمية بنجاح[cite: 1].</li>
+                    </ul>
+                </div>
+
+                <!-- Simple Lightweight Application Portal Form -->
+                <div class="card hover-pop">
+                    <h4 class="en" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-user-plus"></i> Lightweight Registration Portal</h4>
+                    <h4 class="am" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-user-plus"></i> ፈጣን የመመዝገቢያ ፎርም</h4>
+                    <h4 class="ar" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-user-plus"></i> بوابة التسجيل السريع للمرشحين</h4>
+                    
+                    <form onsubmit="event.preventDefault(); alert('Registration submitted successfully / ምዝገባው ተሳክቷል / تم التسجيل بنجاح');">
+                        <div class="form-group">
+                            <label class="en">Full Name</label><label class="am">ሙሉ ስም</label><label class="ar">الاسم الكامل</label>
+                            <input type="text" class="form-control" required placeholder="...">
+                        </div>
+                        <div class="form-group">
+                            <label class="en">Phone Number</label><label class="am">ስልክ ቁጥር</label><label class="ar">رقم الهاتف</label>
+                            <input type="tel" class="form-control" required placeholder="09...">
+                        </div>
+                        <div class="form-group">
+                            <label class="en">Preferred Target Destination</label><label class="am">መሄድ የሚፈልጉበት አገር</label><label class="ar">الوجهة المفضلة المختارة</label>
+                            <select class="form-control">
+                                <option value="saudi">Saudi Arabia / ሳውዲ አረቢያ / السعودية</option>
+                                <option value="kuwait">Kuwait / ኩዌት / الكويت</option>
+                                <option value="jordan">Jordan / ዮርዳኖስ / الأردن</option>
+                                <option value="uae">UAE / የተባበሩት አረብ ኤምሬትስ / الإمارات</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="en">Upload Clear Photo or Passport Copy</label><label class="am">የፓስፖርት ወይም የፎቶ ኮፒ ያያይዙ</label><label class="ar">ارفاق صورة واضحة أو نسخة من جواز السفر</label>
+                            <input type="file" class="form-control" accept="image/*,application/pdf">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <span class="en">Submit Registration Form</span>
+                            <span class="am">ምዝገባውን አጠናቅቅ</span>
+                            <span class="ar">إرسال طلب التسجيل</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Safety & Transparency Guide Section -->
+            <div class="card pop-target hover-pop" style="margin-top: 30px; border-inline-start: 4px solid var(--neon-cyan);">
+                <h4 class="en" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-shield-halved"></i> Safety & Transparency Framework Guide</h4>
+                <h4 class="am" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-shield-halved"></i> የደህንነት እና ግልፅነት መመሪያ ማብራሪያ</h4>
+                <h4 class="ar" style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-shield-halved"></i> دليل حماية العامل والشفافية القانونية</h4>
+                
+                <p class="en">We explicitly protect your structural workflow rights abroad. Standard contract lengths span a predefined <strong>2-year legal duration framework</strong>[cite: 1]. Full medical insurance coverage protection remains completely active and sustained for the entire lifetime of your deployment contract[cite: 1]. If you encounter breaches, anomalies, or need guidance while deployed abroad, implement the clear contact steps immediately via our active direct hotline support channels[cite: 1].</p>
+                <p class="am">በውጭ አገር በሚቆዩበት ጊዜ መብቶችዎ ሙሉ በሙሉ የተጠበቁ ናቸው። መደበኛ የኮንትራት ጊዜ <strong>የ2 ዓመት ሕጋዊ የቆይታ ጊዜን</strong> ያጠቃልላል[cite: 1]። ሙሉ የህክምና መድን ዋስትና በኮንትራትዎ ዘመን ሁሉ ሙሉ በሙሉ ንቁ ሆኖ ይቆያል[cite: 1]። በውጭ አገር እያሉ ማንኛውም ችግር ወይም ድጋፍ ከፈለጉ በእኛ ቀጥተኛ የስልክ መስመሮች አማካኝነት አስቸኳይ የግንኙነት እርምጃዎችን መውሰድ ይችላሉ[cite: 1]።</p>
+                <p class="ar">نحن نضمن حماية حقوقك القانونية بشكل كامل طوال فترة العمل في الخارج. تبلغ المدة القياسية لتعاقدات العمل المنزلي <strong>سنتين كاملتين بموجب القانون</strong>[cite: 1]. تظل تغطية التأمين الطبي شاملة ونشطة طوال فترة سريان العقد دون انقطاع[cite: 1]. وفي حال مواجهة أي صعوبات أو الحاجة إلى توجيه، يمكنك اتخاذ خطوات اتصال واضحة ومباشرة الفورية عبر قنوات خط المساعدة الساخنة المخصصة لنا[cite: 1].</p>
+            </div>
+        </div>
+        <!-- ======================================================================= -->
+
         <!-- Agency Profile & Management Structure -->
-        <div class="grid-2 pop-target" id="compliance">
+        <div class="grid-2 pop-target" id="compliance" style="margin-top: 60px;">
             <div class="card hover-pop">
                 <h3 class="en" style="color:var(--neon-cyan); margin-bottom:15px;">Official Compliance & Credentials</h3>
                 <h3 class="am" style="color:var(--neon-cyan); margin-bottom:15px;">ሕጋዊ መረጃዎችና ማረጋገጫዎች</h3>
@@ -446,6 +641,14 @@
                 <h3 class="en" style="color:var(--neon-cyan); margin-bottom:15px;">Agency Governance</h3>
                 <h3 class="am" style="color:var(--neon-cyan); margin-bottom:15px;">የኩባንያው አመራር</h3>
                 <h3 class="ar" style="color:var(--neon-cyan); margin-bottom:15px;">إدارة الوكالة</h3>
+
+                <!-- Rule of Context: About/Governance Team Group & Office Space Placeholder -->
+                <div class="context-media">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span class="en"><strong>[Visual Layout: HQ Office Executive Team & Operations Room]</strong></span>
+                    <span class="am"><strong>[የዕይታ ማሳያ፡ የዋናው መሥሪያ ቤት የሥራ አመራር ቦርድ አባላትና የቢሮ ገጽታ]</strong></span>
+                    <span class="ar"><strong>[العرض البصري: الفريق التنفيذي وغرفة العمليات بالمقر الرئيسي]</strong></span>
+                </div>
                 
                 <div class="manager-box">
                     <div class="manager-avatar">
@@ -482,31 +685,31 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td class="en"><strong>Agency Partnership & Attestation</strong><br>Verification through Ethiopian Embassy/Consulate and uploading to the electronic E-LMIS platform.</td>
-                            <td class="am"><strong>የኤጀንሲ አጋርነት እና ማረጋገጫ</strong><br>በኢትዮጵያ ኤምባሲ በኩል የፍላጎት ደብዳቤን በማረጋገጥ በኢ-ኤልኤምአይኤስ (E-LMIS) ሲስተም ላይ መጫን።</td>
-                            <td class="ar"><strong>الشراكة وتصديق الوكالة</strong><br>التحقق والتوثيق من خلال السفارة/القنصلية الإثيوبية ورفع الطلب على منصة E-LMIS الإلكترونية الوطنية.</td>
-                            <td class="en">Day 1-2</td><td class="am">ከ1-2 ቀናት</td><td class="ar">اليوم 1-2</td>
+                            <td class="en"><strong>Agency Partnership & Attestation</strong><br>Verification through Ethiopian Embassy/Consulate and uploading to the electronic E-LMIS platform[cite: 1].</td>
+                            <td class="am"><strong>የኤጀንሲ አጋርነት እና ማረጋገጫ</strong><br>በኢትዮጵያ ኤምባሲ በኩል የፍላጎት ደብዳቤን በማረጋገጥ በኢ-ኤልኤምአይኤስ (E-LMIS) ሲስተም ላይ መጫን[cite: 1]።</td>
+                            <td class="ar"><strong>الشراكة وتصديق الوكالة</strong><br>التحقق والتوثيق من خلال السفارة/القنصلية الإثيوبية ورفع الطلب على منصة E-LMIS الإلكترونية الوطنية[cite: 1].</td>
+                            <td class="en">Day 1-2[cite: 1]</td><td class="am">ከ1-2 ቀናት[cite: 1]</td><td class="ar">اليوم 1-2[cite: 1]</td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td class="en"><strong>Candidate Sourcing & System Registration</strong><br>Legal screening based on minimum system age requirements (25+ years old for GCC domestic work).</td>
-                            <td class="am"><strong>ተወዳዳሪዎችን መመልመል እና መመዝገብ</strong><br>በሕግ የተቀመጠውን አነስተኛ የዕድሜ ገደብ (25 ዓመት) መሠረት በማድረግ መመልመልና መመዝገብ።</td>
-                            <td class="ar"><strong>استقطاب المرشحين والتسجيل في النظام</strong><br>الفحص القانوني والفرز وفقاً لمتطلبات السن القانونية (25 عاماً فما فوق للعمل المنزلي في دول الخليج).</td>
-                            <td class="en">Day 3-7</td><td class="am">ከ3-7 ቀናት</td><td class="ar">اليوم 3-7</td>
+                            <td class="en"><strong>Candidate Sourcing & System Registration</strong><br>Legal screening based on minimum system age requirements (25+ years old for GCC domestic work)[cite: 1].</td>
+                            <td class="am"><strong>ተወዳዳሪዎችን መመልመል እና መመዝገብ</strong><br>በሕግ የተቀመጠውን አነስተኛ የዕድሜ ገደብ (25 ዓመት) መሠረት በማድረግ መመልመልና መመዝገብ[cite: 1]።</td>
+                            <td class="ar"><strong>استقطاب المرشحين والتسجيل في النظام</strong><br>الفحص القانوني والفرز وفقاً لمتطلبات السن القانونية (25 عاماً فما فوق للعمل المنزلي في دول الخليج)[cite: 1].</td>
+                            <td class="en">Day 3-7[cite: 1]</td><td class="am">ከ3-7 ቀናት[cite: 1]</td><td class="ar">اليوم 3-7[cite: 1]</td>
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td class="en"><strong>GAMCA Medical Clearance & TVET Training</strong><br>Passing fitness certification alongside mandatory 21-day vocational pre-departure training for CoC qualification.</td>
-                            <td class="am"><strong>የህክምና ምርመራ እና የቲቪኢቲ (TVET) ስልጠና</strong><br>የጋምካ (GAMCA) የህክምና ምርመራ ማለፍ እና የ21 ቀናት ቅድመ-ጉዞ ስልጠና አጠናቆ የብቃት ማረጋገጫ (CoC) ማግኘት።</td>
-                            <td class="ar"><strong>الفحص الطبي (GAMCA) وتدريب TVET</strong><br>اجتياز فحص اللياقة الطبية المعتمد مع إكمال التدريب المهني الإلزامي لمدة 21 يوماً للحصول على شهادة الكفاءة (CoC).</td>
-                            <td class="en">Day 8-20</td><td class="am">ከ8-20 ቀናት</td><td class="ar">اليوم 8-20</td>
+                            <td class="en"><strong>GAMCA Medical Clearance & TVET Training</strong><br>Passing fitness certification alongside mandatory 21-day vocational pre-departure training for CoC qualification[cite: 1].</td>
+                            <td class="am"><strong>የህክምና ምርመራ እና የቲቪኢቲ (TVET) ስልጠና</strong><br>የጋምካ (GAMCA) የህክምና ምርመራ ማለፍ እና የ21 ቀናት ቅድመ-ጉዞ ስልጠና አጠናቆ የብቃት ማረጋገጫ (CoC) ማግኘት[cite: 1]።</td>
+                            <td class="ar"><strong>الفحص الطبي (GAMCA) وتدريب TVET</strong><br>اجتياز فحص اللياقة الطبية المعتمد مع إكمال التدريب المهني الإلزامي لمدة 21 يوماً للحصول على شهادة الكفاءة (CoC)[cite: 1].</td>
+                            <td class="en">Day 8-20[cite: 1]</td><td class="am">ከ8-20 ቀናት[cite: 1]</td><td class="ar">اليوم 8-20[cite: 1]</td>
                         </tr>
                         <tr>
                             <td>4</td>
-                            <td class="en"><strong>Visa Stamping & Scheduled Deployment</strong><br>Processing documents via platforms like Tasheer/Enjaz/MoFA and booking flights with Ethiopian Airlines.</td>
-                            <td class="am"><strong>የቪዛ ማረጋገጫ እና በረራ ማስተካከል</strong><br>በታሽር/ኢንጃዝ/ሞፋ ፖርታሎች በኩል ቪዛን ማረጋገጥ እና በኢትዮጵያ አየር መንገድ በረራ ማስያዝ።</td>
-                            <td class="ar"><strong>تختيم التأشيرة وجدولة الرحلات</strong><br>معالجة التأشيرات عبر منصات (تأشير / إنجاز / وزارة الخارجية) وحجز الرحلات حصرياً عبر الخطوط الجوية الإثيوبية.</td>
-                            <td class="en">Day 25-35</td><td class="am">ከ25-35 ቀናት</td><td class="ar">اليوم 25-35</td>
+                            <td class="en"><strong>Visa Stamping & Scheduled Deployment</strong><br>Processing documents via platforms like Tasheer/Enjaz/MoFA and booking flights with Ethiopian Airlines[cite: 1].</td>
+                            <td class="am"><strong>የቪዛ ማረጋገጫ እና በረራ ማስተካከል</strong><br>በታሽር/ኢንጃዝ/ሞፋ ፖርታሎች በኩል ቪዛን ማረጋገጥ እና በኢትዮጵያ አየር መንገድ በረራ ማስያዝ[cite: 1]።</td>
+                            <td class="ar"><strong>تختيم التأشيرة وجدولة الرحلات</strong><br>معالجة التأشيرات عبر منصات (تأشير / إنجاز / وزارة الخارجية) وحجز الرحلات حصرياً عبر الخطوط الجوية الإثيوبية[cite: 1].</td>
+                            <td class="en">Day 25-35[cite: 1]</td><td class="am">ከ25-35 ቀናት[cite: 1]</td><td class="ar">اليوم 25-35[cite: 1]</td>
                         </tr>
                     </tbody>
                 </table>
@@ -531,22 +734,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>🇸🇦 Saudi Arabia</td><td>ሳውዲ አረቢያ</td><td>المملكة العربية السعودية</td>
-                            <td class="en">Housemaids / Domestic Helpers</td><td class="am">የቤት ውስጥ ሰራተኛ</td><td class="ar">عاملات منازل / مساعدات منزليات</td>
-                            <td class="en">Arabic language, modern home appliances, cultural norms</td><td class="am">የአረብኛ ቋንቋ፣ ዘመናዊ የቤት እቃዎች አጠቃቀም እና ባህላዊ እውቀት</td><td class="ar">اللغة العربية، التعامل مع الأجهزة الحديثة، العادات والتقاليد</td>
-                            <td>1000 - 1200 SAR</td>
+                            <td>🇸🇦 Saudi Arabia[cite: 1]</td><td>ሳውዲ አረቢያ[cite: 1]</td><td>المملكة العربية السعودية[cite: 1]</td>
+                            <td class="en">Housemaids / Domestic Helpers[cite: 1]</td><td class="am">የቤት ውስጥ ሰራተኛ[cite: 1]</td><td class="ar">عاملات منازل / مساعدات منزليات[cite: 1]</td>
+                            <td class="en">Arabic language, modern home appliances, cultural norms[cite: 1]</td><td class="am">የአረብኛ ቋንቋ፣ ዘመናዊ የቤት እቃዎች አጠቃቀም እና ባህላዊ እውቀት[cite: 1]</td><td class="ar">اللغة العربية، التعامل مع الأجهزة الحديثة، العادات والتقاليد[cite: 1]</td>
+                            <td>1000 - 1200 SAR[cite: 1]</td>
                         </tr>
                         <tr>
-                            <td>🇦🇪 UAE</td><td>የተባበሩት አረብ ኤምሬትስ</td><td>الإمارات العربية المتحدة</td>
-                            <td class="en">Nannies & Caregivers</td><td class="am">የህጻናት እና የአረጋውያን ተንከባካቢ</td><td class="ar">مربيات أطفال / مقدمات الرعاية</td>
-                            <td class="en">Childcare essentials, safety monitoring, nutrition basics</td><td class="am">የህጻናት እንክብካቤ፣ ደህንነት አጠባበቅ እና መሰረታዊ የአመጋገብ ስልጠና</td><td class="ar">أساسيات رعاية الأطفال، مراقبة السلامة، مبادئ التغذية</td>
-                            <td>1000 - 1200 AED</td>
+                            <td>🇦🇪 UAE[cite: 1]</td><td>የተባበሩት አረብ ኤምሬትስ[cite: 1]</td><td>الإمارات العربية المتحدة[cite: 1]</td>
+                            <td class="en">Nannies & Caregivers[cite: 1]</td><td class="am">የህጻናት እና የአረጋውያን ተንከባካቢ[cite: 1]</td><td class="ar">مربيات أطفال / مقدمات الرعاية[cite: 1]</td>
+                            <td class="en">Childcare essentials, safety monitoring, nutrition basics[cite: 1]</td><td class="am">የህጻናት እንክብካቤ፣ ደህንነት አጠባበቅ እና መሰረታዊ የአመጋገብ ስልጠና[cite: 1]</td><td class="ar">أساسيات رعاية الأطفال، مراقبة السلامة، مبادئ التغذية[cite: 1]</td>
+                            <td>1000 - 1200 AED[cite: 1]</td>
                         </tr>
                         <tr>
-                            <td>🇰🇼 Kuwait</td><td>ኩዌት</td><td>الكويت</td>
-                            <td class="en">Home Cooks & Chefs</td><td class="am">የቤት ውስጥ ምግብ አሰናጅ</td><td class="ar">طباخين منازل / طهاة</td>
-                            <td class="en">Middle Eastern culinary basics, professional kitchen safety</td><td class="am">የመካከለኛው ምስራቅ ምግቦች አዘገጃጀት እና የኩشنا ደህንነት ጥበቃ</td><td class="ar">أساسيات الطهي الشرقي، معايير السلامة المهنية في المطبخ</td>
-                            <td class="en">Minimum Legal Limit</td><td class="am">በሕግ የተፈቀደው አነስተኛ ደመወዝ</td><td class="ar">الحد الأدنى القانوني</td>
+                            <td>🇰🇼 Kuwait[cite: 1]</td><td>ኩዌት[cite: 1]</td><td>الكويت[cite: 1]</td>
+                            <td class="en">Home Cooks & Chefs[cite: 1]</td><td class="am">የቤት ውስጥ ምግብ አሰናጅ[cite: 1]</td><td class="ar">طباخين منازل / طهاة[cite: 1]</td>
+                            <td class="en">Middle Eastern culinary basics, professional kitchen safety[cite: 1]</td><td class="am">የመካከለኛው ምስራቅ ምግቦች አዘገጃጀት እና የኩሽና ደህንነት ጥበቃ[cite: 1]</td><td class="ar">أساسيات الطهي الشرقي، معايير السلامة المهنية في المطبخ[cite: 1]</td>
+                            <td class="en">Minimum Legal Limit[cite: 1]</td><td class="am">በሕግ የተፈቀደው አነስተኛ ደመወዝ[cite: 1]</td><td class="ar">الحد الأدنى القانوني[cite: 1]</td>
                         </tr>
                     </tbody>
                 </table>
@@ -561,45 +764,45 @@
             
             <div class="grid-2">
                 <div class="card hover-pop">
-                    <p class="en">🍱 <strong>Free Food & Safe Accommodation:</strong> Complete daily nutrition provisions and secure quarters at zero cost to the worker.</p>
-                    <p class="am">🍱 <strong>ነፃ ምግብ እና መጠለያ:</strong> ለሰራተኛዋ ምንም አይነት ወጪ ሳይኖረው የተሟላ ምግብ እና አስተማማኝ ማረፊያ የማቅረብ ግዴታ።</p>
-                    <p class="ar">🍱 <strong>طعام مجاني وسكن آمن:</strong> توفير التغذية اليومية الكاملة والسكن الآمن دون أدنى تكلفة على العامل.</p>
+                    <p class="en">🍱 <strong>Free Food & Safe Accommodation:</strong> Complete daily nutrition provisions and secure quarters at zero cost to the worker[cite: 1].</p>
+                    <p class="am">🍱 <strong>ነፃ ምግብ እና መጠለያ:</strong> ለሰራተኛዋ ምንም አይነት ወጪ ሳይኖረው የተሟላ ምግብ እና አስተማማኝ ማረፊያ የማቅረብ ግዴታ[cite: 1]።</p>
+                    <p class="ar">🍱 <strong>طعام مجاني وسكن آمن:</strong> توفير التغذية اليومية الكاملة والسكن الآمن دون أدنى تكلفة على العامل[cite: 1].</p>
                 </div>
                 <div class="card hover-pop">
-                    <p class="en">🏥 <strong>Full Medical Insurance:</strong> Fully covered and sustained medical health coverage plans for the complete 2-year contract term.</p>
-                    <p class="am">🏥 <strong>የህክምና መድን ዋስትና:</strong> ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን የህክምና ዋስትና።</p>
-                    <p class="ar">🏥 <strong>تأمين طبي شامل:</strong> خطط تغطية صحية وطبية مدفوعة بالكامل ومستمرة طوال فترة العقد البالغة سنتين.</p>
+                    <p class="en">🏥 <strong>Full Medical Insurance:</strong> Fully covered and sustained medical health coverage plans for the complete 2-year contract term[cite: 1].</p>
+                    <p class="am">🏥 <strong>የህክምና መድን ዋስትና:</strong> ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን የህክምና ዋስትና[cite: 1]。</p>
+                    <p class="ar">🏥 <strong>تأمين طبي شامل:</strong> خطط تغطية صحية وطبية مدفوعة بالكامل ومستمرة طوال فترة العقد البالغة سنتين[cite: 1].</p>
                 </div>
                 <div class="card hover-pop">
-                    <p class="en">✈️ <strong>Free Air Travel Logistics:</strong> Mandatory entry flight and legal round-trip ticketing upon successful contract completion.</p>
-                    <p class="am">✈️ <strong>የነፃ የአየር መንገድ ትኬት:</strong> ወደ ስራ ቦታ ለመሄድ እና የ2 አመት ኮንትራት ሲጠናቀቅ የደርሶ መልስ የአየር መንገድ ትኬት የማቅረብ ግዴታ።</p>
-                    <p class="ar">✈️ <strong>تذاكر طيران مجانية:</strong> تأمين تذاكر السفر الإلزامية عند الاستقدام وتذكرة ذهاب وإياب عند إتمام العقد بنجاح.</p>
+                    <p class="en">✈️ <strong>Free Air Travel Logistics:</strong> Mandatory entry flight and legal round-trip ticketing upon successful contract completion[cite: 1].</p>
+                    <p class="am">✈️ <strong>የነፃ የአየር መንገድ ትኬት:</strong> ወደ ስራ ቦታ ለመሄድ እና የ2 አመት ኮንትራት ሲጠናቀቅ የደርሶ መልስ የአየር መንገድ ትኬት የማቅረብ ግዴታ[cite: 1]。</p>
+                    <p class="ar">✈️ <strong>تذاكر طيران مجانية:</strong> تأمين تذاكر السفر الإلزامية عند الاستقدام وتذكرة ذهاب وإياب عند إتمام العقد بنجاح[cite: 1].</p>
                 </div>
                 <div class="card hover-pop">
-                    <p class="en">💳 <strong>Traceable Salary Protection:</strong> Electronic salary banking monitoring via Musaned (KSA WPS) or secure PAM structures (Kuwait).</p>
-                    <p class="am">💳 <strong>ህጋዊ የደመወዝ ጥበቃ ሲስተም:</strong> ደመወዝ በባንክ እና በኤሌክትሮኒክስ ሲስተም (ሙሳነድ/WPS) ቁጥጥር የሚደረግበት አስተማማኝ አሰራር。</p>
-                    <p class="ar">💳 <strong>حماية الأجور الموثقة:</strong> مراقبة إلكترونية للرواتب عبر منصة مساند (WPS السعودية) أو الهيئة العامة للقوى العاملة (الكويت).</p>
+                    <p class="en">💳 <strong>Traceable Salary Protection:</strong> Electronic salary banking monitoring via Musaned (KSA WPS) or secure PAM structures (Kuwait)[cite: 1].</p>
+                    <p class="am">💳 <strong>ህጋዊ የደመወዝ ጥበቃ ሲስተም:</strong> ደመወዝ በባንክ እና በኤሌክትሮኒክስ ሲስተም (ሙሳነድ/WPS) ቁጥጥር የሚደረግበት አስተማማኝ አሰራር[cite: 1]。</p>
+                    <p class="ar">💳 <strong>حماية الأجور الموثقة:</strong> مراقبة إلكترونية للرواتب عبر منصة مساند (WPS السعودية) أو الهيئة العامة للقوى العاملة (الكويت)[cite: 1].</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Corporate Footer Coordinates Details -->
+    <!-- Corporate Footer Details -->
     <footer>
         <div class="pop-target">
-            <p><strong>MAHI FOREIGN EMPLOYMENT AGENT PLC</strong></p>
+            <p><strong>MAHI FOREIGN EMPLOYMENT AGENT PLC</strong>[cite: 1]</p>
             
-            <p class="en">Addis Ketema Sub-City, Woreda 08, House No. 540, 7th Floor, Office No. 716 | Addis Ababa, Ethiopia</p>
-            <p class="am">አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716 | አዲስ አበባ፣ ኢትዮጵያ</p>
-            <p class="ar">منطقة أديس كيتيما الفرعية، وريد 08، مبنى رقم 540، الطابق السابع، مكتب رقم 716 | أديس أبابا، إثيوبيا</p>
+            <p class="en">Addis Ketema Sub-City, Woreda 08, House No. 540, 7th Floor, Office No. 716 | Addis Ababa, Ethiopia[cite: 1]</p>
+            <p class="am">አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716 | አዲስ አበባ፣ ኢትዮጵያ[cite: 1]</p>
+            <p class="ar">منطقة أديس كيتيما الفرعية، وريد 08، مبنى رقم 540، الطابق السابع، مكتب رقم 716 | أديس أبابا، إثيوبيا[cite: 1]</p>
             
-            <p class="en">Direct Inquiries Contact: 0922436731 | Email: Mahiemployment@gmail.com</p>
-            <p class="am">ስልክ ቁጥር: 0922436731 | ኢሜይል: Mahiemployment@gmail.com</p>
-            <p class="ar">الاتصال المباشر: 0922436731 | البريد الإلكتروني: Mahiemployment@gmail.com</p>
+            <p class="en">Direct Inquiries Contact: 0922436731 | Email: Mahiemployment@gmail.com[cite: 1]</p>
+            <p class="am">ስልክ ቁጥር: 0922436731 | ኢሜይል: Mahiemployment@gmail.com[cite: 1]</p>
+            <p class="ar">الاتصال المباشر: 0922436731 | البريد الإلكتروني: Mahiemployment@gmail.com[cite: 1]</p>
             
             <div class="footer-links">
-                <a href="https://www.google.com/maps/place/Addis+ketema+sub+city+wereda+8/@9.0330569,38.7327538,17.71z/" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Google Maps Location</a>
-                <a href="https://t.me/+251922436731" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Channel</a>
+                <a href="https://www.google.com/maps/place/Addis+ketema+sub+city+wereda+8/@9.0330569,38.7327538,17.71z/" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Google Maps Location[cite: 1]</a>
+                <a href="https://t.me/+251922436731" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Channel[cite: 1]</a>
             </div>
             <p style="margin-top: 25px; opacity: 0.5; font-size: 0.8rem;">&copy; 2026 MAHI PLC. All Rights Reserved.</p>
         </div>
@@ -612,41 +815,34 @@
 
     <!-- Interactive Dynamic Scroll and Language Engine JavaScript -->
     <script>
-        // Tri-lingual Language Toggler Engine
         function setLanguage(langCode) {
             const body = document.body;
-            
-            // Remove all language classes
             body.classList.remove('lang-en', 'lang-am', 'lang-ar');
-            // Add target language class
             body.classList.add('lang-' + langCode);
 
-            // Handle Text Direction for Arabic (RTL)
             if (langCode === 'ar') {
                 body.setAttribute('dir', 'rtl');
             } else {
                 body.setAttribute('dir', 'ltr');
             }
 
-            // Update Active Buttons Layout States
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.getElementById('btn-' + langCode).classList.add('active');
         }
 
-        // Lightweight Pop-In Intersection Observer Matrix
         const observerOptions = {
             root: null,
-            threshold: 0.1,
-            rootMargin: "0px 0px -40px 0px"
+            threshold: 0.05,
+            rootMargin: "0px 0px -20px 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Unobserve to boost performance
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
