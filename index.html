@@ -1,69 +1,71 @@
-Here is the code updated to explicitly include **"Register to Work / ይመዝገቡ"** on the main primary action buttons, exactly as requested:
+Here is a complete, production-ready, single-file source code for your website. It features a modern, futuristic Dark Silver & Neon Cyan aesthetic, custom CSS Pop-In and Pop-Out interactive animations for images and components, an animated general manager avatar, larger destination flags, and a fully functional Amharic / English Language Toggler that translates the entire comprehensive page instantly.
 
-```html
+Save the code below as an .html file (e.g., index.html) and open it directly in any browser.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAHI FOREIGN EMPLOYMENT AGENT PLC</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ==========================================
-           COLOR PALETTE & NEON CORE VARIABLES
-           ========================================== */
         :root {
-            --bg-dark: #121214;       /* Matte Charcoal / Deep Velvet Silver */
-            --silver-dark: #8A9A86;   /* Brushed Dark Silver */
-            --silver-light: #E5E5E5;  /* High-Reflective Platinum */
-            --neon-blue: #00F2FF;     /* Electric Cyan Neon Accent */
-            --neon-glow: rgba(0, 242, 255, 0.4);
-            --card-bg: #1A1A1E;
+            --bg-dark: #0d0f12;
+            --silver-dark: #1e222b;
+            --silver-light: #b0b5c1;
+            --neon-cyan: #00f3ff;
+            --neon-glow: rgba(0, 243, 255, 0.4);
+            --text-main: #f0f2f5;
             --transition-speed: 0.4s;
-            --cubic-bezier: cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Global Reset */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--silver-light);
+            color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* ==========================================
-           ANIMATED POP IN AND OUT CLASS ENGINE
-           ========================================== */
-        .pop-in-out {
-            transition: transform var(--transition-speed) var(--cubic-bezier), 
-                        box-shadow var(--transition-speed) ease, 
-                        border-color var(--transition-speed) ease;
+        /* --- Custom Pop-In & Pop-Out Animations --- */
+        .pop-target {
+            transform: scale(0.92);
+            opacity: 0;
+            transition: transform var(--transition-speed) cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        opacity var(--transition-speed) ease;
         }
-        
-        .pop-in-out:hover {
+
+        .pop-target.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .hover-pop {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .hover-pop:hover {
             transform: scale(1.05);
             box-shadow: 0 0 20px var(--neon-glow);
-            border-color: var(--neon-blue);
         }
 
-        .pop-in-out:active {
-            transform: scale(0.95);
-        }
-
-        /* Sticky Navigation Header */
+        /* --- Header & Sticky Navigation --- */
         header {
             position: sticky;
             top: 0;
+            background: rgba(30, 34, 43, 0.95);
+            border-bottom: 2px solid var(--neon-cyan);
             z-index: 1000;
-            background: rgba(18, 18, 20, 0.95);
-            border-bottom: 2px solid var(--silver-dark);
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -76,237 +78,187 @@ Here is the code updated to explicitly include **"Register to Work / ይመዝ�
         }
 
         .logo-area {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--silver-light);
-            text-shadow: 0 0 8px var(--neon-glow);
-            border-left: 4px solid var(--neon-blue);
-            padding-left: 10px;
+            display: flex;
+            flex-direction: column;
         }
 
-        nav ul {
+        .logo-area h1 {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 8px var(--neon-glow);
+            letter-spacing: 1px;
+        }
+
+        .logo-area span {
+            font-size: 0.75rem;
+            color: var(--silver-light);
+        }
+
+        .nav-actions {
             display: flex;
-            list-style: none;
+            align-items: center;
             gap: 20px;
         }
 
-        nav ul li a {
-            color: var(--silver-light);
-            text-decoration: none;
-            font-size: 0.9rem;
+        .lang-toggle-btn {
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
             text-transform: uppercase;
-            font-weight: 600;
-            transition: color 0.3s;
+            box-shadow: 0 0 5px var(--neon-glow);
         }
 
-        nav ul li a:hover {
-            color: var(--neon-blue);
+        .lang-toggle-btn:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--neon-cyan);
         }
 
-        /* Layout Architecture Utilities */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
+        /* --- Hero Section --- */
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--silver-dark) 0%, var(--bg-dark) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .hero-content {
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            color: var(--silver-light);
-            border-bottom: 2px solid var(--card-bg);
-            padding-bottom: 15px;
-        }
-
-        /* ==========================================
-           HERO BANNER COMPONENT
-           ========================================== */
-        .hero-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            min-height: 70vh;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            color: var(--silver-light);
-        }
-
-        .hero-text p {
-            margin-bottom: 25px;
-            color: #b0b0b5;
-        }
-
-        .credentials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .cred-card {
-            background: var(--card-bg);
-            padding: 15px;
-            border: 1px solid var(--silver-dark);
-            border-radius: 6px;
-        }
-
-        .cred-card span {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--neon-blue);
-        }
-
-        .hero-graphics {
-            flex: 0.8;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .avatar-container {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 3px dashed var(--neon-blue);
-            background: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .hero h2 {
+            font-size: 3rem;
             margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 15px var(--neon-glow);
         }
 
-        .avatar-svg {
-            width: 140px;
-            height: 140px;
-            fill: var(--silver-light);
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--silver-light);
+            margin-bottom: 40px;
         }
 
-        .btn-container {
+        .cta-group {
             display: flex;
-            gap: 15px;
+            justify-content: center;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 25px;
-            text-transform: uppercase;
+            padding: 15px 30px;
+            font-size: 1rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 4px;
+            transition: all 0.3s;
             cursor: pointer;
-            font-size: 0.85rem;
+        }
+
+        .btn-primary {
+            background: var(--neon-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--neon-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--silver-light);
+            color: var(--text-main);
+        }
+
+        /* --- Info Section Grid --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--neon-cyan);
+            padding-left: 15px;
             display: inline-block;
         }
 
-        .btn-neon {
-            border: 2px solid var(--neon-blue);
-            color: var(--neon-blue);
-            background: transparent;
-        }
-
-        .btn-silver {
-            background: var(--silver-light);
-            color: var(--bg-dark);
-            border: 2px solid var(--silver-light);
-        }
-
-        /* ==========================================
-           FLAGS SECTIONS
-           ========================================== */
-        .flags-grid {
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--silver-dark);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-top: 3px solid var(--neon-cyan);
+            padding: 30px;
+            border-radius: 6px;
+        }
+
+        /* --- Large Flags Section --- */
+        .flag-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
 
         .flag-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-bg);
+            background: var(--silver-dark);
+            padding: 20px;
             border-radius: 8px;
-            padding: 25px;
             text-align: center;
+            width: 180px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
         }
 
-        .flag-img-placeholder {
-            width: 100px;
-            height: 65px;
-            margin: 0 auto 15px;
+        .flag-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
+        }
+
+        /* --- General Manager & Icon Animation --- */
+        .manager-box {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .f-saudi  { background: #006C35; border: 1px solid #00994C; }
-        .f-uae    { background: #000000; border-top: 15px solid #FF0000; border-bottom: 15px solid #00994C; }
-        .f-qatar  { background: #8D1B3D; border-left: 20px solid #FFF; }
-        .f-jordan { background: #CE1126; border-top: 20px solid #000; border-bottom: 20px solid #007A3D; }
-
-        /* ==========================================
-           TIMELINE ENGINE
-           ========================================== */
-        .timeline-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            position: relative;
-        }
-
-        .timeline-node {
-            background: var(--card-bg);
-            border: 1px solid var(--silver-dark);
+            background: rgba(255,255,255,0.02);
             padding: 20px;
-            border-radius: 6px;
-            position: relative;
-        }
-
-        .step-num {
-            position: absolute;
-            top: -15px;
-            left: 15px;
-            background: var(--neon-blue);
-            color: var(--bg-dark);
-            font-weight: 900;
-            padding: 2px 10px;
-            border-radius: 3px;
-            font-size: 0.8rem;
-        }
-
-        .timeline-node h3 {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            color: var(--silver-light);
-            margin-bottom: 10px;
-        }
-
-        .timeline-node p {
-            font-size: 0.85rem;
-            color: #a0a0a5;
-        }
-
-        /* ==========================================
-           MATRIX TABLES & SECURE PORTALS
-           ========================================== */
-        .table-wrapper {
-            overflow-x: auto;
+            border-radius: 8px;
+            border-inline-start: 4px solid var(--neon-cyan);
             margin-top: 20px;
-            border: 1px solid var(--silver-dark);
+        }
+
+        .manager-avatar {
+            font-size: 3.5rem;
+            color: var(--neon-cyan);
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); filter: drop-shadow(0 0 8px var(--neon-cyan)); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        /* --- Structured Data Tables --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 30px 0;
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 6px;
         }
 
@@ -314,341 +266,335 @@ Here is the code updated to explicitly include **"Register to Work / ይመዝ�
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            background: var(--card-bg);
+            background: var(--silver-dark);
         }
 
         th, td {
-            padding: 15px;
-            border-bottom: 1px solid #2A2A30;
-            font-size: 0.9rem;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         th {
-            background-color: #222226;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-        }
-
-        tr:hover td {
-            background: #222226;
-            color: #fff;
-        }
-
-        .secure-panel {
-            background: linear-gradient(135deg, #1A1A1E 0%, #121214 100%);
-            border: 2px dashed var(--neon-blue);
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .secure-badge {
-            display: inline-block;
-            background: rgba(0, 242, 255, 0.1);
-            color: var(--neon-blue);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            background-color: rgba(0, 243, 255, 0.1);
+            color: var(--neon-cyan);
             font-weight: bold;
-            margin-bottom: 15px;
         }
 
-        /* ==========================================
-           FOOTER TERMINAL UI
-           ========================================== */
+        tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* --- Footer & Floating Widget --- */
         footer {
-            background: #0B0B0C;
-            border-top: 2px solid var(--silver-dark);
+            background: #080a0d;
             padding: 40px 20px;
-            margin-top: 80px;
+            text-align: center;
+            border-top: 1px solid var(--silver-dark);
+            color: var(--silver-light);
+            font-size: 0.9rem;
         }
 
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-col h4 {
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
-
-        .footer-col p, .footer-col a {
-            font-size: 0.85rem;
-            color: #a0a0a5;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .floating-dock {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
+        .footer-links {
+            margin-top: 15px;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .dock-channel {
-            background: #00E676; 
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 30px;
+        .footer-links a {
+            color: var(--neon-cyan);
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.8rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            border: 2px solid #fff;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 9999;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
         }
 
-        .dock-channel.b2b {
-            background: #0088CC; 
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            .btn-container {
-                justify-content: center;
-            }
-            nav ul {
-                display: none; 
-            }
+        /* Direct hidden class for toggle mechanism */
+        .lang-am .en, .lang-en .am {
+            display: none !important;
         }
     </style>
 </head>
-<body>
+<body class="lang-en">
 
-    <!-- STICKY NAVIGATION FRAMEWORKS -->
+    <!-- Sticky Header Navigation -->
     <header>
         <div class="nav-container">
-            <div class="logo-area">MAHI FOREIGN EMPLOYMENT</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#destinations">Markets</a></li>
-                    <li><a href="#pipeline">Process</a></li>
-                    <li><a href="#matrix">Matrix</a></li>
-                    <li><a href="#secure">Portal</a></li>
-                </ul>
-            </nav>
+            <div class="logo-area">
+                <h1>MAHI PLC</h1>
+                <span class="en">Overseas Employment Agency</span>
+                <span class="am">የውጪ ሀገር የስራና ሰራተኛ አገናኝ ኤጀንሲ</span>
+            </div>
+            <div class="nav-actions">
+                <button class="lang-toggle-btn" onclick="toggleLanguage()">Switch to አማርኛ</button>
+            </div>
         </div>
     </header>
 
-    <!-- MAIN INTERACTIVE WRAPPER -->
-    <main>
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <div class="hero-content pop-target">
+            <h2 class="en">Bridging Talent with Opportunity, Safely & Professionally</h2>
+            <h2 class="am">እውቀትንና ክህሎትን ከስራ እድል ጋር በታማኝነት ማገናኘት</h2>
+            <p class="en">MAHI FOREIGN EMPLOYMENT AGENT PLC is a premier, fully licensed international recruitment agency based in Addis Ababa, Ethiopia. We specialize in ethical sourcing, comprehensive training, and legal deployment under Proclamation No. 923/2016.</p>
+            <p class="am">ማሂ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ማህበር በአዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሙሉ በሙሉ ፈቃድ ያገኘ እና በታማኝነት የሚሰራ መሪ ኤጀንሲ ነው።</p>
+            <div class="cta-group">
+                <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop en">Request Manpower</a>
+                <a href="https://wa.me/251922436731" class="btn btn-primary hover-pop am">የሠራተኛ ጥያቄ ያቅርቡ</a>
+                <a href="#compliance" class="btn btn-secondary hover-pop en">View Credentials</a>
+                <a href="#compliance" class="btn btn-secondary hover-pop am">ሕጋዊ ፈቃዶችን ይመልከቱ</a>
+            </div>
+        </div>
+    </section>
 
-        <!-- SECTION 1: HERO CONTAINER HERO ARCHITECTURE -->
-        <section id="home" class="hero-section">
-            <div class="hero-text">
-                <h1>Bridging Talent with Opportunity, Safely and Professionally.</h1>
-                <p>MAHI FOREIGN EMPLOYMENT AGENT PLC is a premier, fully licensed international recruitment agency based in Addis Ababa, Ethiopia. Registered as per Overseas Employment Proclamation no. 923/2016 and 1246/2021[cite: 1].</p>
-                
-                <div class="credentials-grid">
-                    <div class="cred-card">
-                        <span>MoLS License</span>
-                        <strong>LIC0000016246</strong>[cite: 1]
+    <div class="container">
+        <!-- Big Flag Display Market Lanes -->
+        <div style="text-align: center; margin-bottom: 50px;" class="pop-target">
+            <h3 class="section-title en">Primary Market Destination Lanes</h3>
+            <h3 class="section-title am">ዋና የሥራ መዳረሻ አገራት</h3>
+            <div class="flag-container">
+                <div class="flag-card hover-pop">
+                    <span class="flag-icon">🇸🇦</span>
+                    <strong class="en">Saudi Arabia</strong><strong class="am">ሳውዲ አረቢያ</strong>
+                </div>
+                <div class="flag-card hover-pop">
+                    <span class="flag-icon">🇰🇼</span>
+                    <strong class="en">Kuwait</strong><strong class="am">ኩዌት</strong>
+                </div>
+                <div class="flag-card hover-pop">
+                    <span class="flag-icon">🇱🇧</span>
+                    <strong class="en">Lebanon</strong><strong class="am">ሊባኖስ</strong>
+                </div>
+                <div class="flag-card hover-pop">
+                    <span class="flag-icon">🇦🇪</span>
+                    <strong class="en">UAE</strong><strong class="am">የተባበሩት አረብ ኤምሬትስ</strong>
+                </div>
+                <div class="flag-card hover-pop">
+                    <span class="flag-icon">🇯🇴</span>
+                    <strong class="en">Jordan</strong><strong class="am">ዮርዳኖስ</strong>
+                </div>
+                <div class="flag-card hover-pop">
+                    <span class="flag-icon">🇶🇦</span>
+                    <strong class="en">Qatar</strong><strong class="am">ኳታር</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agency Profile & Management Structure -->
+        <div class="grid-2 pop-target" id="compliance">
+            <div class="card hover-pop">
+                <h3 class="en" style="color:var(--neon-cyan); margin-bottom:15px;">Official Compliance & Credentials</h3>
+                <h3 class="am" style="color:var(--neon-cyan); margin-bottom:15px;">ሕጋዊ መረጃዎችና ማረጋገጫዎች</h3>
+                <p class="en"><strong>MoLS License No:</strong> [LIC0000016246]</p>
+                <p class="am"><strong>የሥራና ክህሎት ሚኒስቴር የፈቃድ ቁጥር:</strong> [LIC0000016246]</p>
+                <p class="en"><strong>Business Registration:</strong> [MT/AA/14/671/2478158/2011]</p>
+                <p class="am"><strong>የንግድ ምዝገባ ቁጥር:</strong> [MT/AA/14/671/2478158/2011]</p>
+                <p class="en"><strong>Chamber Member ID:</strong> [MT/AA/2/0048809/2011]</p>
+                <p class="am"><strong>የንግድ ምክር ቤት አባልነት መታወቂያ:</strong> [MT/AA/2/0048809/2011]</p>
+                <p class="en"><strong>Nationality:</strong> Registered in Ethiopia</p>
+                <p class="am"><strong>ዜግነት:</strong> በኢትዮጵያ የተመዘገበ</p>
+            </div>
+
+            <div class="card hover-pop">
+                <h3 class="en" style="color:var(--neon-cyan); margin-bottom:15px;">Agency Governance</h3>
+                <h3 class="am" style="color:var(--neon-cyan); margin-bottom:15px;">የኩባንያው አመራር</h3>
+                <div class="manager-box">
+                    <div class="manager-avatar">
+                        <i class="fa-solid fa-user-astronaut"></i>
                     </div>
-                    <div class="cred-card">
-                        <span>Reg Number</span>
-                        <strong>MT/AA/14/671/2478158/2011</strong>[cite: 1]
+                    <div>
+                        <h4 class="en">Mss. SIHAM IDRIS JEMAL</h4>
+                        <h4 class="am">ወ/ት ሲሀም እድሪስ ጀማል</h4>
+                        <p style="color: var(--silver-light);" class="en">General Manager</p>
+                        <p style="color: var(--silver-light);" class="am">ዋና ሥራ አስኪያጅ</p>
                     </div>
                 </div>
-
-                <div class="btn-container">
-                    <a href="#secure" class="btn btn-neon pop-in-out">Partner With Us</a>
-                    <a href="#matrix" class="btn btn-silver pop-in-out">Register to Work / ይመዝገቡ</a>
-                </div>
             </div>
+        </div>
 
-            <div class="hero-graphics">
-                <!-- ANIMATED POP IN AND OUT MANAGERIAL MUSLIM ICON BOUNDS -->
-                <div class="avatar-container pop-in-out">
-                    <svg class="avatar-svg" viewBox="0 0 24 24">
-                        <path d="M12,4A4,4 0 0,1 16,8C16,10.05 14.44,11.73 12.43,11.97C15.82,12.06 19,13.43 19,16V18H5V16C5,13.43 8.18,12.06 11.57,11.97C9.56,11.73 8,10.05 8,8A4,4 0 0,1 12,4M12,2A6,6 0 0,0 6,8A6,6 0 0,0 12,14A6,6 0 0,0 18,8A6,6 0 0,0 12,2Z"/>
-                    </svg>
-                </div>
-                <p style="font-size:0.85rem; color:var(--silver-dark); text-align:center;">
-                    General Manager: Mss. SIHAM IDRIS JEMAL[cite: 1]
-                </p>
-            </div>
-        </section>
-
-        <!-- SECTION 2: THE BIG FLAGS DISPLAY MARKET HUB -->
-        <section id="destinations">
-            <h2 class="section-title">Target Country Core Deployments</h2>
-            <div class="flags-grid">
-                <!-- FLAG 1 -->
-                <div class="flag-card pop-in-out">
-                    <div class="flag-img-placeholder f-saudi">🇸🇦</div>
-                    <h3>SAUDI ARABIA</h3>
-                    <p style="font-size:0.8rem; margin-top:5px; color:var(--silver-dark)">Direct Musaned Gateway Integration[cite: 1]</p>
-                </div>
-                <!-- FLAG 2 -->
-                <div class="flag-card pop-in-out">
-                    <div class="flag-img-placeholder f-uae">🇦🇪</div>
-                    <h3>UAE</h3>
-                    <p style="font-size:0.8rem; margin-top:5px; color:var(--silver-dark)">MoHRE / Tadbeer Compliant[cite: 1]</p>
-                </div>
-                <!-- FLAG 3 -->
-                <div class="flag-card pop-in-out">
-                    <div class="flag-img-placeholder f-qatar">🇶🇦</div>
-                    <h3>QATAR</h3>
-                    <p style="font-size:0.8rem; margin-top:5px; color:var(--silver-dark)">Bilateral Labor Pathway Clearance[cite: 1]</p>
-                </div>
-                <!-- FLAG 4 -->
-                <div class="flag-card pop-in-out">
-                    <div class="flag-img-placeholder f-jordan">🇯🇴</div>
-                    <h3>JORDAN</h3>
-                    <p style="font-size:0.8rem; margin-top:5px; color:var(--silver-dark)">Official Embassy Attestation[cite: 1]</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: THE B2B COMPLIANT RECRUITMENT PIPELINE TIMELINE -->
-        <section id="pipeline">
-            <h2 class="section-title">Recruitment Processing Pipeline</h2>
-            <div class="timeline-container">
-                <div class="timeline-node pop-in-out">
-                    <div class="step-num">STEP 1</div>
-                    <h3>Attestation</h3>
-                    <p>Verify agency requirements via Embassy networks and synchronize parameters into national E-LMIS platforms[cite: 1].</p>
-                </div>
-                <div class="timeline-node pop-in-out">
-                    <div class="step-num">STEP 2</div>
-                    <h3>Sourcing</h3>
-                    <p>Legal talent sourcing targeting profiles meeting strict regulatory boundaries (Age 25+ criteria limits)[cite: 1].</p>
-                </div>
-                <div class="timeline-node pop-in-out">
-                    <div class="step-num">STEP 3</div>
-                    <h3>TVET & Medical</h3>
-                    <p>Execution of mandatory GAMCA fitness exams and specialized 21-day pre-departure technical operational certifications (CoC)[cite: 1].</p>
-                </div>
-                <div class="timeline-node pop-in-out">
-                    <div class="step-num">STEP 4</div>
-                    <h3>Logistics</h3>
-                    <p>Processing visa metrics across dynamic platforms (Tasheer, Enjaz) and locking transit paths via Ethiopian Airlines exclusively[cite: 1].</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: CAPABILITIES GRID AND STRUCTURED TRANSPARENCY MATRIX -->
-        <section id="matrix">
-            <h2 class="section-title">Salary Structures & Core Capabilities Matrix</h2>
-            
-            <div class="table-wrapper">
+        <!-- B2B Recruitment Workflow Process Matrix -->
+        <div style="margin-top:60px;" class="pop-target">
+            <h3 class="section-title en">The 4-Step Deployment Pipeline</h3>
+            <h3 class="section-title am">የአሰማራት ሂደት የሥራ ቅደም-ተከተል</h3>
+            <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
-                            <th>Destination Market</th>
-                            <th>Job Category Profile</th>
-                            <th>Experience Demarcation</th>
-                            <th>Legal Monthly Salary Limit</th>
+                            <th class="en">Step</th><th class="am">ደረጃ</th>
+                            <th class="en">Phase & Infrastructure Breakdown</th><th class="am">የሂደቱ ዝርዝር መግለጫ</th>
+                            <th class="en">Timeline Context</th><th class="am">የሚፈጅበት ጊዜ</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>🇸🇦 Saudi Arabia[cite: 1]</td>
-                            <td>Housemaid / Domestic Helper[cite: 1]</td>
-                            <td>Fresh / First-Time Route[cite: 1]</td>
-                            <td>1,000 SAR[cite: 1]</td>
+                            <td>1</td>
+                            <td class="en"><strong>Agency Partnership & Attestation</strong><br>Verification through Ethiopian Embassy/Consulate and uploading to the electronic E-LMIS platform.</td>
+                            <td class="am"><strong>የኤጀንሲ አጋርነት እና ማረጋገጫ</strong><br>በኢትዮጵያ ኤምባሲ በኩል የፍላጎት ደብዳቤን በማረጋገጥ በኢ-ኤልኤምአይኤስ (E-LMIS) ሲስተም ላይ መጫን።</td>
+                            <td class="en">Day 1-2</td><td class="am">ከ1-2 ቀናት</td>
                         </tr>
                         <tr>
-                            <td>🇸🇦 Saudi Arabia[cite: 1]</td>
-                            <td>Housemaid / Domestic Helper[cite: 1]</td>
-                            <td>2+ Years Verified Gulf Experience[cite: 1]</td>
-                            <td>1,200 SAR[cite: 1]</td>
+                            <td>2</td>
+                            <td class="en"><strong>Candidate Sourcing & System Registration</strong><br>Legal screening based on minimum system age requirements (25+ years old for GCC domestic work).</td>
+                            <td class="am"><strong>ተወዳዳሪዎችን መመልመል እና መመዝገብ</strong><br>በሕግ የተቀመጠውን አነስተኛ የዕድሜ ገደብ (25 ዓመት) መሠረት በማድረግ መመልመልና መመዝገብ።</td>
+                            <td class="en">Day 3-7</td><td class="am">ከ3-7 ቀናት</td>
                         </tr>
                         <tr>
-                            <td>🇦🇪 United Arab Emirates[cite: 1]</td>
-                            <td>Housemaid / Domestic Helper[cite: 1]</td>
-                            <td>Fresh / First-Time Route[cite: 1]</td>
-                            <td>1,000 AED[cite: 1]</td>
+                            <td>3</td>
+                            <td class="en"><strong>GAMCA Medical Clearance & TVET Training</strong><br>Passing fitness certification alongside mandatory 21-day vocational pre-departure training for CoC qualification.</td>
+                            <td class="am"><strong>የህክምና ምርመራ እና የቲቪኢቲ (TVET) ስልጠና</strong><br>የጋምካ (GAMCA) የህክምና ምርመራ ማለፍ እና የ21 ቀናት ቅድመ-ጉዞ ስልጠና አጠናቆ የብቃት ማረጋገጫ (CoC) ማግኘት።</td>
+                            <td class="en">Day 8-20</td><td class="am">ከ8-20 ቀናት</td>
                         </tr>
                         <tr>
-                            <td>🇯🇴 Jordan[cite: 1]</td>
-                            <td>Domestic Worker (All Profiles)[cite: 1]</td>
-                            <td>Minimum Legal Boundary[cite: 1]</td>
-                            <td>271 USD Net[cite: 1]</td>
-                        </tr>
-                        <tr>
-                            <td>🇶🇦 Qatar[cite: 1]</td>
-                            <td>Domestic Worker (All Profiles)[cite: 1]</td>
-                            <td>Minimum Legal Boundary[cite: 1]</td>
-                            <td>1,100 QAR[cite: 1]</td>
+                            <td>4</td>
+                            <td class="en"><strong>Visa Stamping & Scheduled Deployment</strong><br>Processing documents via platforms like Tasheer/Enjaz/MoFA and booking flights with Ethiopian Airlines.</td>
+                            <td class="am"><strong>የቪዛ ማረጋገጫ እና በረራ ማስተካከል</strong><br>በታሽር/ኢንጃዝ/ሞፋ ፖርታሎች በኩል ቪዛን ማረጋገጥ እና በኢትዮጵያ አየር መንገድ በረራ ማስያዝ።</td>
+                            <td class="en">Day 25-35</td><td class="am">ከ25-35 ቀናት</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
-        <!-- SECTION 5: PASSWORD PROTECTED SECURE B2B PORTAL AREA (ANONYMIZED) -->
-        <section id="secure">
-            <div class="secure-panel pop-in-out">
-                <div class="secure-badge">🔒 SECURE CLIENT COMPARTMENT</div>
-                <h2>B2B Protected Candidate Verification Database</h2>
-                <p style="margin: 15px auto max-width:600px; color:#a0a0a5; font-size:0.9rem;">
-                    Access anonymized worker validation records (e.g., Candidate ETH-9041), verified skill badge achievements, and 30-second localized intro clips[cite: 1].
-                </p>
-                <div style="margin-top:20px; display:flex; justify-content:center; gap:10px;">
-                    <input type="password" placeholder="Enter Agency Portal Password" style="padding:10px; background:#121214; border:1px solid var(--silver-dark); color:#fff; border-radius:4px; max-width:250px; width:100%;">
-                    <button class="btn btn-neon" style="padding:10px 20px;">Secure Login</button>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- TRILINGUAL SYSTEM METRICS FOOTER TERMINAL CONTAINER -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>MAHI FOREIGN EMPLOYMENT PLC</h4>
-                <p>Fully licensed processing operational agency verified by the Ethiopia Ministry of Labour and Skills (MoLS)[cite: 1].</p>
-                <p style="font-size:0.75rem;">Chamber Member ID: MT/AA/2/0048809/2011[cite: 1]</p>
-            </div>
-            <div class="footer-col">
-                <h4>Physical Head Office Location</h4>
-                <p>House No. 540, 7th Floor, Office No. 716[cite: 1]</p>
-                <p>Woreda 08 Kebele, Addis Ketema Sub-City[cite: 1]</p>
-                <p>Addis Ababa, Ethiopia[cite: 1]</p>
-            </div>
-            <div class="footer-col">
-                <h4>Corporate Communications Terminal</h4>
-                <p>Primary Line: 0922436731[cite: 1]</p>
-                <p>Digital Core Terminal: 0911661718[cite: 1]</p>
-                <a href="mailto:Mahiemployment@gmail.com">Mahiemployment@gmail.com[cite: 1]</a>
+        <!-- Capability Matrix & Salary Structures -->
+        <div style="margin-top:60px;" class="pop-target">
+            <h3 class="section-title en">Job Matrix & Compensation Baseline</h3>
+            <h3 class="section-title am">የሥራ መደቦችና የደመወዝ ዝርዝር መግለጫ</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="en">Destination</th><th class="am">መዳረሻ ሀገር</th>
+                            <th class="en">Job Category</th><th class="am">የሥራ ዓይነት</th>
+                            <th class="en">Core Training Architecture Provided</th><th class="am">የሚሰጠው ዋና ስልጠና</th>
+                            <th class="en">Monthly Salary Framework</th><th class="am">ወርሃዊ ደመወዝ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🇸🇦 Saudi Arabia</td><td>ሳውዲ አረቢያ</td>
+                            <td class="en">Housemaids / Domestic Helpers</td><td class="am">የቤት ውስጥ ሰራተኛ</td>
+                            <td class="en">Arabic language, modern home appliances, cultural norms</td><td class="am">የአረብኛ ቋንቋ፣ ዘመናዊ የቤት እቃዎች አጠቃቀም እና ባህላዊ እውቀት</td>
+                            <td>1000 - 1200 SAR</td>
+                        </tr>
+                        <tr>
+                            <td>🇦🇪 UAE</td><td>የተባበሩት አረብ ኤምሬትስ</td>
+                            <td class="en">Nannies & Caregivers</td><td class="am">የህጻናት እና የአረጋውያን ተንከባካቢ</td>
+                            <td class="en">Childcare essentials, safety monitoring, nutrition basics</td><td class="am">የህጻናት እንክብካቤ፣ ደህንነት አጠባበቅ እና መሰረታዊ የአመጋገብ ስልጠና</td>
+                            <td>1000 - 1200 AED</td>
+                        </tr>
+                        <tr>
+                            <td>🇰🇼 Kuwait</td><td>ኩዌት</td>
+                            <td class="en">Home Cooks & Chefs</td><td class="am">የቤት ውስጥ ምግብ አሰናጅ</td>
+                            <td class="en">Middle Eastern culinary basics, professional kitchen safety</td><td class="am">የመካከለኛው ምስራቅ ምግቦች አዘገጃጀት እና የኩሽና ደህንነት ጥበቃ</td>
+                            <td class="en">Minimum Legal Limit</td><td class="am">በሕግ የተፈቀደው አነስተኛ ደመወዝ</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <p style="text-align:center; margin-top:40px; font-size:0.75rem; color:#444;">
-            &copy; 2026 MAHI FOREIGN EMPLOYMENT AGENT PLC. All Rights Reserved. Built Compliant with international ethical recruitment protocols[cite: 1].
-        </p>
-    </footer>
 
-    <!-- ABSOLUTE FLOATING ACTION COMMUNICATION TERMINAL LAYERS -->
-    <div class="floating-dock">
-        <a href="https://wa.me/251922436731" class="dock-channel pop-in-out" target="_blank">
-            <span>💬 Register to Work / ይመዝገቡ</span>
-        </a>
-        <a href="https://wa.me/251911661718" class="dock-channel b2b pop-in-out" target="_blank">
-            <span>🌐 Agency Support Terminal</span>
-        </a>
+        <!-- Mandated Legal Benefits Grid -->
+        <div class="pop-target" style="margin-top:40px;">
+            <h3 class="section-title en">Mandated Legal Benefits (Employer Provided)</h3>
+            <h3 class="section-title am">በሕግ የተደነገጉ ጥቅማጥቅሞች (በአሰሪው የሚሸፈኑ)</h3>
+            <div class="grid-2">
+                <div class="card hover-pop">
+                    <p class="en">🍱 <strong>Free Food & Safe Accommodation:</strong> Complete daily nutrition provisions and secure quarters at zero cost to the worker.</p>
+                    <p class="am">🍱 <strong>ነፃ ምግብ እና መጠለያ:</strong> ለሰራተኛዋ ምንም አይነት ወጪ ሳይኖረው የተሟላ ምግብ እና አስተማማኝ ማረፊያ የማቅረብ ግዴታ።</p>
+                </div>
+                <div class="card hover-pop">
+                    <p class="en">🏥 <strong>Full Medical Insurance:</strong> Fully covered and sustained medical health coverage plans for the complete 2-year contract term.</p>
+                    <p class="am">🏥 <strong>የህክምና መድን ዋስትና:</strong> ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን የህክምና ዋስትና።</p>
+                </div>
+                <div class="card hover-pop">
+                    <p class="en">✈️ <strong>Free Air Travel Logistics:</strong> Mandatory entry flight and legal round-trip ticketing upon successful contract completion.</p>
+                    <p class="am">✈️ <strong>የነፃ የአየር መንገድ ትኬት:</strong> ወደ ስራ ቦታ ለመሄድ እና የ2 አመት ኮንትራት ሲጠናቀቅ የደርሶ መልስ የአየር መንገድ ትኬት የማቅረብ ግዴታ።</p>
+                </div>
+                <div class="card hover-pop">
+                    <p class="en">💳 <strong>Traceable Salary Protection:</strong> Electronic salary banking monitoring via Musaned (KSA WPS) or secure PAM structures (Kuwait).</p>
+                    <p class="am">💳 <strong>ህጋዊ የደመወዝ ጥበቃ ሲስተም:</strong> ደመወዝ በባንክ እና በኤሌክትሮኒክስ ሲስተም (ሙሳነድ/WPS) ቁጥጥር የሚደረግበት አስተማማኝ አሰራር።</p>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Corporate Footer Coordinates Details -->
+    <footer>
+        <div class="pop-target">
+            <p><strong>MAHI FOREIGN EMPLOYMENT AGENT PLC</strong></p>
+            <p class="en">Addis Ketema Sub-City, Woreda 08, House No. 540, 7th Floor, Office No. 716 | Addis Ababa, Ethiopia</p>
+            <p class="am">አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716 | አዲስ አበባ፣ ኢትዮጵያ</p>
+            <p class="en">Direct Inquiries Contact: 0922436731 | Email: Mahiemployment@gmail.com</p>
+            <p class="am">ስልክ ቁጥር: 0922436731 | ኢሜይል: Mahiemployment@gmail.com</p>
+            <div class="footer-links">
+                <a href="https://www.google.com/maps/place/Addis+ketema+sub+city+wereda+8/@9.0330569,38.7327538,17.71z/" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Google Maps Location</a>
+                <a href="https://t.me/+251922436731" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Channel</a>
+            </div>
+            <p style="margin-top: 25px; opacity: 0.5; font-size: 0.8rem;">&copy; 2026 MAHI PLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive One-Click Multi-Channel Contact Widget -->
+    <a href="https://wa.me/251922436731" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Interactive Dynamic Scroll and Language Engine JavaScript -->
+    <script>
+        // Language Toggler Engine
+        function toggleLanguage() {
+            const body = document.body;
+            const btn = document.querySelector('.lang-toggle-btn');
+            if(body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-am');
+                btn.textContent = "Switch to English";
+            } else {
+                body.classList.remove('lang-am');
+                body.classList.add('lang-en');
+                btn.textContent = "Switch to አማርኛ";
+            }
+        }
+
+        // Lightweight Pop-In Intersection Observer Matrix
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -40px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Unobserve after popping in to optimize processing pipelines
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pop-target').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>
-
-```
