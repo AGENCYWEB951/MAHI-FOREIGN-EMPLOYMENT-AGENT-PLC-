@@ -540,6 +540,24 @@
             background: rgba(255, 255, 255, 0.01);
         }
 
+        /* Google Maps Container System */
+        .cyber-map-wrapper {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+            background: var(--bg-silver);
+            height: 450px;
+        }
+
+        .cyber-map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(0.2) invert(0.9) contrast(1.2); /* Integrated dark-mode cyber aesthetic overlay */
+        }
+
         /* Footer System */
         footer {
             background: #090a0d;
@@ -669,12 +687,12 @@
             .flag-matrix { gap: 15px; flex-wrap: wrap; }
             .flag-hero { font-size: 3.5rem; }
             .grid-2 { grid-template-columns: 1fr; }
+            .cyber-map-wrapper { height: 320px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Pinned Navigation Stack Layer -->
     <div class="sticky-header-stack">
         <div class="top-communication-bar">
             <div class="meta-info-cluster">
@@ -700,6 +718,7 @@
                     <li><a href="#timeline" data-tr="nav_timeline">Process Timeline</a></li>
                     <li><a href="#seekers" data-tr="nav_seekers">Job Seekers Portal</a></li>
                     <li><a href="#welfare" data-tr="nav_welfare">Welfare & Hotline</a></li>
+                    <li><a href="#location" data-tr="nav_location">Location Map</a></li>
                     
                     <li class="dropdown">
                         <a href="#matrix" data-tr="nav_dest">Destinations ▾</a>
@@ -726,7 +745,6 @@
         </header>
     </div>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <h2 data-tr="hero_title">MAHI FOREIGN EMPLOYMENT AGENT PLC</h2>
         <p data-tr="hero_subtitle">Enabling premium strategic recruitment placement under the framework of Ethiopia's Official Proclamations 923/2016 and 1246/2021.</p>
@@ -756,7 +774,6 @@
         </div>
     </section>
 
-    <!-- Structural Section: Required Legal Benefits -->
     <section id="benefits">
         <h2 class="section-header" data-tr="h_benefits">Required Legal Benefits (Employer Obligations)</h2>
         <div class="grid-3">
@@ -788,7 +805,6 @@
         </div>
     </section>
 
-    <!-- Structural Section: Pre-Deployment Training Pillars -->
     <section id="training">
         <h2 class="section-header" data-tr="h_training">Pre-Deployment Structural Training Pillars</h2>
         <div class="grid-3">
@@ -810,7 +826,6 @@
         </div>
     </section>
 
-    <!-- Structural Section: Services & Job Categories Offered -->
     <section id="services">
         <h2 class="section-header" data-tr="h_services">Services & Job Categories Offered</h2>
         <div class="table-container">
@@ -864,7 +879,6 @@
         </div>
     </section>
 
-    <!-- Processing Flow Block -->
     <section id="b2b">
         <h2 class="section-header" data-tr="h_pipeline">B2B Integration Pipeline</h2>
         <div class="grid-3">
@@ -883,7 +897,6 @@
         </div>
     </section>
 
-    <!-- Process Timeline Section -->
     <section id="timeline">
         <h2 class="section-header" data-tr="h_timeline">Deployment Process Timeline</h2>
         <div class="grid-2">
@@ -910,12 +923,10 @@
         </div>
     </section>
 
-    <!-- For Job Seekers Portal Section -->
     <section id="seekers" style="background: rgba(30, 34, 43, 0.3);">
         <h2 class="section-header" data-tr="h_seekers">For Job Seekers (Candidate Hub)</h2>
         
         <div class="grid-2">
-            <!-- Opportunities & Requirements Column -->
             <div style="display: flex; flex-direction: column; gap: 30px;">
                 <div class="cyber-card">
                     <h3 style="color: var(--neon-cyan); margin-bottom: 20px;" data-tr="h_vacancies">💼 Open Vacancies / Current Opportunities</h3>
@@ -966,7 +977,6 @@
                 </div>
             </div>
 
-            <!-- Application Portal Form Column -->
             <div class="cyber-card" style="border-color: rgba(0, 245, 255, 0.2);">
                 <h3 style="color: var(--neon-cyan); margin-bottom: 10px;" data-tr="h_portal">🖥️ Online Application & Registration Portal</h3>
                 <p style="color: var(--text-dark); font-size: 0.9rem; margin-bottom: 25px;" data-tr="portal_sub">Submit your details to enter the verification deployment pool immediately.</p>
@@ -999,7 +1009,6 @@
             </div>
         </div>
 
-        <!-- Safety & Transparency Banner Component -->
         <div class="cyber-card welfare-hotline" style="margin-top: 40px; background: rgba(37, 211, 102, 0.03);">
             <h3 style="color: var(--neon-green); margin-bottom: 15px;" data-tr="h_safety">🛡️ Safety & Transparency Worker Rights Guide</h3>
             <div style="font-size: 1.05rem; display: flex; flex-direction: column; gap: 12px;">
@@ -1010,7 +1019,6 @@
         </div>
     </section>
 
-    <!-- Worker Welfare & Dispute Resolution Matrix -->
     <section id="welfare">
         <h2 class="section-header" data-tr="h_welfare">Worker Welfare & Dispute Resolution Matrix</h2>
         <div class="grid-2">
@@ -1030,7 +1038,6 @@
         </div>
     </section>
 
-    <!-- Corporate Credentials -->
     <section id="credentials">
         <h2 class="section-header" data-tr="h_cred">Corporate Credentials & Integrity</h2>
         <div class="grid-3">
@@ -1054,7 +1061,6 @@
         </div>
     </section>
 
-    <!-- Operational Matrix -->
     <section id="matrix">
         <h2 class="section-header" data-tr="h_matrix">Operational Matrix & Salary Scale</h2>
         <div class="table-container">
@@ -1128,7 +1134,13 @@
         </div>
     </section>
 
-    <!-- Footer Network Grid -->
+    <section id="location">
+        <h2 class="section-header" data-tr="h_location">Our Office Location</h2>
+        <div class="cyber-map-wrapper">
+            <iframe src="https://maps.google.com/maps?q=Addis%20Ababa,%20Addis%20Ketema,%20Woreda%2008,%20House%20540&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-brand-column">
@@ -1150,6 +1162,7 @@
                     <li><a href="#services" data-tr="nav_services">Services Hub</a></li>
                     <li><a href="#timeline" data-tr="nav_timeline">Process Timeline</a></li>
                     <li><a href="#seekers" data-tr="nav_seekers">Job Seekers Portal</a></li>
+                    <li><a href="#location" data-tr="nav_location">Location Map</a></li>
                 </ul>
             </div>
 
@@ -1174,19 +1187,17 @@
         </div>
     </footer>
 
-    <!-- Fixed Floating Widget -->
     <a href="https://wa.me/251922436731" class="widget-whatsapp" target="_blank" data-tr="w_chat">
         💬 WhatsApp Node
     </a>
 
-    <!-- Multi-Language Script Translation Core -->
     <script>
         const dictionary = {
             en: {
                 brand: "MAHI FEA PLC",
                 nav_home: "Home", nav_cred: "Credentials", nav_matrix: "Schedules", nav_dest: "Destinations ▾",
                 nav_benefits: "Legal Benefits", nav_training: "Training Pillars", nav_welfare: "Welfare & Hotline", nav_services: "Services",
-                nav_timeline: "Process Timeline", nav_seekers: "Job Seekers Portal",
+                nav_timeline: "Process Timeline", nav_seekers: "Job Seekers Portal", nav_location: "Location Map",
                 top_hours: "⏱️ Office Hours: Mon - Sat | 8:00 AM - 6:00 PM (EAT)", w_action: "WhatsApp Live",
                 f_h_nav: "Navigation", f_h_contact: "Direct Engagement",
                 hero_title: "MAHI FOREIGN EMPLOYMENT AGENT PLC",
@@ -1253,46 +1264,49 @@
                 h_safety: "🛡️ Safety & Transparency Worker Rights Guide",
                 safety_p1: "Your Rights are Protected: Deployed personnel are fully insulated from arbitrary system configurations. Under bilateral agreements, your employment contract has a guaranteed fixed term of exactly 2 years with comprehensive legal binding protections.",
                 safety_p2: "Full Coverage Insurance: Every deployed candidate is legally enrolled in specialized medical and occupational insurance programs completely paid for by the employer, guaranteeing access to treatments without internal operational latency.",
-                safety_p3: "Assistance Abroad: If any dispute, salary retention, or environmental emergency occurs while working abroad, you are never alone. You can immediately launch a direct report through our persistent digital nodes, or contact the nearest official Ethiopian Embassy cluster coordinates."
+                safety_p3: "Assistance Abroad: If any dispute, salary retention, or environmental emergency occurs while working abroad, you are never alone. You can immediately launch a direct report through our persistent digital nodes, or contact the nearest official Ethiopian Embassy cluster coordinates.",
+                
+                // Location Additions
+                h_location: "Our Office Location"
             },
             am: {
                 brand: "ማሂ የውጭ ሀገር ስራ",
                 nav_home: "ዋና ገጽ", nav_cred: "ማስረጃዎች", nav_matrix: "የደመወዝ ሰንጠረዥ", nav_dest: "የመድረሻ ሀገራት ▾",
                 nav_benefits: "ሕጋዊ ጥቅማጥቅሞች", nav_training: "የስልጠና ምሰሶዎች", nav_welfare: "የደህንነት ማእከል", nav_services: "የስራ መደቦች",
-                nav_timeline: "የሂደት ጊዜ ሰሌዳ", nav_seekers: "የስራ ፈላጊዎች ፖርታል",
+                nav_timeline: "የሂደት ጊዜ ሰሌዳ", nav_seekers: "የስራ ፈላጊዎች ፖርታል", nav_location: "የቢሮ አድራሻ",
                 top_hours: "⏱️ የስራ ሰዓት: ሰኞ - ቅዳሜ | ከ2:00 ጠዋት - 12:00 ማታ (EAT)", w_action: "ዋትስአፕ በቀጥታ",
                 f_h_nav: "ማውጫ", f_h_contact: "ቀጥታ ግንኙነት",
                 hero_title: "ማሂ በዉጭ ሀገር ስራና ሰራተኛ አገናኝ ኤጀንሲ",
                 hero_subtitle: "በኢትዮጵያ የውጪ أገር ሥራ ሥምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሕጋዊና ፈጣን አገልግሎት።",
-                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረብ ኤምሬትስ", f_qatar: "ኳታር", f_jordan: "ዮርدا诺ስ",
-                cta_partner: "አبረው ለመስራት", cta_register: "ለመመዝገብ / REGISTER",
+                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረብ ኤምሬትስ", f_qatar: "ኳታር", f_jordan: "ዮርዳኖስ",
+                cta_partner: "አብረው ለመስራት", cta_register: "ለመመዝገብ / REGISTER",
                 h_cred: "ሕጋዊ ፈቃዶች እና አድራሻ",
                 c1_title: "ዋና ስራ አስኪያጅ", c1_body: "ወ/ት ሲሀም እድሪስ ጀማል - የድርጅቱ ስራ አስኪያጅ።",
-                c2_title: "የቢሮ አድራሻ", c2_body: "አዲስ አበባ፣ አዲስ ከተማ ክፍለ ከተማ، ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716።",
+                c2_title: "የቢሮ አድራሻ", c2_body: "አዲስ አበባ፣ አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716።",
                 c3_title: "የንግድ ፈቃድ ማረጋገጫ",
                 h_pipeline: "የአሰራር ሂደቶች",
-                p1_h: "ደረጃ 1: የኢምباسي ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምباسي አረጋግጦ በብሔራዊ የኢ-ኤልኤምአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
+                p1_h: "ደረጃ 1: የኢምባሲ ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምባሲ አረጋግጦ በብሔራዊ የኢ-ኤልኤምአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
                 p2_h: "ደረጃ 2: ምልመላና መረጣ", p2_b: "ዕድሜያቸው ከ25 ዓመት በላይ የሆኑ ብቁ እጩዎችን በሕጋዊ መንገድ መመልመልና ማዘጋጀት።",
                 p3_h: "ደረጃ 3: ህክምናና ስልጠና", p3_b: "የጋምካ (GAMCA) የጤና ምርመራ ማጠናቀቅ እና የ21 ቀናት ስልጠና ወስዶ የብቃት ማረጋገጫ (CoC) መያዝ።",
-                h_matrix: "የስራ መደብ እና የደမወዝ መጠን",
+                h_matrix: "የስራ መደብ እና የደመወዝ መጠን",
                 th_dest: "የመድረሻ ሀገር", th_cat: "የስራ መደብ", th_exp: "የስራ ልምድ", th_sal: "ወርሃዊ ደመወዝ",
                 td_hm: "የቤት ሰራተኛ", td_fresh: "አዲስ", td_exp: "2 ዓመትና ከዚያ በላይ ልምድ ያለው", td_all: "ሁሉንም የቤት ውስጥ ስራዎች", td_legal: "ሕጋዊ ዝቅተኛው ደመወዝ",
                 footer_welfare: "ለሰራተኞች ምንም አይነት ክፍያ አይጠየቅም • ሙሉ በሙሉ በሕግ የተጠበቀ",
                 w_chat: "💬 በዋትስአፕ ያግኙን",
                 h_benefits: "አስገዳጅ ሕጋዊ ጥቅማጥቅሞች (የአሰሪ ግዴታዎች)",
-                b1_title: "ነፃ ምግብና ንጹህ ማረፊያ", b1_body: "በሳውዲ አረቢያ፣ ዮርداኖስ፣ ኤምሬትስ እና ኳታር ያሉ አሰሪዎች ለሰራተኛው ንጹህ ማረፊያና ሶስት ጊዜ የተመጣጠنه ምግብ የመስጠት ህጋዊ ግዴታ አለባቸው።",
-                b2_title: "كامل የህክምና ዋስትنا", b2_body: "ለ2 ዓመት የኮنትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን አጠቃላይ የህክምና መድን ዋስትና።",
+                b1_title: "ነፃ ምግብና ንጹህ ማረፊያ", b1_body: "በሳውዲ አረቢያ፣ ዮርዳኖስ፣ ኤምሬትስ እና ኳታር ያሉ አሰሪዎች ለሰራተኛው ንጹህ ማረፊያና ሶስት ጊዜ የተመጣጠነ ምግብ የመስጠት ህጋዊ ግዴታ አለባቸው።",
+                b2_title: "كامل የህክምና ዋስትና", b2_body: "ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን አጠቃላይ የህክምና መድን ዋስትና።",
                 b3_title: "ነፃ የቤት-ወደ-ቤት የአየር ጉዞ", b3_body: "ስራ ሲጀምሩ ከአዲስ አበባ ወደ መድረሻው ከተማ ነፃ የአንድ አቅጣጫ ትኬት፣ እና የ2 አመት ኮንትራት ሲያጠናቅቁ ነፃ የደርሶ መልስ ትኬት።",
-                b4_title: "ሕጋዊ የባንክ ደመወዝ አከፋፈል", b4_body: "በሳውዲ አረቢያ የወር ደመወዝ በይፋዊው የሙሳነድ (Musaned / WPS) የደመወዝ ጥبهቃ ስርዓት በኤሌክትሮኒክስ መንገድ መከፈል አለበት።",
+                b4_title: "ሕጋዊ የባንክ ደመወዝ አከፋፈል", b4_body: "በሳውዲ አረቢያ የወር ደመወዝ በይፋዊው የሙሳነድ (Musaned / WPS) የደመወዝ ጥበቃ ስርዓት በኤሌክትروኒክስ መንገድ መከፈል አለበት።",
                 b5_title: "የእረፍት ጊዜያት", b5_body: "በሳምንት ቢያንስ 1 ሙሉ ቀን አስገዳጅ እረፍት፣ እንዲሁም የሰራተኛውን አቅም ለመጠበቅ ዕለታዊ መደበኛ የእረፍት ሰዓታት።",
                 h_training: "ከስምሪት በፊት የሚሰጡ ዋና ዋና ስልጠናዎች",
                 t1_title: "ዘመናዊ የቤት አያያዝ", t1_body: "ዘመናዊ የወጥ ቤት እቃዎችን፣ አውتوማቲክ ማጠቢያ ማሽኖችን፣ ስማርት ቫኪዩም እና የልብስ መተኮሻዎችን በትክክል የመጠቀም ተግባራዊ ስልጠና።",
-                t2_title: "የባህልና ሀይማኖት ግንዛቤ", t2_body: "ስለ ባሕره ሰላጤው (Gulf) ሀገራት የቤተሰብ የአኗኗር ዘይቤ፣ ወጎች፣ አለባበስ እና የግል ህይወት ሚስጥራዊነት ጥልቅ ስልጠና።",
+                t2_title: "የባህልና ሀይማኖት ግንዛቤ", t2_body: "ስለ ባሕረ ሰላጤው (Gulf) ሀገራት የቤተሰብ የአኗኗር ዘይቤ، ወጎች፣ አለባበስ እና የግል ህይወት ሚስጥራዊነት ጥልቅ ስልጠና።",
                 t3_title: "የግንኙነትና ችግር መፍቻ ክህሎት", t3_body: "ሰራተኞች ቅሬታዎችን በጨዋነት እንዴት መግለጽ እንደሚችሉ፣ የህክምና እርዳታ እንዴት እንደሚጠይቁ እና በይፋዊ መስመሮች ድንገተኛ አደጋዎችን ማሳወቅ።",
-                h_welfare: "የሰራተኞች ደህንነት እና ቅሬታ አያيةዝ",
+                h_welfare: "የሰራተኞች ደህንነት እና ቅሬታ አያያዝ",
                 w1_title: "የ24/7 ሰዓት የድጋፍ መስመር", w1_body: "በውጭ ሀገር ላሉ ሰራተኞች የደመወዝ መዘግየት፣ የምግብ እጥረት ወይም የህክምና ችግሮች ሲያጋጥሟቸው ወዲያውኑ ሪፖርት የሚያደርጉበት የ24 ሰዓት ቀጥታ መስመር አለን።",
                 w1_cta: "የአደጋ ጊዜ መስመር ይክፈቱ",
-                w2_title: "የውጭ ቢሮዎች ተጠያቂነት መግለጫ", w2_body: "የድርጅታችን መርህ፡ ማሂ ኤጀንሲ በታማኝነት ይሰራል። የምንሰራው በሳውዲ፣ ዮርዳኖስ، ኳታር እና ኤምሬትስ ካሉ ህጋዊ እና የሰራተኛ መብትን ከሚያከብሩ ቢሮዎች ጋር ብቻ ነው።",
+                w2_title: "የውጭ ቢሮዎች ተጠያቂነት መግለጫ", w2_body: "የድርጅታችን መርህ፡ ማሂ ኤጀንሲ በታማኝነት ይሰራል። የምንሰራው በሳውዲ፣ ዮርዳኖስ፣ ኳታር እና ኤምሬትስ ካሉ ህጋዊ እና የሰራተኛ መብትን ከሚያከብሩ ቢሮዎች ጋር ብቻ ነው።",
                 h_services: "የአገልግሎት እና የስራ አይነቶች",
                 th_job_cat: "የስራ መደብ", th_targets: "መድረሻ ሀገራት", th_training_prov: "የሚሰጠው ስልጠና",
                 sc1_title: "የቤት ሰራተኞች / ሞግዚቶች", sc1_body: "የቤት አያያዝ፣ መሰረታዊ ቋንቋ እና የባህል ግንዛቤ ስልጠና",
@@ -1305,7 +1319,7 @@
                 tl1_day: "ቀን 1-2", tl1_title: "1. የፍላጎት ማረጋገጫ", tl1_body: "በይፋዊ የመንግስት መስመሮች (እንደ ሳውዲ ሙሳነድ) የመጡ የስራ ትዕዛዞችን መገምገም እና መስፈርቶችን መለየት።",
                 tl2_day: "ቀን 3-7", tl2_title: "2. እጩዎችን መመልመል እና መምረጥ", tl2_body: "ካለን አስተማማኝ የሰራተኞች የመረጃ ቋት ውስጥ በእድሜ፣ በጀርባ ታሪክ እና በክህሎት ተስማሚ እጩዎችን መምረጥ እና ቃለ-መጠይቅ ማድረግ።",
                 tl3_day: "ቀን 8-20", tl3_title: "3. ህክምና እና ሰነዶች ማሟላት", tl3_body: "አስገዳጅ የጋምካ (GAMCA) ህክምና ምርመራዎችን ማመቻቸት፣ የፖሊስ ማረጋገጫ እና የፓስፖርት መረጃዎችን ማደራጀት።",
-                tl4_day: "ቀን 25-35", tl4_title: "4. ስልጠና እና ቪዛ ማጠናቀቅ", tl4_body: "የባህልና ክህሎት ማላመጃ ስልጠና መስጠት፣ የቪዛ ማህተም፣ የایምባሲ ፈቃድ እና የአየር መንገድ ትኬት መቁረጥ።",
+                tl4_day: "ቀን 25-35", tl4_title: "4. ስልጠና እና ቪዛ ማጠናቀቅ", tl4_body: "የባህልና ክህሎት ማላመጃ ስልጠና መስጠት፣ የቪዛ ማህተም፣ የኢምባሲ ፈቃድ እና የአየር መንገድ ትኬት መቁረጥ።",
                 
                 // Job Seekers Amharic
                 h_seekers: "ለስራ ፈላጊዎች (የእጩዎች ማእከል)",
@@ -1326,13 +1340,16 @@
                 h_safety: "🛡️ የደህንነት እና ግልጽነት መመሪያ (የሰራተኞች መብት)",
                 safety_p1: "መብትዎ በህግ የተጠበቀ ነው፡ የስራ ውልዎ ለ2 አመት በህግ የተደነገገ እና የማይለወጥ ሲሆን ሙሉ ጥበቃ ይደረግልዎታል።",
                 safety_p2: "የህክምና ዋስትና፡ ሁሉም ሰራተኛ ሙሉ በሙሉ በአሰሪው በሚከፈል የህክምና መድን ውስጥ ስለሚካተት ያለምንም ክፍያ ህክምና የማግኘት መብት አለው።",
-                safety_p3: "በውጭ ሀገር እገዛ ማግኘት፡ ስራ ላይ እያሉ ማንኛውም የደመወዝ መከልከል ወይም አስቸኳይ ችግር ሲያጋጥምዎት በቀጥታ ለእኛ ማሳወቅ ወይም በአቅራቢያዎ ለሚገኝ የኢትዮጵያ ኤምባሲ ማመልከት ይችላሉ።"
+                safety_p3: "በውጭ ሀገር እገዛ ማግኘት፡ ስራ ላይ እያሉ ማንኛውም የደመወዝ መከልከል ወይም አስቸኳይ ችግር ሲያጋጥምዎት በቀጥታ ለእኛ ማሳወቅ ወይም በአቅራቢያዎ ለሚገኝ የኢትዮጵያ ኤምባሲ ማመልከት ይችላሉ።",
+                
+                // Location Additions
+                h_location: "የቢሮአችን አድራሻ"
             },
             ar: {
                 brand: "وكالة ماهي",
                 nav_home: "الرئيسية", nav_cred: "الاعتمادات", nav_matrix: "جدول الرواتب", nav_dest: "وجهات العمل ▾",
                 nav_benefits: "المزايا القانونية", nav_training: "محاور التدريب", nav_welfare: "رعاية العمالة", nav_services: "فئات الوظائف",
-                nav_timeline: "مراحل العمل", nav_seekers: "بوابة المتقدمين",
+                nav_timeline: "مراحل العمل", nav_seekers: "بوابة المتقدمين", nav_location: "موقع المكتب",
                 top_hours: "⏱️ ساعات العمل: الإثنين - السبت | 8:00 صباحاً - 6:00 مساءً", w_action: "واتساب مباشر",
                 f_h_nav: "خريطة الموقع", f_h_contact: "الاتصال المباشر",
                 hero_title: "وكالة ماهي للتوظيف الخارجي ذ.م.م",
@@ -1399,7 +1416,10 @@
                 h_safety: "🛡️ دليل السلامة والشفافية وحقوق العاملين",
                 safety_p1: "حقوقكم محمية تماماً: العمالة لدينا معزولة تماماً عن أي تغييرات عشوائية للأنظمة. بموجب الاتفاقيات الثنائية، تبلغ مدة عقد العمل سنتين كاملتين مع حماية قانونية ملزمة وشاملة.",
                 safety_p2: "التأمين الصحي الشامل: يتم تسجيل كل مرشح في برامج التأمين الطبي والمهني المدفوعة بالكامل من قبل صاحب العمل، مما يضمن تلقي العلاج دون تكاليف عمالية.",
-                safety_p3: "الدعم والمساعدة بالخارج: إذا واجهتك أي نزاعات أو تأخير في الرواتب أثناء العمل في الخارج، فلست وحدك. يمكنك إرسال بلاغ فوري عبر منصتنا، أو التواصل مع أقرب سفارة إثيوبية في بلد العمل."
+                safety_p3: "الدعم والمساعدة بالخارج: إذا واجهتك أي نزاعات أو تأخير في الرواتب أثناء العمل في الخارج، فلست وحدك. يمكنك إرسال بلاغ فوري عبر منصتنا، أو التواصل مع أقرب سفارة إثيوبية في بلد العمل.",
+                
+                // Location Additions
+                h_location: "موقع مكتبنا"
             }
         };
 
