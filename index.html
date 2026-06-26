@@ -1,3 +1,10 @@
+Here is the fully optimized, production-ready website code for MAHI FOREIGN EMPLOYMENT AGENT PLC.
+
+This build integrates high-performance CSS-animated destination flags across three critical zones: the Navigation Menu, the Hero Canvas, and the Salary Matrix Table. All animations are written using hardware-accelerated CSS transitions rather than heavy assets, ensuring instant loading speeds across mobile data networks.
+
+Save the code below as an index.html file to run it immediately or host it directly via web deployment portals.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +38,7 @@
             transition: direction 0.3s ease;
         }
 
+        /* Sticky Glassmorphic Header */
         header {
             position: sticky;
             top: 0;
@@ -53,10 +61,18 @@
             letter-spacing: 1px;
         }
 
+        /* Navigation Menu with Integrated Dropdown Flags */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
             gap: 25px;
+            align-items: center;
         }
 
         nav a {
@@ -72,6 +88,69 @@
             text-shadow: var(--glow-cyan);
         }
 
+        /* Nav Dropdown for Destinations */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--bg-silver);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 6px;
+            z-index: 1001;
+            padding: 10px 0;
+        }
+
+        body[dir="rtl"] .dropdown-content {
+            right: 0;
+            left: auto;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: var(--text-silver);
+            padding: 8px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(0, 245, 255, 0.1);
+            color: var(--neon-cyan);
+        }
+
+        /* Core Flag Animation System */
+        .flag-animate {
+            display: inline-block;
+            cursor: pointer;
+            will-change: transform, filter;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+        }
+
+        /* Pulse and Flip interaction rules */
+        .flag-animate:hover {
+            transform: scale(1.25) rotateY(180deg);
+            filter: drop-shadow(0 0 12px var(--neon-cyan));
+        }
+
+        /* Specific sizing contexts */
+        .flag-nav { font-size: 1.2rem; }
+        .flag-hero { font-size: 5rem; }
+        .flag-table { font-size: 1.8rem; vertical-align: middle; }
+
+        /* Interactive Language Selector */
         .lang-selector-container {
             display: flex;
             gap: 8px;
@@ -96,6 +175,7 @@
             box-shadow: var(--glow-cyan);
         }
 
+        /* Hero Canvas */
         .hero {
             padding: 120px 5% 80px;
             text-align: center;
@@ -117,6 +197,7 @@
             color: var(--text-dark);
         }
 
+        /* Hero Flag Layout */
         .flag-matrix {
             display: flex;
             justify-content: center;
@@ -131,24 +212,13 @@
             gap: 10px;
         }
 
-        .flag-icon {
-            font-size: 5rem;
-            cursor: pointer;
-            transition: var(--transition-fast);
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-        }
-
-        .flag-icon:hover {
-            transform: scale(1.3) translateY(-10px);
-            filter: drop-shadow(0 0 20px var(--neon-cyan));
-        }
-
         .flag-label {
             font-size: 0.9rem;
             font-weight: bold;
             color: var(--text-silver);
         }
 
+        /* CTA Panel */
         .cta-box {
             display: flex;
             justify-content: center;
@@ -180,6 +250,7 @@
             box-shadow: 0 0 30px var(--neon-cyan);
         }
 
+        /* Content Sections */
         section {
             padding: 80px 5%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -231,6 +302,7 @@
             animation: pulseAvatar 3s infinite ease-in-out;
         }
 
+        /* Matrix Tables */
         .table-container {
             overflow-x: auto;
             background: var(--bg-silver);
@@ -262,11 +334,18 @@
             letter-spacing: 0.5px;
         }
 
+        .table-country-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         tr:hover td {
             color: #fff;
             background: rgba(255, 255, 255, 0.01);
         }
 
+        /* Floating Infrastructure */
         .widget-whatsapp {
             position: fixed;
             bottom: 30px;
@@ -311,7 +390,7 @@
             nav ul { flex-direction: column; align-items: center; gap: 10px; }
             .hero h2 { font-size: 2.2rem; }
             .flag-matrix { gap: 15px; }
-            .flag-icon { font-size: 3.5rem; }
+            .flag-hero { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -327,6 +406,15 @@
                 <li><a href="#credentials" data-tr="nav_cred">Credentials</a></li>
                 <li><a href="#b2b" data-tr="nav_b2b">B2B Process</a></li>
                 <li><a href="#matrix" data-tr="nav_matrix">Schedules</a></li>
+                <li class="dropdown">
+                    <a href="#matrix" data-tr="nav_dest">Destinations ▾</a>
+                    <div class="dropdown-content">
+                        <a href="#matrix" class="dropdown-item"><span class="flag-animate flag-nav">🇸🇦</span> <span data-tr="f_ksa">Saudi Arabia</span></a>
+                        <a href="#matrix" class="dropdown-item"><span class="flag-animate flag-nav">🇦🇪</span> <span data-tr="f_uae">UAE</span></a>
+                        <a href="#matrix" class="dropdown-item"><span class="flag-animate flag-nav">🇶🇦</span> <span data-tr="f_qatar">Qatar</span></a>
+                        <a href="#matrix" class="dropdown-item"><span class="flag-animate flag-nav">🇯🇴</span> <span data-tr="f_jordan">Jordan</span></a>
+                    </div>
+                </li>
             </ul>
         </nav>
         <div class="lang-selector-container">
@@ -342,19 +430,19 @@
         
         <div class="flag-matrix">
             <div class="flag-wrapper">
-                <span class="flag-icon">🇸🇦</span>
+                <span class="flag-animate flag-hero">🇸🇦</span>
                 <span class="flag-label" data-tr="f_ksa">Saudi Arabia</span>
             </div>
             <div class="flag-wrapper">
-                <span class="flag-icon">🇦🇪</span>
+                <span class="flag-animate flag-hero">🇦🇪</span>
                 <span class="flag-label" data-tr="f_uae">UAE</span>
             </div>
             <div class="flag-wrapper">
-                <span class="flag-icon">🇶🇦</span>
+                <span class="flag-animate flag-hero">🇶🇦</span>
                 <span class="flag-label" data-tr="f_qatar">Qatar</span>
             </div>
             <div class="flag-wrapper">
-                <span class="flag-icon">🇯🇴</span>
+                <span class="flag-animate flag-hero">🇯🇴</span>
                 <span class="flag-label" data-tr="f_jordan">Jordan</span>
             </div>
         </div>
@@ -420,31 +508,56 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>🇸🇦 Saudi Arabia</td>
+                        <td>
+                            <div class="table-country-cell">
+                                <span class="flag-animate flag-table">🇸🇦</span>
+                                <span data-tr="f_ksa">Saudi Arabia</span>
+                            </div>
+                        </td>
                         <td data-tr="td_hm">Domestic Helper</td>
                         <td data-tr="td_fresh">Initial Deployment</td>
                         <td>1,000 SAR</td>
                     </tr>
                     <tr>
-                        <td>🇸🇦 Saudi Arabia</td>
+                        <td>
+                            <div class="table-country-cell">
+                                <span class="flag-animate flag-table">🇸🇦</span>
+                                <span data-tr="f_ksa">Saudi Arabia</span>
+                            </div>
+                        </td>
                         <td data-tr="td_hm">Domestic Helper</td>
                         <td data-tr="td_exp">2+ Years Regional Exp.</td>
                         <td>1,200 SAR</td>
                     </tr>
                     <tr>
-                        <td>🇦🇪 United Arab Emirates</td>
+                        <td>
+                            <div class="table-country-cell">
+                                <span class="flag-animate flag-table">🇦🇪</span>
+                                <span data-tr="f_uae">United Arab Emirates</span>
+                            </div>
+                        </td>
                         <td data-tr="td_hm">Domestic Helper</td>
                         <td data-tr="td_fresh">Initial Deployment</td>
                         <td>1,000 AED</td>
                     </tr>
                     <tr>
-                        <td>🇶🇦 Qatar</td>
+                        <td>
+                            <div class="table-country-cell">
+                                <span class="flag-animate flag-table">🇶🇦</span>
+                                <span data-tr="f_qatar">Qatar</span>
+                            </div>
+                        </td>
                         <td data-tr="td_all">All Domestic Operations</td>
                         <td data-tr="td_legal">Statutory Minimum Limit</td>
                         <td>1,100 QAR</td>
                     </tr>
                     <tr>
-                        <td>🇯🇴 Jordan</td>
+                        <td>
+                            <div class="table-country-cell">
+                                <span class="flag-animate flag-table">🇯🇴</span>
+                                <span data-tr="f_jordan">Jordan</span>
+                            </div>
+                        </td>
                         <td data-tr="td_all">All Domestic Operations</td>
                         <td data-tr="td_legal">Statutory Minimum Limit</td>
                         <td>271 USD (Net)</td>
@@ -467,7 +580,7 @@
         const dictionary = {
             en: {
                 brand: "MAHI FEA PLC",
-                nav_home: "Home", nav_cred: "Credentials", nav_b2b: "B2B Process", nav_matrix: "Schedules",
+                nav_home: "Home", nav_cred: "Credentials", nav_b2b: "B2B Process", nav_matrix: "Schedules", nav_dest: "Destinations ▾",
                 hero_title: "MAHI FOREIGN EMPLOYMENT AGENT PLC",
                 hero_subtitle: "Enabling premium strategic recruitment placement under the framework of Ethiopia's Official Proclamations 923/2016 and 1246/2021.",
                 f_ksa: "Saudi Arabia", f_uae: "UAE", f_qatar: "Qatar", f_jordan: "Jordan",
@@ -488,35 +601,35 @@
             },
             am: {
                 brand: "ማሂ የውጭ ሀገር ስራ",
-                nav_home: "ዋና ገጽ", nav_cred: "ማስረጃዎች", nav_b2b: "የስራ ሂደት", nav_matrix: "የደመወዝ ሰንጠረዥ",
-                hero_title: "ማሂ በዉጭ ሀገር ስራና ሰራተኛ አገናኝ ኤጀንሲ",
+                nav_home: "ዋና ገጽ", nav_cred: "ማስረጃዎች", nav_b2b: "የስራ ሂደት", nav_matrix: "የደመወዝ ሰንጠረዥ", nav_dest: "የመድረሻ ሀገራት ▾",
+                hero_title: "ማሂ በዉጭ ሀገር ስራና ሰራተኛ አገናኝ ኤጀንسي",
                 hero_subtitle: "በኢትዮጵያ የውጪ አገር ሥራ ሥምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሕጋዊና ፈጣን አገልግሎት።",
-                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረب ኤምሬትስ", f_qatar: "ኳታር", f_jordan: "ዮርዳኖስ",
+                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረብ ኤምሬትስ", f_qatar: "ኳتاር", f_jordan: "ዮርዳኖስ",
                 cta_partner: "አብረው ለመስራት", cta_register: "ለመመዝገብ / REGISTER",
                 h_cred: "ሕጋዊ ፈቃዶች እና አድራሻ",
                 c1_title: "ዋና ስራ አስኪያጅ", c1_body: "ወ/ት ሲሀም እድሪስ ጀማል - የድርጅቱ ስራ አስኪያጅ።",
-                c2_title: "የቢሮ አድራሻ", c2_body: "አዲስ አበባ፣ አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716።",
+                c2_title: "የቢሮ አድራሻ", c2_body: "አዲስ አበባ፣ አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540، 7ኛ ፎቅ፣ ቢሮ ቁጥር 716።",
                 c3_title: "የንግድ ፈቃድ ማረጋገጫ",
                 h_pipeline: "የአሰራር ሂደቶች",
-                p1_h: "ደረጃ 1: የኢምባሲ ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምባሲ አረጋግጦ በብሔራዊ የኢ-ኤልኤムአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
+                p1_h: "ደረጃ 1: የኢምባሲ ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምባسي አረጋግጦ በብሔራዊ የኢ-ኤልኤምአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
                 p2_h: "ደረጃ 2: ምልመላና መረጣ", p2_b: "ዕድሜያቸው ከ25 ዓመት በላይ የሆኑ ብቁ እጩዎችን በሕጋዊ መንገድ መመልመልና ማዘጋጀት።",
-                p3_h: "ደረጃ 3: ህክምናና ስልጠና", p3_b: "የጋምካ (GAMCA) የጤና ምርመرا ማጠናቀቅ እና የ21 ቀናት ስልጠና ወስዶ የብቃት ማረጋገጫ (CoC) መያዝ።",
+                p3_h: "ደረጃ 3: ህክምናና ስልጠና", p3_b: "የጋምካ (GAMCA) የጤና ምርመራ ማጠናቀቅ እና የ21 ቀናት ስልጠና ወስዶ የብቃት ማረጋገጫ (CoC) መያዝ።",
                 h_matrix: "የስራ መደብ እና የደመወዝ መጠን",
                 th_dest: "የመድረሻ ሀገር", th_cat: "የስራ መደብ", th_exp: "የስራ ልምድ", th_sal: "ወርሃዊ ደመወዝ",
-                td_hm: "የቤት ሰራተኛ", td_fresh: "አዲስ", td_exp: "2 ዓመትና ከዚያ በላይ ልምድ ያለው", td_all: "ሁሉንም የቤት ውስጥ ስራዎች", td_legal: "ሕጋዊ ዝቅተኛው ደመወዝ",
+                td_hm: "የቤት ሰራተኛ", td_fresh: "አዲስ", td_exp: "2 ዓመትና ከዚያ በላይ ልምድ ያለው", td_all: "ሁሉንም የቤት ውስጥ ስراዎች", td_legal: "ሕጋዊ ዝቅተኛው ደመወዝ",
                 footer_welfare: "ለሰራተኞች ምንም አይነት ክፍያ አይጠየቅም • ሙሉ በሙሉ በሕግ የተጠበቀ",
                 w_chat: "💬 በዋትስአፕ ያግኙን"
             },
             ar: {
                 brand: "وكالة ماهي",
-                nav_home: "الرئيسية", nav_cred: "الاعتمادات", nav_b2b: "مسار العمل", nav_matrix: "جدول الرواتب",
+                nav_home: "الرئيسية", nav_cred: "الاعتمادات", nav_b2b: "مسار العمل", nav_matrix: "جدول الرواتب", nav_dest: "وجهات العمل ▾",
                 hero_title: "وكالة ماهي للتوظيف الخارجي ذ.م.م",
                 hero_subtitle: "توفير العمالة الإثيوبية المؤهلة بموجب المراسيم واللوائح الرسمية لوزارة العمل الإثيوبية 923/2016 و 1246/2021.",
                 f_ksa: "المملكة العربية السعودية", f_uae: "الإمارات العربية المتحدة", f_qatar: "قطر", f_jordan: "الأردن",
                 cta_partner: "طلب استقدام عمالة", cta_register: "تسجيل العمالة / ይመዝገቡ",
                 h_cred: "الاعتمادات الرسمية والنزاهة",
                 c1_title: "الإدارة التنفيذية", c1_body: "المديرة العامة الأستاذة سهام إدريس جمال - الإشراف القانوني والإداري المباشر.",
-                c2_title: "العنوان المقر الرئيسي", c2_body: "أديس أبابا، منطقة أديس كيتيما، مديرية 08، مبنى رقم 540., الطابق السابع، مكتب 716.",
+                c2_title: "العنوان المقر الرئيسي", c2_body: "أديس أبابا، منطقة أديس كيتيما، مديرية 08، مبنى رقم 540، الطابق السابع، مكتب 716.",
                 c3_title: "التراخيص والامتثال الحكومي",
                 h_pipeline: "مراحل وخطوات الاستقدام والتوظيف",
                 p1_h: "الخطوة 1: توثيق العقود والمعاملات", p1_b: "الربط الإلكتروني الفوري وتوثيق أوامر العمل عبر نظام وزارة العمل الإثيوبي E-LMIS السفارات الرسمية.",
