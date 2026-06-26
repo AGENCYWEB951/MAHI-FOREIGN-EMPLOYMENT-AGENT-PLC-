@@ -81,7 +81,18 @@
             justify-content: space-between;
             align-items: center;
         }
-
+@media (max-width: 768px) {
+    header {
+        position: fixed; /* or sticky */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;        /* Force it to only be as tall as its content */
+        max-height: 70px;    /* Keeps it contained */
+        z-index: 1000;       /* Keeps it on top, but not blocking interaction below */
+        overflow: visible;   /* Ensures dropdown menus still work if needed */
+    }
+}
         .logo h1 {
             font-size: 1.6rem;
             font-weight: 800;
