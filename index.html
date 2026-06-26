@@ -101,6 +101,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -297,6 +298,8 @@
             font-size: 1rem;
             letter-spacing: 1px;
             transition: var(--transition-fast);
+            cursor: pointer;
+            border: none;
         }
 
         .btn-neon {
@@ -385,10 +388,101 @@
             margin-bottom: 15px;
         }
 
+        .timeline-day {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+            box-shadow: var(--glow-cyan);
+        }
+
+        body[dir="rtl"] .timeline-day {
+            right: auto;
+            left: 20px;
+        }
+
         .manager-avatar {
             font-size: 3.5rem;
             margin-bottom: 15px;
             animation: pulseAvatar 3s infinite ease-in-out;
+        }
+
+        /* Checklists */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        body[dir="rtl"] .checklist li {
+            padding-left: 0;
+            padding-right: 30px;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--neon-cyan);
+            font-weight: 900;
+            text-shadow: var(--glow-cyan);
+        }
+
+        body[dir="rtl"] .checklist li::before {
+            left: auto;
+            right: 0;
+        }
+
+        /* Forms Architecture */
+        .cyber-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-silver);
+        }
+
+        .cyber-input {
+            background: var(--bg-deep);
+            border: 1px solid var(--text-dark);
+            color: #fff;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: var(--transition-fast);
+            width: 100%;
+        }
+
+        .cyber-input:focus {
+            border-color: var(--neon-cyan);
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+        }
+
+        input[type="file"].cyber-input {
+            padding: 10px;
+            cursor: pointer;
         }
 
         /* Tables */
@@ -399,6 +493,11 @@
             border-radius: 8px;
             border-left: 4px solid var(--neon-cyan);
             margin-bottom: 20px;
+        }
+
+        body[dir="rtl"] .table-container {
+            border-left: none;
+            border-right: 4px solid var(--neon-cyan);
         }
 
         table {
@@ -561,11 +660,6 @@
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
         }
 
-        @keyframes pulseAvatar {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,255,255,0)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 8px var(--neon-cyan)); }
-        }
-
         @media (max-width: 1150px) {
             .top-communication-bar { flex-direction: column; gap: 8px; text-align: center; }
             header { flex-direction: column; gap: 15px; }
@@ -603,8 +697,9 @@
                     <li><a href="#benefits" data-tr="nav_benefits">Legal Benefits</a></li>
                     <li><a href="#training" data-tr="nav_training">Training Pillars</a></li>
                     <li><a href="#services" data-tr="nav_services">Services</a></li>
+                    <li><a href="#timeline" data-tr="nav_timeline">Process Timeline</a></li>
+                    <li><a href="#seekers" data-tr="nav_seekers">Job Seekers Portal</a></li>
                     <li><a href="#welfare" data-tr="nav_welfare">Welfare & Hotline</a></li>
-                    <li><a href="#matrix" data-tr="nav_matrix">Schedules</a></li>
                     
                     <li class="dropdown">
                         <a href="#matrix" data-tr="nav_dest">Destinations ▾</a>
@@ -657,7 +752,7 @@
 
         <div class="cta-box">
             <a href="https://wa.me/251922436731" class="cyber-btn btn-neon" data-tr="cta_partner">Partner With Us</a>
-            <a href="mailto:Mahiemployment@gmail.com" class="cyber-btn btn-neon" data-tr="cta_register">Register to Work / ይመዝገቡ</a>
+            <a href="#seekers" class="cyber-btn btn-neon" data-tr="cta_register">Register to Work / ይመዝገቡ</a>
         </div>
     </section>
 
@@ -769,7 +864,153 @@
         </div>
     </section>
 
-    <!-- Structural Section: Worker Welfare & Dispute Resolution -->
+    <!-- Processing Flow Block -->
+    <section id="b2b">
+        <h2 class="section-header" data-tr="h_pipeline">B2B Integration Pipeline</h2>
+        <div class="grid-3">
+            <div class="cyber-card">
+                <h4 style="color:var(--neon-cyan);" data-tr="p1_h">Step 1: Attestation & E-LMIS</h4>
+                <p data-tr="p1_b">Verification via the official Ethiopian Embassy to securely route Demand Letters to the national Labour Market Information System.</p>
+            </div>
+            <div class="cyber-card">
+                <h4 style="color:var(--neon-cyan);" data-tr="p2_h">Step 2: Vetting & Selection</h4>
+                <p data-tr="p2_b">Ethical demographic verification ensuring strict compliance with local mandates (Minimum age threshold of 25 years old).</p>
+            </div>
+            <div class="cyber-card">
+                <h4 style="color:var(--neon-cyan);" data-tr="p3_h">Step 3: GAMCA & TVET</h4>
+                <p data-tr="p3_b">Rigorous medical evaluation combined with 21 days of specialized programmatic training to secure formal Certificates of Competence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline Section -->
+    <section id="timeline">
+        <h2 class="section-header" data-tr="h_timeline">Deployment Process Timeline</h2>
+        <div class="grid-2">
+            <div class="cyber-card">
+                <span class="timeline-day" data-tr="tl1_day">Day 1-2</span>
+                <h3 style="color: var(--neon-cyan); margin-bottom: 10px;" data-tr="tl1_title">1. Demand Verification</h3>
+                <p data-tr="tl1_body">Review the job order details received via official government channels (like Musaned for KSA) and establish candidate criteria.</p>
+            </div>
+            <div class="cyber-card">
+                <span class="timeline-day" data-tr="tl2_day">Day 3-7</span>
+                <h3 style="color: var(--neon-cyan); margin-bottom: 10px;" data-tr="tl2_title">2. Candidate Screening & Interview</h3>
+                <p data-tr="tl2_body">Source, filter, and screen local candidates from our verified talent pool to find the ideal match based on age, background, and skills.</p>
+            </div>
+            <div class="cyber-card">
+                <span class="timeline-day" data-tr="tl3_day">Day 8-20</span>
+                <h3 style="color: var(--neon-cyan); margin-bottom: 10px;" data-tr="tl3_title">3. Medical & Documentation</h3>
+                <p data-tr="tl3_body">Facilitate mandatory GAMCA/approved medical checkups and process local police clearances and passport profiling.</p>
+            </div>
+            <div class="cyber-card">
+                <span class="timeline-day" data-tr="tl4_day">Day 25-35</span>
+                <h3 style="color: var(--neon-cyan); margin-bottom: 10px;" data-tr="tl4_title">4. Pre-Departure Orientation & Visa</h3>
+                <p data-tr="tl4_body">Conduct cultural alignment and skill preparation training while finalizing visa stamping, embassy clearance, and flight bookings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Job Seekers Portal Section -->
+    <section id="seekers" style="background: rgba(30, 34, 43, 0.3);">
+        <h2 class="section-header" data-tr="h_seekers">For Job Seekers (Candidate Hub)</h2>
+        
+        <div class="grid-2">
+            <!-- Opportunities & Requirements Column -->
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                <div class="cyber-card">
+                    <h3 style="color: var(--neon-cyan); margin-bottom: 20px;" data-tr="h_vacancies">💼 Open Vacancies / Current Opportunities</h3>
+                    <div class="table-container" style="background: var(--bg-deep); border-left-color: var(--neon-amber);">
+                        <table style="font-size: 0.95rem;">
+                            <thead>
+                                <tr>
+                                    <th data-tr="th_v_country">Country</th>
+                                    <th data-tr="th_v_role">Available Role</th>
+                                    <th data-tr="th_v_status">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>🇸🇦 Saudi Arabia</td>
+                                    <td data-tr="vac_role_1">Housemaids / Domestic Helpers</td>
+                                    <td style="color: var(--neon-green);" data-tr="vac_status_open">🟢 Active</td>
+                                </tr>
+                                <tr>
+                                    <td>🇦🇪 United Arab Emirates</td>
+                                    <td data-tr="vac_role_2">Nannies & Caregivers</td>
+                                    <td style="color: var(--neon-green);" data-tr="vac_status_open">🟢 Active</td>
+                                </tr>
+                                <tr>
+                                    <td>🇶🇦 Qatar</td>
+                                    <td data-tr="vac_role_3">Home Cooks & Chefs</td>
+                                    <td style="color: var(--neon-green);" data-tr="vac_status_open">🟢 Active</td>
+                                </tr>
+                                <tr>
+                                    <td>🇯🇴 Jordan</td>
+                                    <td data-tr="vac_role_4">Private Drivers</td>
+                                    <td style="color: var(--neon-green);" data-tr="vac_status_open">🟢 Active</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="cyber-card">
+                    <h3 style="color: var(--neon-cyan); margin-bottom: 20px;" data-tr="h_eligibility">📋 Eligibility Requirements Checklist</h3>
+                    <ul class="checklist">
+                        <li data-tr="elig_1">Minimum structural age threshold of 25 years old.</li>
+                        <li data-tr="elig_2">Valid standard Ethiopian International Passport.</li>
+                        <li data-tr="elig_3">Completion of basic formal education and recognized occupational training courses.</li>
+                        <li data-tr="elig_4">Perfect verifiable clean medical record via an accredited GAMCA medical lab.</li>
+                        <li data-tr="elig_5">Official legal police clearance certificate demonstrating no criminal background.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Application Portal Form Column -->
+            <div class="cyber-card" style="border-color: rgba(0, 245, 255, 0.2);">
+                <h3 style="color: var(--neon-cyan); margin-bottom: 10px;" data-tr="h_portal">🖥️ Online Application & Registration Portal</h3>
+                <p style="color: var(--text-dark); font-size: 0.9rem; margin-bottom: 25px;" data-tr="portal_sub">Submit your details to enter the verification deployment pool immediately.</p>
+                
+                <form class="cyber-form" onsubmit="event.preventDefault(); alert('Registration Mock System Active. Payload ready.');">
+                    <div class="form-group">
+                        <label for="applicant-name" data-tr="lbl_name">Full Name (English / as on Passport)</label>
+                        <input type="text" id="applicant-name" class="cyber-input" placeholder="e.g., Almaz Abebe" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant-phone" data-tr="lbl_phone">Phone Number (Active Mobile Line)</label>
+                        <input type="tel" id="applicant-phone" class="cyber-input" placeholder="e.g., +251 911 000000" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="target-destination" data-tr="lbl_dest">Preferred Destination Country</label>
+                        <select id="target-destination" class="cyber-input" style="cursor: pointer;" required>
+                            <option value="" disabled selected data-tr="opt_select">Select target country...</option>
+                            <option value="ksa">Saudi Arabia (🇸🇦)</option>
+                            <option value="uae">United Arab Emirates (🇦🇪)</option>
+                            <option value="qatar">Qatar (🇶🇦)</option>
+                            <option value="jordan">Jordan (🇯🇴)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="passport-upload" data-tr="lbl_upload">Upload Passport Copy / Clear Photo</label>
+                        <input type="file" id="passport-upload" class="cyber-input" accept="image/*,application/pdf" required />
+                    </div>
+                    <button type="submit" class="cyber-btn btn-neon" style="width: 100%; margin-top: 10px;" data-tr="btn_submit">Submit Secure Application</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Safety & Transparency Banner Component -->
+        <div class="cyber-card welfare-hotline" style="margin-top: 40px; background: rgba(37, 211, 102, 0.03);">
+            <h3 style="color: var(--neon-green); margin-bottom: 15px;" data-tr="h_safety">🛡️ Safety & Transparency Worker Rights Guide</h3>
+            <div style="font-size: 1.05rem; display: flex; flex-direction: column; gap: 12px;">
+                <p data-tr="safety_p1"><strong>Your Rights are Protected:</strong> Deployed personnel are fully insulated from arbitrary system configurations. Under bilateral agreements, your employment contract has a guaranteed fixed term of exactly 2 years with comprehensive legal binding protections.</p>
+                <p data-tr="safety_p2"><strong>Full Coverage Insurance:</strong> Every deployed candidate is legally enrolled in specialized medical and occupational insurance programs completely paid for by the employer, guaranteeing access to treatments without internal operational latency.</p>
+                <p data-tr="safety_p3"><strong>Assistance Abroad:</strong> If any dispute, salary retention, or environmental emergency occurs while working abroad, you are never alone. You can immediately launch a direct report through our persistent digital nodes, or contact the nearest official Ethiopian Embassy cluster coordinates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Worker Welfare & Dispute Resolution Matrix -->
     <section id="welfare">
         <h2 class="section-header" data-tr="h_welfare">Worker Welfare & Dispute Resolution Matrix</h2>
         <div class="grid-2">
@@ -809,25 +1050,6 @@
                 <p>MoLS License: <strong style="color:#fff;">LIC0000016246</strong></p>
                 <p>Business Reg: <strong style="color:#fff;">MT/AA/14/671/2478158/2011</strong></p>
                 <p>Chamber ID: <strong style="color:#fff;">MT/AA/2/0048809/2011</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Processing Flow Block -->
-    <section id="b2b">
-        <h2 class="section-header" data-tr="h_pipeline">B2B Integration Pipeline</h2>
-        <div class="grid-3">
-            <div class="cyber-card">
-                <h4 style="color:var(--neon-cyan);" data-tr="p1_h">Step 1: Attestation & E-LMIS</h4>
-                <p data-tr="p1_b">Verification via the official Ethiopian Embassy to securely route Demand Letters to the national Labour Market Information System.</p>
-            </div>
-            <div class="cyber-card">
-                <h4 style="color:var(--neon-cyan);" data-tr="p2_h">Step 2: Vetting & Selection</h4>
-                <p data-tr="p2_b">Ethical demographic verification ensuring strict compliance with local mandates (Minimum age threshold of 25 years old).</p>
-            </div>
-            <div class="cyber-card">
-                <h4 style="color:var(--neon-cyan);" data-tr="p3_h">Step 3: GAMCA & TVET</h4>
-                <p data-tr="p3_b">Rigorous medical evaluation combined with 21 days of specialized programmatic training to secure formal Certificates of Competence.</p>
             </div>
         </div>
     </section>
@@ -926,7 +1148,8 @@
                     <li><a href="#benefits" data-tr="nav_benefits">Legal Benefits</a></li>
                     <li><a href="#training" data-tr="nav_training">Training Pillars</a></li>
                     <li><a href="#services" data-tr="nav_services">Services Hub</a></li>
-                    <li><a href="#welfare" data-tr="nav_welfare">Welfare Hub</a></li>
+                    <li><a href="#timeline" data-tr="nav_timeline">Process Timeline</a></li>
+                    <li><a href="#seekers" data-tr="nav_seekers">Job Seekers Portal</a></li>
                 </ul>
             </div>
 
@@ -961,8 +1184,9 @@
         const dictionary = {
             en: {
                 brand: "MAHI FEA PLC",
-                nav_home: "Home", nav_cred: "Credentials", nav_b2b: "B2B Process", nav_matrix: "Schedules", nav_dest: "Destinations ▾",
+                nav_home: "Home", nav_cred: "Credentials", nav_matrix: "Schedules", nav_dest: "Destinations ▾",
                 nav_benefits: "Legal Benefits", nav_training: "Training Pillars", nav_welfare: "Welfare & Hotline", nav_services: "Services",
+                nav_timeline: "Process Timeline", nav_seekers: "Job Seekers Portal",
                 top_hours: "⏱️ Office Hours: Mon - Sat | 8:00 AM - 6:00 PM (EAT)", w_action: "WhatsApp Live",
                 f_h_nav: "Navigation", f_h_contact: "Direct Engagement",
                 hero_title: "MAHI FOREIGN EMPLOYMENT AGENT PLC",
@@ -996,65 +1220,119 @@
                 w1_title: "Persistent 24/7 Support Hotline", w1_body: "We maintain a continuous tracking and reporting pipeline open around the clock for all deployed personnel. Workers can directly report administrative scale changes, processing latency, food supply constraints, or medical access emergencies immediately.",
                 w1_cta: "Access Emergency Link",
                 w2_title: "External Office Accountability Rule", w2_body: "Corporate Integrity Mandate: MAHI FEA PLC operates under strict international ethical codes. We uniquely contract and route placements through officially verified, accredited external agencies in Saudi Arabia, Jordan, Qatar, and the UAE who completely follow regional labor frameworks and guarantee punctual payment profiles.",
-                
-                // Services Module Target Mapping
                 h_services: "Services & Job Categories Offered",
                 th_job_cat: "Job Category", th_targets: "Target Destinations", th_training_prov: "Training Provided",
                 sc1_title: "Housemaids / Domestic Helpers", sc1_body: "Household management, language basics, and cultural orientation",
                 sc2_title: "Home Cooks & Chefs", sc2_body: "Middle Eastern culinary basics and kitchen safety standards",
                 sc3_title: "Private Drivers", sc3_body: "Navigation, driving etiquette, and basic mechanical knowledge",
-                sc4_title: "Nannies & Caregivers", sc4_body: "Childcare essentials, elderly support, and safety monitoring"
+                sc4_title: "Nannies & Caregivers", sc4_body: "Childcare essentials, elderly support, and safety monitoring",
+                
+                // Process Timeline Modules
+                h_timeline: "Deployment Process Timeline",
+                tl1_day: "Day 1-2", tl1_title: "1. Demand Verification", tl1_body: "Review the job order details received via official government channels (like Musaned for KSA) and establish candidate criteria.",
+                tl2_day: "Day 3-7", tl2_title: "2. Candidate Screening & Interview", tl2_body: "Source, filter, and screen local candidates from our verified talent pool to find the ideal match based on age, background, and skills.",
+                tl3_day: "Day 8-20", tl3_title: "3. Medical & Documentation", tl3_body: "Facilitate mandatory GAMCA/approved medical checkups and process local police clearances and passport profiling.",
+                tl4_day: "Day 25-35", tl4_title: "4. Pre-Departure Orientation & Visa", tl4_body: "Conduct cultural alignment and skill preparation training while finalizing visa stamping, embassy clearance, and flight bookings.",
+                
+                // Job Seekers Modules
+                h_seekers: "For Job Seekers (Candidate Hub)",
+                h_vacancies: "💼 Open Vacancies / Current Opportunities",
+                th_v_country: "Country", th_v_role: "Available Role", th_v_status: "Status",
+                vac_role_1: "Housemaids / Domestic Helpers", vac_role_2: "Nannies & Caregivers", vac_role_3: "Home Cooks & Chefs", vac_role_4: "Private Drivers", vac_status_open: "🟢 Active",
+                h_eligibility: "📋 Eligibility Requirements Checklist",
+                elig_1: "Minimum structural age threshold of 25 years old.",
+                elig_2: "Valid standard Ethiopian International Passport.",
+                elig_3: "Completion of basic formal education and recognized occupational training courses.",
+                elig_4: "Perfect verifiable clean medical record via an accredited GAMCA medical lab.",
+                elig_5: "Official legal police clearance certificate demonstrating no criminal background.",
+                h_portal: "🖥️ Online Application & Registration Portal",
+                portal_sub: "Submit your details to enter the verification deployment pool immediately.",
+                lbl_name: "Full Name (English / as on Passport)", lbl_phone: "Phone Number (Active Mobile Line)",
+                lbl_dest: "Preferred Destination Country", opt_select: "Select target country...", lbl_upload: "Upload Passport Copy / Clear Photo",
+                btn_submit: "Submit Secure Application",
+                h_safety: "🛡️ Safety & Transparency Worker Rights Guide",
+                safety_p1: "Your Rights are Protected: Deployed personnel are fully insulated from arbitrary system configurations. Under bilateral agreements, your employment contract has a guaranteed fixed term of exactly 2 years with comprehensive legal binding protections.",
+                safety_p2: "Full Coverage Insurance: Every deployed candidate is legally enrolled in specialized medical and occupational insurance programs completely paid for by the employer, guaranteeing access to treatments without internal operational latency.",
+                safety_p3: "Assistance Abroad: If any dispute, salary retention, or environmental emergency occurs while working abroad, you are never alone. You can immediately launch a direct report through our persistent digital nodes, or contact the nearest official Ethiopian Embassy cluster coordinates."
             },
             am: {
                 brand: "ማሂ የውጭ ሀገር ስራ",
-                nav_home: "ዋና ገጽ", nav_cred: "ማስረጃዎች", nav_b2b: "የስራ ሂደት", nav_matrix: "የደመወዝ ሰንጠረዥ", nav_dest: "የመድረሻ ሀገራት ▾",
+                nav_home: "ዋና ገጽ", nav_cred: "ማስረጃዎች", nav_matrix: "የደመወዝ ሰንጠረዥ", nav_dest: "የመድረሻ ሀገራት ▾",
                 nav_benefits: "ሕጋዊ ጥቅማጥቅሞች", nav_training: "የስልጠና ምሰሶዎች", nav_welfare: "የደህንነት ማእከል", nav_services: "የስራ መደቦች",
+                nav_timeline: "የሂደት ጊዜ ሰሌዳ", nav_seekers: "የስራ ፈላጊዎች ፖርታል",
                 top_hours: "⏱️ የስራ ሰዓት: ሰኞ - ቅዳሜ | ከ2:00 ጠዋት - 12:00 ማታ (EAT)", w_action: "ዋትስአፕ በቀጥታ",
                 f_h_nav: "ማውጫ", f_h_contact: "ቀጥታ ግንኙነት",
                 hero_title: "ማሂ በዉጭ ሀገር ስራና ሰራተኛ አገናኝ ኤጀንሲ",
                 hero_subtitle: "በኢትዮጵያ የውጪ أገር ሥራ ሥምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሕጋዊና ፈጣን አገልግሎት።",
-                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረብ ኤምሬትስ", f_qatar: "ኳتاር", f_jordan: "ዮርዳኖስ",
-                cta_partner: "አብረው ለመስራት", cta_register: "ለመመዝገብ / REGISTER",
+                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረብ ኤምሬትስ", f_qatar: "ኳታር", f_jordan: "ዮርدا诺ስ",
+                cta_partner: "አبረው ለመስራት", cta_register: "ለመመዝገብ / REGISTER",
                 h_cred: "ሕጋዊ ፈቃዶች እና አድራሻ",
                 c1_title: "ዋና ስራ አስኪያጅ", c1_body: "ወ/ት ሲሀም እድሪስ ጀማል - የድርጅቱ ስራ አስኪያጅ።",
-                c2_title: "የቢሮ አድራሻ", c2_body: "አዲስ አበባ፣ አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716።",
-                c3_title: "የንግد ፈቃድ ማረጋገጫ",
+                c2_title: "የቢሮ አድራሻ", c2_body: "አዲስ አበባ፣ አዲስ ከተማ ክፍለ ከተማ، ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716።",
+                c3_title: "የንግድ ፈቃድ ማረጋገጫ",
                 h_pipeline: "የአሰራር ሂደቶች",
-                p1_h: "ደረጃ 1: የኢምባሲ ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምባسي አረጋግጦ በብሔራዊ የኢ-ኤልኤምአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
+                p1_h: "ደረጃ 1: የኢምباسي ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምباسي አረጋግጦ በብሔራዊ የኢ-ኤልኤምአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
                 p2_h: "ደረጃ 2: ምልመላና መረጣ", p2_b: "ዕድሜያቸው ከ25 ዓመት በላይ የሆኑ ብቁ እጩዎችን በሕጋዊ መንገድ መመልመልና ማዘጋጀት።",
-                p3_h: "ደረጃ 3: ህክምናና ስልጠና", p3_b: "የጋምካ (GAMCA) የጤና ምርመرا ማጠናቀቅ እና የ21 ቀናት ስልጠና ወስዶ የብቃት ማረጋገጫ (CoC) መያዝ።",
-                h_matrix: "የስራ መደብ እና የደመወዝ መጠን",
+                p3_h: "ደረጃ 3: ህክምናና ስልጠና", p3_b: "የጋምካ (GAMCA) የጤና ምርመራ ማጠናቀቅ እና የ21 ቀናት ስልጠና ወስዶ የብቃት ማረጋገጫ (CoC) መያዝ።",
+                h_matrix: "የስራ መደብ እና የደမወዝ መጠን",
                 th_dest: "የመድረሻ ሀገር", th_cat: "የስራ መደብ", th_exp: "የስራ ልምድ", th_sal: "ወርሃዊ ደመወዝ",
                 td_hm: "የቤት ሰራተኛ", td_fresh: "አዲስ", td_exp: "2 ዓመትና ከዚያ በላይ ልምድ ያለው", td_all: "ሁሉንም የቤት ውስጥ ስራዎች", td_legal: "ሕጋዊ ዝቅተኛው ደመወዝ",
                 footer_welfare: "ለሰራተኞች ምንም አይነት ክፍያ አይጠየቅም • ሙሉ በሙሉ በሕግ የተጠበቀ",
                 w_chat: "💬 በዋትስአፕ ያግኙን",
                 h_benefits: "አስገዳጅ ሕጋዊ ጥቅማጥቅሞች (የአሰሪ ግዴታዎች)",
-                b1_title: "ነፃ ምግብና ንጹህ ማረፊያ", b1_body: "በساውዲ አረቢያ፣ ዮርዳኖስ፣ ኤምሬትስ እና ኳታር ያሉ አሰሪዎች ለሰራተኛው ንጹህ ማረፊያና ሶስት ጊዜ የተመጣጠነ ምግብ የመስጠት ህጋዊ ግዴታ አለባቸው።",
-                b2_title: "ሙሉ የህክምና ዋስትና", b2_body: "ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን አጠቃላይ የህክምና መድን ዋስትና።",
-                b3_title: "ነፃ የቤት-ወደ-ቤት የአየር ጉዞ", b3_body: "ስራ ሲጀምሩ ከአዲስ አበባ ወደ መድረሻው ከተማ ነፃ የአንድ አቅጣጫ ትኬት反፣ እና የ2 አመት ኮንትራት ሲያጠናቅቁ ነፃ የደርሶ መልስ ትኬት።",
-                b4_title: "ሕጋዊ የባንክ ደመወዝ አከፋፈል", b4_body: "በሳውዲ አረቢያ የወር ደመወዝ በይፋዊው የሙሳነድ (Musaned / WPS) የደመወዝ ጥበቃ ስርዓት በኤሌክትሮنيክስ መንገድ መከፈል አለበት።",
+                b1_title: "ነፃ ምግብና ንጹህ ማረፊያ", b1_body: "በሳውዲ አረቢያ፣ ዮርداኖስ፣ ኤምሬትስ እና ኳታር ያሉ አሰሪዎች ለሰራተኛው ንጹህ ማረፊያና ሶስት ጊዜ የተመጣጠنه ምግብ የመስጠት ህጋዊ ግዴታ አለባቸው።",
+                b2_title: "كامل የህክምና ዋስትنا", b2_body: "ለ2 ዓመት የኮنትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን አጠቃላይ የህክምና መድን ዋስትና።",
+                b3_title: "ነፃ የቤት-ወደ-ቤት የአየር ጉዞ", b3_body: "ስራ ሲጀምሩ ከአዲስ አበባ ወደ መድረሻው ከተማ ነፃ የአንድ አቅጣጫ ትኬት፣ እና የ2 አመት ኮንትራት ሲያጠናቅቁ ነፃ የደርሶ መልስ ትኬት።",
+                b4_title: "ሕጋዊ የባንክ ደመወዝ አከፋፈል", b4_body: "በሳውዲ አረቢያ የወር ደመወዝ በይፋዊው የሙሳነድ (Musaned / WPS) የደመወዝ ጥبهቃ ስርዓት በኤሌክትሮኒክስ መንገድ መከፈል አለበት።",
                 b5_title: "የእረፍት ጊዜያት", b5_body: "በሳምንት ቢያንስ 1 ሙሉ ቀን አስገዳጅ እረፍት፣ እንዲሁም የሰራተኛውን አቅም ለመጠበቅ ዕለታዊ መደበኛ የእረፍት ሰዓታት።",
                 h_training: "ከስምሪት በፊት የሚሰጡ ዋና ዋና ስልጠናዎች",
-                t1_title: "ዘመናዊ የቤት አያያዝ", t1_body: "ዘመናዊ የወጥ ቤት እቃዎችን፣ አውቶማቲክ ማጠቢያ ማሽኖችን، ስማርት ቫኪዩም እና የልብስ መተኮሻዎችን በትክክል የመጠቀም ተግባራዊ ስልጠና።",
-                t2_title: "የባህልና ሀይማኖት ግንዛቤ", t2_body: "ስለ ባሕረ ሰላጤው (Gulf) ሀገራት የቤتهሰብ የአኗኗر ዘይቤ፣ ወጎች፣ አለባበስ እና የግል ህይወት ሚስጥራዊነት ጥልቅ ስልጠና።",
+                t1_title: "ዘመናዊ የቤት አያያዝ", t1_body: "ዘመናዊ የወጥ ቤት እቃዎችን፣ አውتوማቲክ ማጠቢያ ማሽኖችን፣ ስማርት ቫኪዩም እና የልብስ መተኮሻዎችን በትክክል የመጠቀም ተግባራዊ ስልጠና።",
+                t2_title: "የባህልና ሀይማኖት ግንዛቤ", t2_body: "ስለ ባሕره ሰላጤው (Gulf) ሀገራት የቤተሰብ የአኗኗር ዘይቤ፣ ወጎች፣ አለባበስ እና የግል ህይወት ሚስጥራዊነት ጥልቅ ስልጠና።",
                 t3_title: "የግንኙነትና ችግር መፍቻ ክህሎት", t3_body: "ሰራተኞች ቅሬታዎችን በጨዋነት እንዴት መግለጽ እንደሚችሉ፣ የህክምና እርዳታ እንዴት እንደሚጠይቁ እና በይፋዊ መስመሮች ድንገተኛ አደጋዎችን ማሳወቅ።",
-                h_welfare: "የሰራተኞች ደህንነት እና ቅሬታ አያያዝ",
+                h_welfare: "የሰራተኞች ደህንነት እና ቅሬታ አያيةዝ",
                 w1_title: "የ24/7 ሰዓት የድጋፍ መስመር", w1_body: "በውጭ ሀገር ላሉ ሰራተኞች የደመወዝ መዘግየት፣ የምግብ እጥረት ወይም የህክምና ችግሮች ሲያጋጥሟቸው ወዲያውኑ ሪፖርት የሚያደርጉበት የ24 ሰዓት ቀጥታ መስመር አለን።",
                 w1_cta: "የአደጋ ጊዜ መስመር ይክፈቱ",
-                w2_title: "የውጭ ቢሮዎች ተጠያቂነት መግለጫ", w2_body: "የድርጅታችን መርህ፡ ማሂ ኤጀንሲ በታማኝነት ይሰራል። የምንሰራው በሳውዲ፣ ዮርዳኖስ፣ ኳታር እና ኤምሬትስ ካሉ ህጋዊ እና የሰራተኛ መብትን ከሚያከብሩ ቢሮዎች ጋር ብቻ ነው።",
-                
-                // Services Module Amharic Translation
+                w2_title: "የውጭ ቢሮዎች ተጠያቂነት መግለጫ", w2_body: "የድርጅታችን መርህ፡ ማሂ ኤጀንሲ በታማኝነት ይሰራል። የምንሰራው በሳውዲ፣ ዮርዳኖስ، ኳታር እና ኤምሬትስ ካሉ ህጋዊ እና የሰራተኛ መብትን ከሚያከብሩ ቢሮዎች ጋር ብቻ ነው።",
                 h_services: "የአገልግሎት እና የስራ አይነቶች",
                 th_job_cat: "የስራ መደብ", th_targets: "መድረሻ ሀገራት", th_training_prov: "የሚሰጠው ስልጠና",
                 sc1_title: "የቤት ሰራተኞች / ሞግዚቶች", sc1_body: "የቤት አያያዝ፣ መሰረታዊ ቋንቋ እና የባህል ግንዛቤ ስልጠና",
-                sc2_title: "የቤት ውስጥ ምግብ አሰናጅዎች", sc2_body: "የመካከለኛው ምስራቅ የምግብ አሰራር መሰረታዊያን እና የኩشና ደህንነት",
+                sc2_title: "የቤት ውስጥ ምግብ አሰናጅዎች", sc2_body: "የመካከለኛው ምስራቅ የምግብ አሰራር መሰረታዊያን እና የኩሽና ደህንነት",
                 sc3_title: "የግል አሽከርካሪዎች", sc3_body: "የመንገድ አሰሳ (ናቪጌሽን)፣ የስነ-ምግባር እና መሰረታዊ መካኒካል እውቀት",
-                sc4_title: "የህፃናት እና አረጋውያን ተንከባካቢዎች", sc4_body: "የህፃናት እንክብካቤ፣ የአረጋውያን ድጋፍ እና የደህንነት ክትትል"
+                sc4_title: "የህፃናት እና አረጋውያን ተንከባካቢዎች", sc4_body: "የህፃናት እንክብካቤ፣ የአረጋውያን ድጋፍ እና የደህንነት ክትትል",
+                
+                // Process Timeline Amharic
+                h_timeline: "የሂደት ጊዜ ሰሌዳ (ከምዝገባ እስከ ስምሪት)",
+                tl1_day: "ቀን 1-2", tl1_title: "1. የፍላጎት ማረጋገጫ", tl1_body: "በይፋዊ የመንግስት መስመሮች (እንደ ሳውዲ ሙሳነድ) የመጡ የስራ ትዕዛዞችን መገምገም እና መስፈርቶችን መለየት።",
+                tl2_day: "ቀን 3-7", tl2_title: "2. እጩዎችን መመልመል እና መምረጥ", tl2_body: "ካለን አስተማማኝ የሰራተኞች የመረጃ ቋት ውስጥ በእድሜ፣ በጀርባ ታሪክ እና በክህሎት ተስማሚ እጩዎችን መምረጥ እና ቃለ-መጠይቅ ማድረግ።",
+                tl3_day: "ቀን 8-20", tl3_title: "3. ህክምና እና ሰነዶች ማሟላት", tl3_body: "አስገዳጅ የጋምካ (GAMCA) ህክምና ምርመራዎችን ማመቻቸት፣ የፖሊስ ማረጋገጫ እና የፓስፖርት መረጃዎችን ማደራጀት።",
+                tl4_day: "ቀን 25-35", tl4_title: "4. ስልጠና እና ቪዛ ማጠናቀቅ", tl4_body: "የባህልና ክህሎት ማላመጃ ስልጠና መስጠት፣ የቪዛ ማህተም፣ የایምባሲ ፈቃድ እና የአየር መንገድ ትኬት መቁረጥ።",
+                
+                // Job Seekers Amharic
+                h_seekers: "ለስራ ፈላጊዎች (የእጩዎች ማእከል)",
+                h_vacancies: "💼 ክፍት የስራ መደቦች / ወቅታዊ እድሎች",
+                th_v_country: "ሀገር", th_v_role: "የስራ መደብ", th_v_status: "ሁኔታ",
+                vac_role_1: "የቤት ሰራተኞች / ሞግዚቶች", vac_role_2: "የህፃናት እና አረጋውያን ተንከባካቢዎች", vac_role_3: "የቤት ውስጥ ምግብ አሰናጅዎች", vac_role_4: "የግል አሽከርካሪዎች", vac_status_open: "🟢 ክፍት ነው",
+                h_eligibility: "📋 የብቃት መስፈርቶች ማረጋገጫ",
+                elig_1: "ህጋዊ የእድሜ ገደብ 25 አመት የሞላው።",
+                elig_2: "የማያልቅበት የኢትዮጵያ ዲጂታል ፓስፖርት ያለው።",
+                elig_3: "መሰረታዊ ትምህርት ያጠናቀቀ እና የሙያ ብቃት ማረጋገጫ ያለው።",
+                elig_4: "በጋምካ ላብራቶሪ የተረጋገጠ ፍጹም ንጹህ የጤና ምርመራ ውጤት።",
+                elig_5: "ከወንጀል ነፃ መሆኑን የሚገልጽ የፖሊስ ማረጋገጫ ሰነድ።",
+                h_portal: "🖥️ የኦንላይን ምዝገባ ፎርም",
+                portal_sub: "እባክዎ መረጃዎን በትክክል በማስገባት ፈጣን ምዝገባ ያካሂዱ።",
+                lbl_name: "ሙሉ ስም (በእንግሊዘኛ / በፓስፖርት ላይ እንዳለው)", lbl_phone: "የስልክ ቁጥር (በስራ ላይ ያለ)",
+                lbl_dest: "መሄድ የሚፈልጉት ሀገር", opt_select: "ሀገር ይምረጡ...", lbl_upload: "የፓስፖርት ፎቶ ወይም ኮፒ ይጫኑ",
+                btn_submit: "ምዝገባውን አጠናቅቅ",
+                h_safety: "🛡️ የደህንነት እና ግልጽነት መመሪያ (የሰራተኞች መብት)",
+                safety_p1: "መብትዎ በህግ የተጠበቀ ነው፡ የስራ ውልዎ ለ2 አመት በህግ የተደነገገ እና የማይለወጥ ሲሆን ሙሉ ጥበቃ ይደረግልዎታል።",
+                safety_p2: "የህክምና ዋስትና፡ ሁሉም ሰራተኛ ሙሉ በሙሉ በአሰሪው በሚከፈል የህክምና መድን ውስጥ ስለሚካተት ያለምንም ክፍያ ህክምና የማግኘት መብት አለው።",
+                safety_p3: "በውጭ ሀገር እገዛ ማግኘት፡ ስራ ላይ እያሉ ማንኛውም የደመወዝ መከልከል ወይም አስቸኳይ ችግር ሲያጋጥምዎት በቀጥታ ለእኛ ማሳወቅ ወይም በአቅራቢያዎ ለሚገኝ የኢትዮጵያ ኤምባሲ ማመልከት ይችላሉ።"
             },
             ar: {
                 brand: "وكالة ماهي",
-                nav_home: "الرئيسية", nav_cred: "الاعتمادات", nav_b2b: "مسار العمل", nav_matrix: "جدول الرواتب", nav_dest: "وجهات العمل ▾",
+                nav_home: "الرئيسية", nav_cred: "الاعتمادات", nav_matrix: "جدول الرواتب", nav_dest: "وجهات العمل ▾",
                 nav_benefits: "المزايا القانونية", nav_training: "محاور التدريب", nav_welfare: "رعاية العمالة", nav_services: "فئات الوظائف",
+                nav_timeline: "مراحل العمل", nav_seekers: "بوابة المتقدمين",
                 top_hours: "⏱️ ساعات العمل: الإثنين - السبت | 8:00 صباحاً - 6:00 مساءً", w_action: "واتساب مباشر",
                 f_h_nav: "خريطة الموقع", f_h_contact: "الاتصال المباشر",
                 hero_title: "وكالة ماهي للتوظيف الخارجي ذ.م.م",
@@ -1088,14 +1366,40 @@
                 w1_title: "خط الدعم الساخن 24/7", w1_body: "نحن ندير قنوات اتصال مفتوحة على مدار الساعة لتلقي بلاغات العمالة حول تأخر الرواتب، نقص الغذاء، أو المشاكل الطبية لضمان التدخل الفوري.",
                 w1_cta: "الاتصال بخط الطوارئ",
                 w2_title: "بيان مسؤولية المكاتب الخارجية", w2_body: "التزام النزاهة: شركة ماهي تعمل وفق أعلى المعايير الأخلاقية. نحن نتعاقد حصرياً مع مكاتب معتمدة ومرخصة في السعودية، الأردن، قطر، والإمارات تحترم القوانين وتضمن تسليم الأجور في وقتها المحدد.",
-                
-                // Services Module Arabic Translation
                 h_services: "الخدمات وفئات الوظائف المتاحة",
                 th_job_cat: "فئة الوظيفة", th_targets: "الوجهات المستهدفة", th_training_prov: "التدريب المقدم",
                 sc1_title: "عاملات منازل / مساعدات منزلية", sc1_body: "إدارة المنزل، أساسيات اللغة، والتوجيه الثقافي والمهني",
                 sc2_title: "طهاة وطباخين منازل", sc2_body: "أساسيات الطهي الشرق أوسطي ومعايير السلامة والأمان في المطبخ",
                 sc3_title: "سائقين خصوصيين", sc3_body: "الملاحة وتحديد المواقع، آداب القيادة، والمعرفة الميكانيكية الأساسية",
-                sc4_title: "مربيات أطفال ومقدمي رعاية", sc4_body: "أساسيات رعاية الأطفال، دعم كبار السن، ومراقبة مؤشرات السلامة"
+                sc4_title: "مربيات أطفال ومقدمي رعاية", sc4_body: "أساسيات رعاية الأطفال، دعم كبار السن، ومراقبة مؤشرات السلامة",
+                
+                // Process Timeline Arabic
+                h_timeline: "الجدول الزمني لإجراءات الاستقدام والتوظيف",
+                tl1_day: "اليوم 1-2", tl1_title: "1. التحقق من تفاصيل الطلب", tl1_body: "مراجعة تفاصيل أمر الوظيفة المستلمة عبر القنوات الحكومية الرسمية (مثل منصة مساند للمملكة العربية السعودية) وتحديد معايير الاختيار.",
+                tl2_day: "اليوم 3-7", tl2_title: "2. فحص ومقابلة المرشحين", tl2_body: "استقطاب وتصفية وفحص المرشحين المحليين من قاعدة بياناتنا المعتمدة للعثور على المطابقة المثالية بناءً على السن والخلفية والمهارات.",
+                tl3_day: "اليوم 8-20", tl3_title: "3. الفحوصات الطبية والوثائق", tl3_body: "تسهيل الفحوصات الطبية الإلزامية عبر مراكز جامكا الطبية المعتمدة واستخراج شهادات الخلو من السوابق الجنائية وتوصيف جواز السفر.",
+                tl4_day: "اليوم 25-35", tl4_title: "4. التأهيل قبل المغادرة والتأشيرة", tl4_body: "إجراء دورات التوجيه الثقافي وإعداد المهارات بالتزامن مع ختم التأشيرة النهائي، التخليص السفاري، وحجز تذاكر الطيران.",
+                
+                // Job Seekers Arabic
+                h_seekers: "بوابة المتقدمين للعمل (للعمالة المحلية)",
+                h_vacancies: "💼 الوظائف الشاغرة الحالية / الفرص النشطة",
+                th_v_country: "البلد", th_v_role: "الوظيفة المتاحة", th_v_status: "الحالة",
+                vac_role_1: "عاملات منازل / مساعدات منزلية", vac_role_2: "مربيات أطفال ومقدمي رعاية", vac_role_3: "طهاة وطباخين منازل", vac_role_4: "سائقين خصوصيين", vac_status_open: "🟢 نشط وحالي",
+                h_eligibility: "📋 قائمة شروط الأهلية والقبول",
+                elig_1: "الحد الأدنى للسن القانوني المنظم هو 25 عاماً.",
+                elig_2: "امتلاك جواز سفر إثيوبي دولي ساري المفعول وغير منتهي.",
+                elig_3: "إتمام التعليم الأساسي وإثبات الحصول على دورات التأهيل المهني المعتمدة.",
+                elig_4: "سجل طبي سليم تماماً وخالٍ من الأمراض عبر مختبرات جامكا الطبية.",
+                elig_5: "شهادة حسن سير وسلوك رسمية (فيش وتشبيه) تثبت خلو السوابق الجنائية.",
+                h_portal: "🖥️ بوابة التسجيل والتقديم الإلكتروني",
+                portal_sub: "يرجى ملء البيانات التالية بدقة للانضمام الفوري إلى قاعدة عمالة الاستقدام الجاهزة.",
+                lbl_name: "الاسم الكامل (باللغة الإنجليزية / كما هو مكتوب في جواز السفر)", lbl_phone: "رقم الهاتف المحمول (الخط النشط حالياً)",
+                lbl_dest: "وجهة العمل المفضلة لك", opt_select: "اختر الدولة المستهدفة...", lbl_upload: "تحميل نسخة من جواز السفر أو صورة واضحة له",
+                btn_submit: "إرسال الطلب الآمن",
+                h_safety: "🛡️ دليل السلامة والشفافية وحقوق العاملين",
+                safety_p1: "حقوقكم محمية تماماً: العمالة لدينا معزولة تماماً عن أي تغييرات عشوائية للأنظمة. بموجب الاتفاقيات الثنائية، تبلغ مدة عقد العمل سنتين كاملتين مع حماية قانونية ملزمة وشاملة.",
+                safety_p2: "التأمين الصحي الشامل: يتم تسجيل كل مرشح في برامج التأمين الطبي والمهني المدفوعة بالكامل من قبل صاحب العمل، مما يضمن تلقي العلاج دون تكاليف عمالية.",
+                safety_p3: "الدعم والمساعدة بالخارج: إذا واجهتك أي نزاعات أو تأخير في الرواتب أثناء العمل في الخارج، فلست وحدك. يمكنك إرسال بلاغ فوري عبر منصتنا، أو التواصل مع أقرب سفارة إثيوبية في بلد العمل."
             }
         };
 
