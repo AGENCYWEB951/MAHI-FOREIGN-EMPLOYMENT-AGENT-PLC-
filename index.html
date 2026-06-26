@@ -398,6 +398,7 @@
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid var(--neon-cyan);
+            margin-bottom: 20px;
         }
 
         table {
@@ -427,6 +428,12 @@
             display: flex;
             align-items: center;
             gap: 12px;
+        }
+
+        .table-flags-inline {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         tr:hover td {
@@ -595,6 +602,7 @@
                     <li><a href="#credentials" data-tr="nav_cred">Credentials</a></li>
                     <li><a href="#benefits" data-tr="nav_benefits">Legal Benefits</a></li>
                     <li><a href="#training" data-tr="nav_training">Training Pillars</a></li>
+                    <li><a href="#services" data-tr="nav_services">Services</a></li>
                     <li><a href="#welfare" data-tr="nav_welfare">Welfare & Hotline</a></li>
                     <li><a href="#matrix" data-tr="nav_matrix">Schedules</a></li>
                     
@@ -704,6 +712,60 @@
                 <h4 style="color:var(--neon-cyan); margin-bottom:10px; font-size:1.2rem;" data-tr="t3_title">Crisis Interconnect & Comms</h4>
                 <p data-tr="t3_body">Educating deployed workers on clear communication protocols, articulating system concerns politely, requesting medical help, and calling official diplomatic channels.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Structural Section: Services & Job Categories Offered -->
+    <section id="services">
+        <h2 class="section-header" data-tr="h_services">Services & Job Categories Offered</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-tr="th_job_cat">Job Category</th>
+                        <th data-tr="th_targets">Target Destinations</th>
+                        <th data-tr="th_training_prov">Training Provided</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: #fff;" data-tr="sc1_title">Housemaids / Domestic Helpers</strong></td>
+                        <td>
+                            <div class="table-flags-inline">
+                                <span class="flag-animate">🇸🇦</span> <span class="flag-animate">🇯🇴</span> <span class="flag-animate">🇶🇦</span> <span class="flag-animate">🇦🇪</span>
+                            </div>
+                        </td>
+                        <td data-tr="sc1_body">Household management, language basics, and cultural orientation</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #fff;" data-tr="sc2_title">Home Cooks & Chefs</strong></td>
+                        <td>
+                            <div class="table-flags-inline">
+                                <span class="flag-animate">🇸🇦</span> <span class="flag-animate">🇯🇴</span> <span class="flag-animate">🇶🇦</span> <span class="flag-animate">🇦🇪</span>
+                            </div>
+                        </td>
+                        <td data-tr="sc2_body">Middle Eastern culinary basics and kitchen safety standards</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #fff;" data-tr="sc3_title">Private Drivers</strong></td>
+                        <td>
+                            <div class="table-flags-inline">
+                                <span class="flag-animate">🇸🇦</span> <span class="flag-animate">🇯🇴</span> <span class="flag-animate">🇶🇦</span> <span class="flag-animate">🇦🇪</span>
+                            </div>
+                        </td>
+                        <td data-tr="sc3_body">Navigation, driving etiquette, and basic mechanical knowledge</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #fff;" data-tr="sc4_title">Nannies & Caregivers</strong></td>
+                        <td>
+                            <div class="table-flags-inline">
+                                <span class="flag-animate">🇸🇦</span> <span class="flag-animate">🇯🇴</span> <span class="flag-animate">🇶🇦</span> <span class="flag-animate">🇦🇪</span>
+                            </div>
+                        </td>
+                        <td data-tr="sc4_body">Childcare essentials, elderly support, and safety monitoring</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -863,6 +925,7 @@
                     <li><a href="#credentials" data-tr="nav_cred">Credentials</a></li>
                     <li><a href="#benefits" data-tr="nav_benefits">Legal Benefits</a></li>
                     <li><a href="#training" data-tr="nav_training">Training Pillars</a></li>
+                    <li><a href="#services" data-tr="nav_services">Services Hub</a></li>
                     <li><a href="#welfare" data-tr="nav_welfare">Welfare Hub</a></li>
                 </ul>
             </div>
@@ -899,7 +962,7 @@
             en: {
                 brand: "MAHI FEA PLC",
                 nav_home: "Home", nav_cred: "Credentials", nav_b2b: "B2B Process", nav_matrix: "Schedules", nav_dest: "Destinations ▾",
-                nav_benefits: "Legal Benefits", nav_training: "Training Pillars", nav_welfare: "Welfare & Hotline",
+                nav_benefits: "Legal Benefits", nav_training: "Training Pillars", nav_welfare: "Welfare & Hotline", nav_services: "Services",
                 top_hours: "⏱️ Office Hours: Mon - Sat | 8:00 AM - 6:00 PM (EAT)", w_action: "WhatsApp Live",
                 f_h_nav: "Navigation", f_h_contact: "Direct Engagement",
                 hero_title: "MAHI FOREIGN EMPLOYMENT AGENT PLC",
@@ -919,8 +982,6 @@
                 td_hm: "Domestic Helper", td_fresh: "Initial Deployment", td_exp: "2+ Years Regional Exp.", td_all: "All Domestic Operations", td_legal: "Statutory Minimum Limit",
                 footer_welfare: "Zero Worker Allocation Fees • Monitored via Official Diplomatic Target Frameworks",
                 w_chat: "💬 WhatsApp Node",
-                
-                // Newly Added Strings for the Requested Modules
                 h_benefits: "Required Legal Benefits (Employer Obligations)",
                 b1_title: "Food & Living Quarters", b1_body: "Employers in Saudi Arabia, Jordan, UAE, and Qatar are legally required to provide clean, safe accommodation and three nutritious meals daily at no cost to the worker.",
                 b2_title: "Full Medical Insurance", b2_body: "Comprehensive health insurance coverage paid entirely by the employer for the complete duration of the 2-year operational framework contract.",
@@ -934,52 +995,66 @@
                 h_welfare: "Worker Welfare & Dispute Resolution Matrix",
                 w1_title: "Persistent 24/7 Support Hotline", w1_body: "We maintain a continuous tracking and reporting pipeline open around the clock for all deployed personnel. Workers can directly report administrative scale changes, processing latency, food supply constraints, or medical access emergencies immediately.",
                 w1_cta: "Access Emergency Link",
-                w2_title: "External Office Accountability Rule", w2_body: "Corporate Integrity Mandate: MAHI FEA PLC operates under strict international ethical codes. We uniquely contract and route placements through officially verified, accredited external agencies in Saudi Arabia, Jordan, Qatar, and the UAE who completely follow regional labor frameworks and guarantee punctual payment profiles."
+                w2_title: "External Office Accountability Rule", w2_body: "Corporate Integrity Mandate: MAHI FEA PLC operates under strict international ethical codes. We uniquely contract and route placements through officially verified, accredited external agencies in Saudi Arabia, Jordan, Qatar, and the UAE who completely follow regional labor frameworks and guarantee punctual payment profiles.",
+                
+                // Services Module Target Mapping
+                h_services: "Services & Job Categories Offered",
+                th_job_cat: "Job Category", th_targets: "Target Destinations", th_training_prov: "Training Provided",
+                sc1_title: "Housemaids / Domestic Helpers", sc1_body: "Household management, language basics, and cultural orientation",
+                sc2_title: "Home Cooks & Chefs", sc2_body: "Middle Eastern culinary basics and kitchen safety standards",
+                sc3_title: "Private Drivers", sc3_body: "Navigation, driving etiquette, and basic mechanical knowledge",
+                sc4_title: "Nannies & Caregivers", sc4_body: "Childcare essentials, elderly support, and safety monitoring"
             },
             am: {
                 brand: "ማሂ የውጭ ሀገር ስራ",
                 nav_home: "ዋና ገጽ", nav_cred: "ማስረጃዎች", nav_b2b: "የስራ ሂደት", nav_matrix: "የደመወዝ ሰንጠረዥ", nav_dest: "የመድረሻ ሀገራት ▾",
-                nav_benefits: "ሕጋዊ ጥቅማጥቅሞች", nav_training: "የስልጠና ምሰሶዎች", nav_welfare: "የደህንነት ማእከል",
+                nav_benefits: "ሕጋዊ ጥቅማጥቅሞች", nav_training: "የስልጠና ምሰሶዎች", nav_welfare: "የደህንነት ማእከል", nav_services: "የስራ መደቦች",
                 top_hours: "⏱️ የስራ ሰዓት: ሰኞ - ቅዳሜ | ከ2:00 ጠዋት - 12:00 ማታ (EAT)", w_action: "ዋትስአፕ በቀጥታ",
                 f_h_nav: "ማውጫ", f_h_contact: "ቀጥታ ግንኙነት",
                 hero_title: "ማሂ በዉጭ ሀገር ስራና ሰራተኛ አገናኝ ኤጀንሲ",
-                hero_subtitle: "በኢትዮጵያ የውጪ አገር ሥራ ሥምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሕጋዊና ፈጣን አገልግሎት።",
-                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረብ ኤምሬትስ", f_qatar: "ኳታር", f_jordan: "ዮርዳኖስ",
+                hero_subtitle: "በኢትዮጵያ የውጪ أገር ሥራ ሥምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት ሕጋዊና ፈጣን አገልግሎት።",
+                f_ksa: "ሳውዲ አረቢያ", f_uae: "የተባበሩት አረብ ኤምሬትስ", f_qatar: "ኳتاር", f_jordan: "ዮርዳኖስ",
                 cta_partner: "አብረው ለመስራት", cta_register: "ለመመዝገብ / REGISTER",
                 h_cred: "ሕጋዊ ፈቃዶች እና አድራሻ",
                 c1_title: "ዋና ስራ አስኪያጅ", c1_body: "ወ/ት ሲሀም እድሪስ ጀማል - የድርጅቱ ስራ አስኪያጅ።",
                 c2_title: "የቢሮ አድራሻ", c2_body: "አዲስ አበባ፣ አዲስ ከተማ ክፍለ ከተማ፣ ወረዳ 08፣ የቤት ቁጥር 540፣ 7ኛ ፎቅ፣ ቢሮ ቁጥር 716።",
-                c3_title: "የንግድ ፈቃድ ማረጋገጫ",
+                c3_title: "የንግد ፈቃድ ማረጋገጫ",
                 h_pipeline: "የአሰራር ሂደቶች",
-                p1_h: "ደረጃ 1: የኢምባሲ ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምባሲ አረጋግጦ በብሔራዊ የኢ-ኤልኤምአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
+                p1_h: "ደረጃ 1: የኢምባሲ ማረጋገጫ", p1_b: "የስራ ትዕዛዝ በኢምባسي አረጋግጦ በብሔራዊ የኢ-ኤልኤምአይኤስ (E-LMIS) ስርዓት ላይ መጫን።",
                 p2_h: "ደረጃ 2: ምልመላና መረጣ", p2_b: "ዕድሜያቸው ከ25 ዓመት በላይ የሆኑ ብቁ እጩዎችን በሕጋዊ መንገድ መመልመልና ማዘጋጀት።",
-                p3_h: "ደረጃ 3: ህክምናና ስልጠና", p3_b: "የጋምካ (GAMCA) የጤና ምርመራ ማጠናቀቅ እና የ21 ቀናት ስልጠና ወስዶ የብቃት ማረጋገጫ (CoC) መያዝ።",
+                p3_h: "ደረጃ 3: ህክምናና ስልጠና", p3_b: "የጋምካ (GAMCA) የጤና ምርመرا ማጠናቀቅ እና የ21 ቀናት ስልጠና ወስዶ የብቃት ማረጋገጫ (CoC) መያዝ።",
                 h_matrix: "የስራ መደብ እና የደመወዝ መጠን",
                 th_dest: "የመድረሻ ሀገር", th_cat: "የስራ መደብ", th_exp: "የስራ ልምድ", th_sal: "ወርሃዊ ደመወዝ",
                 td_hm: "የቤት ሰራተኛ", td_fresh: "አዲስ", td_exp: "2 ዓመትና ከዚያ በላይ ልምድ ያለው", td_all: "ሁሉንም የቤት ውስጥ ስራዎች", td_legal: "ሕጋዊ ዝቅተኛው ደመወዝ",
                 footer_welfare: "ለሰራተኞች ምንም አይነት ክፍያ አይጠየቅም • ሙሉ በሙሉ በሕግ የተጠበቀ",
                 w_chat: "💬 በዋትስአፕ ያግኙን",
-                
-                // Newly Added Amharic Mapping
                 h_benefits: "አስገዳጅ ሕጋዊ ጥቅማጥቅሞች (የአሰሪ ግዴታዎች)",
-                b1_title: "ነፃ ምግብና ንጹህ ማረፊያ", b1_body: "በሳውዲ አረቢያ፣ ዮርዳኖስ፣ ኤምሬትስ እና ኳታር ያሉ አሰሪዎች ለሰራተኛው ንጹህ ማረፊያና ሶስት ጊዜ የተመጣጠነ ምግብ የመስጠት ህጋዊ ግዴታ አለባቸው።",
-                b2_title: "كامل የህክምና ዋስትና", b2_body: "ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን አጠቃላይ የህክምና መድን ዋስትና።",
-                b3_title: "ነፃ የቤት-ወደ-ቤት የአየር ጉዞ", b3_body: "ስራ ሲጀምሩ ከአዲስ አበባ ወደ መድረሻው ከተማ ነፃ የአንድ አቅጣጫ ትኬት፣ እና የ2 አመት ኮንትራት ሲያጠናቅቁ ነፃ የደርሶ መልስ ትኬት።",
-                b4_title: "ሕጋዊ የባንክ ደመወዝ አከፋፈል", b4_body: "በሳውዲ አረቢያ የወር ደመወዝ በይፋዊው የሙሳነድ (Musaned / WPS) የደመወዝ ጥበቃ ስርዓት በኤሌክትሮኒክስ መንገድ መከፈል አለበት።",
+                b1_title: "ነፃ ምግብና ንጹህ ማረፊያ", b1_body: "በساውዲ አረቢያ፣ ዮርዳኖስ፣ ኤምሬትስ እና ኳታር ያሉ አሰሪዎች ለሰራተኛው ንጹህ ማረፊያና ሶስት ጊዜ የተመጣጠነ ምግብ የመስጠት ህጋዊ ግዴታ አለባቸው።",
+                b2_title: "ሙሉ የህክምና ዋስትና", b2_body: "ለ2 ዓመት የኮንትራት ጊዜ ሙሉ በሙሉ በአሰሪው የሚሸፈን አጠቃላይ የህክምና መድን ዋስትና።",
+                b3_title: "ነፃ የቤት-ወደ-ቤት የአየር ጉዞ", b3_body: "ስራ ሲጀምሩ ከአዲስ አበባ ወደ መድረሻው ከተማ ነፃ የአንድ አቅጣጫ ትኬት反፣ እና የ2 አመት ኮንትራት ሲያጠናቅቁ ነፃ የደርሶ መልስ ትኬት።",
+                b4_title: "ሕጋዊ የባንክ ደመወዝ አከፋፈል", b4_body: "በሳውዲ አረቢያ የወር ደመወዝ በይፋዊው የሙሳነድ (Musaned / WPS) የደመወዝ ጥበቃ ስርዓት በኤሌክትሮنيክስ መንገድ መከፈል አለበት።",
                 b5_title: "የእረፍት ጊዜያት", b5_body: "በሳምንት ቢያንስ 1 ሙሉ ቀን አስገዳጅ እረፍት፣ እንዲሁም የሰራተኛውን አቅም ለመጠበቅ ዕለታዊ መደበኛ የእረፍት ሰዓታት።",
                 h_training: "ከስምሪት በፊት የሚሰጡ ዋና ዋና ስልጠናዎች",
-                t1_title: "ዘመናዊ የቤት አያያዝ", t1_body: "ዘመናዊ የወጥ ቤት እቃዎችን፣ አውቶማቲክ ማጠቢያ ማሽኖችን፣ ስማርት ቫኪዩም እና የልብስ መተኮሻዎችን በትክክል የመጠቀም ተግባራዊ ስልጠና።",
-                t2_title: "የባህልና ሀይማኖት ግንዛቤ", t2_body: "ስለ ባሕረ ሰላጤው (Gulf) ሀገራት የቤተሰብ የአኗኗር ዘይቤ፣ ወጎች፣ አለባበስ እና የግል ህይወት ሚስጥራዊነት ጥልቅ ስልጠና።",
+                t1_title: "ዘመናዊ የቤት አያያዝ", t1_body: "ዘመናዊ የወጥ ቤት እቃዎችን፣ አውቶማቲክ ማጠቢያ ማሽኖችን، ስማርት ቫኪዩም እና የልብስ መተኮሻዎችን በትክክል የመጠቀም ተግባራዊ ስልጠና።",
+                t2_title: "የባህልና ሀይማኖት ግንዛቤ", t2_body: "ስለ ባሕረ ሰላጤው (Gulf) ሀገራት የቤتهሰብ የአኗኗر ዘይቤ፣ ወጎች፣ አለባበስ እና የግል ህይወት ሚስጥራዊነት ጥልቅ ስልጠና።",
                 t3_title: "የግንኙነትና ችግር መፍቻ ክህሎት", t3_body: "ሰራተኞች ቅሬታዎችን በጨዋነት እንዴት መግለጽ እንደሚችሉ፣ የህክምና እርዳታ እንዴት እንደሚጠይቁ እና በይፋዊ መስመሮች ድንገተኛ አደጋዎችን ማሳወቅ።",
                 h_welfare: "የሰራተኞች ደህንነት እና ቅሬታ አያያዝ",
                 w1_title: "የ24/7 ሰዓት የድጋፍ መስመር", w1_body: "በውጭ ሀገር ላሉ ሰራተኞች የደመወዝ መዘግየት፣ የምግብ እጥረት ወይም የህክምና ችግሮች ሲያጋጥሟቸው ወዲያውኑ ሪፖርት የሚያደርጉበት የ24 ሰዓት ቀጥታ መስመር አለን።",
                 w1_cta: "የአደጋ ጊዜ መስመር ይክፈቱ",
-                w2_title: "የውጭ ቢሮዎች ተጠያቂነት መግለጫ", w2_body: "የድርጅታችን መርህ፡ ማሂ ኤጀንሲ በታማኝነት ይሰራል። የምንሰራው በሳውዲ፣ ዮርዳኖስ፣ ኳታር እና ኤምሬትስ ካሉ ህጋዊ እና የሰራተኛ መብትን ከሚያከብሩ ቢሮዎች ጋር ብቻ ነው።"
+                w2_title: "የውጭ ቢሮዎች ተጠያቂነት መግለጫ", w2_body: "የድርጅታችን መርህ፡ ማሂ ኤጀንሲ በታማኝነት ይሰራል። የምንሰራው በሳውዲ፣ ዮርዳኖስ፣ ኳታር እና ኤምሬትስ ካሉ ህጋዊ እና የሰራተኛ መብትን ከሚያከብሩ ቢሮዎች ጋር ብቻ ነው።",
+                
+                // Services Module Amharic Translation
+                h_services: "የአገልግሎት እና የስራ አይነቶች",
+                th_job_cat: "የስራ መደብ", th_targets: "መድረሻ ሀገራት", th_training_prov: "የሚሰጠው ስልጠና",
+                sc1_title: "የቤት ሰራተኞች / ሞግዚቶች", sc1_body: "የቤት አያያዝ፣ መሰረታዊ ቋንቋ እና የባህል ግንዛቤ ስልጠና",
+                sc2_title: "የቤት ውስጥ ምግብ አሰናጅዎች", sc2_body: "የመካከለኛው ምስራቅ የምግብ አሰራር መሰረታዊያን እና የኩشና ደህንነት",
+                sc3_title: "የግል አሽከርካሪዎች", sc3_body: "የመንገድ አሰሳ (ናቪጌሽን)፣ የስነ-ምግባር እና መሰረታዊ መካኒካል እውቀት",
+                sc4_title: "የህፃናት እና አረጋውያን ተንከባካቢዎች", sc4_body: "የህፃናት እንክብካቤ፣ የአረጋውያን ድጋፍ እና የደህንነት ክትትል"
             },
             ar: {
                 brand: "وكالة ماهي",
                 nav_home: "الرئيسية", nav_cred: "الاعتمادات", nav_b2b: "مسار العمل", nav_matrix: "جدول الرواتب", nav_dest: "وجهات العمل ▾",
-                nav_benefits: "المزايا القانونية", nav_training: "محاور التدريب", nav_welfare: "رعاية العمالة",
+                nav_benefits: "المزايا القانونية", nav_training: "محاور التدريب", nav_welfare: "رعاية العمالة", nav_services: "فئات الوظائف",
                 top_hours: "⏱️ ساعات العمل: الإثنين - السبت | 8:00 صباحاً - 6:00 مساءً", w_action: "واتساب مباشر",
                 f_h_nav: "خريطة الموقع", f_h_contact: "الاتصال المباشر",
                 hero_title: "وكالة ماهي للتوظيف الخارجي ذ.م.م",
@@ -999,8 +1074,6 @@
                 td_hm: "عاملة منزلية", td_fresh: "بدون خبرة سابقة", td_exp: "خبرة سنتين أو أكثر في الخليج", td_all: "جميع أعمال الخدمات المنزلية", td_legal: "الحد الأدنى القانوني الصافي",
                 footer_welfare: "لا توجد رسوم توظيف على العمال الإثيوبيين على الإطلاق • التزام تام بالأنظمة الأخلاقية والحكومية",
                 w_chat: "💬 تواصل عبر الواتساب",
-                
-                // Newly Added Arabic Mapping
                 h_benefits: "المزايا القانونية الإلزامية (التزامات صاحب العمل)",
                 b1_title: "الطعام والسكن المجاني", b1_body: "يلتزم أصحاب العمل في المملكة العربية السعودية، الأردن، الإمارات، وقطر قانونياً بتوفير سكن كريم وآمن وثلاث وجبات مغذية يومياً دون أي تكلفة على العامل.",
                 b2_title: "التأمين الطبي الشامل", b2_body: "تغطية تأمينية صحية كاملة مدفوعة بالكامل من قبل صاحب العمل طوال فترة العقد الرسمية الممتدة لسنتين.",
@@ -1014,7 +1087,15 @@
                 h_welfare: "منظومة رعاية العمالة وحل النزاعات",
                 w1_title: "خط الدعم الساخن 24/7", w1_body: "نحن ندير قنوات اتصال مفتوحة على مدار الساعة لتلقي بلاغات العمالة حول تأخر الرواتب، نقص الغذاء، أو المشاكل الطبية لضمان التدخل الفوري.",
                 w1_cta: "الاتصال بخط الطوارئ",
-                w2_title: "بيان مسؤولية المكاتب الخارجية", w2_body: "التزام النزاهة: شركة ماهي تعمل وفق أعلى المعايير الأخلاقية. نحن نتعاقد حصرياً مع مكاتب معتمدة ومرخصة في السعودية، الأردن، قطر، والإمارات تحترم القوانين وتضمن تسليم الأجور في وقتها المحدد."
+                w2_title: "بيان مسؤولية المكاتب الخارجية", w2_body: "التزام النزاهة: شركة ماهي تعمل وفق أعلى المعايير الأخلاقية. نحن نتعاقد حصرياً مع مكاتب معتمدة ومرخصة في السعودية، الأردن، قطر، والإمارات تحترم القوانين وتضمن تسليم الأجور في وقتها المحدد.",
+                
+                // Services Module Arabic Translation
+                h_services: "الخدمات وفئات الوظائف المتاحة",
+                th_job_cat: "فئة الوظيفة", th_targets: "الوجهات المستهدفة", th_training_prov: "التدريب المقدم",
+                sc1_title: "عاملات منازل / مساعدات منزلية", sc1_body: "إدارة المنزل، أساسيات اللغة، والتوجيه الثقافي والمهني",
+                sc2_title: "طهاة وطباخين منازل", sc2_body: "أساسيات الطهي الشرق أوسطي ومعايير السلامة والأمان في المطبخ",
+                sc3_title: "سائقين خصوصيين", sc3_body: "الملاحة وتحديد المواقع، آداب القيادة، والمعرفة الميكانيكية الأساسية",
+                sc4_title: "مربيات أطفال ومقدمي رعاية", sc4_body: "أساسيات رعاية الأطفال، دعم كبار السن، ومراقبة مؤشرات السلامة"
             }
         };
 
@@ -1040,4 +1121,4 @@
         }
     </script>
 </body>
-</html
+</html>
